@@ -44,7 +44,7 @@ function addagy() {
             document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
         }
 }
-
+        //TODO: fix the images and add more
     // select cyberpunk stlye gameboard
 function gamestyle_cyberpunk() {
     $('#starting_screen').css("background-image", "url(assets/cyberpunk.jpg)");
