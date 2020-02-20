@@ -1,41 +1,14 @@
-let test = [
-    {name: "rpg", score:0},
-    {name: "horror", score:0},
-    {name: "adventure", score:0},
-    {name: "strategy", score:0}
-];
+// genres
+let rpg = 0;
+let horror = 0;
+let adventure = 0;
+let strategy = 0;
+let scfi = 0;
+// atributes
+let int = 4;
+let str = 4;
+let agy = 4;
+let pointstospend = 5;
+// event memory
+// event memory goes here
 
-console.log(Object.is(test[0]));
-
-let fornow = 0;
-let strat = 0;
-let plzwork = 0;
-
-function rpgs() {
-    objIndex = test.findIndex((obj => obj.name === "rpg"));
-    // console.log("before adding value", test[objIndex]);
-    test[objIndex].score = fornow += 1;
-    // console.log("updated value", test[objIndex])
-}
-
-function horrors() {
-    console.log(test[0].name + "  " + test[0].score);
-}
-
-function adventures() {
-    for (i = 0; i < test.length; i++){
-        if (plzwork < test[0].score){
-            plzwork = test[0].score;
-        }
-        console.log(plzwork);
-    }
-}
-
-function strategys() {
-    objIndex = test.findIndex((obj => obj.name === "strategy"));
-    // console.log("before adding value", test[objIndex]);
-    test[objIndex].score = strat += 1;
-    // console.log("updated value", test[objIndex])
-}
-
-// HOW DO I MAKE THIS WORK AHAHHAHAHAHHAH
