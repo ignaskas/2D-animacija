@@ -2,7 +2,7 @@ body{
     background-color: grey;
 }
 
-.main_area{
+.main_game_area{
     position: absolute;
     overflow: hidden;
     width: 500px;
@@ -12,9 +12,27 @@ body{
     border: 3px red solid;
 }
 
-.questions{
+.Main_menu{
     position: absolute;
     width: 500px;
     height: 500px;
     border: 3px blue solid;
+}
+
+#placeholder{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 10px;
+    left: 450px;
+    border: 3px orange solid;
+}
+
+#placeholderspent{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 10px;
+    left: 400px;
+    border: 3px orange solid;
 }
