@@ -17,6 +17,7 @@ function addint() {
     if (pointstospend >= 1) {
         int += 1;
         pointstospend -= 1;
+        //TODO: change the placeholder to proper windos
         document.getElementById("placeholder").innerHTML = "Int:" + " " + int;
         document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
     }
