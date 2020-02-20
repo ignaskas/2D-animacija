@@ -37,3 +37,5 @@ function strategys() {
     test[objIndex].score = strat += 1;
     // console.log("updated value", test[objIndex])
 }
+
+// HOW DO I MAKE THIS WORK AHAHHAHAHAHHAH
