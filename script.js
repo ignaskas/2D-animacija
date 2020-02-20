@@ -4,13 +4,28 @@ let test = [
     {name: "adventure", score:0},
     {name: "strategy", score:0}
 ];
+
+let fornow = 0;
+let plzwork = 0;
+let labas = 0;
+
 function rpgs() {
     objIndex = test.findIndex((obj => obj.name === "rpg"));
     // console.log("before adding value", test[objIndex]);
-    test[objIndex].score = shit += 1;
+    test[objIndex].score = fornow += 1;
     // console.log("updated value", test[objIndex])
 }
 
 function horrors() {
-    
+    console.log(test[0].name + "  " + test[0].score);
+}
+
+function adventures() {
+    for (i = 0; i < test.length; i++){
+        if (plzwork < test[labas].score){
+            plzwork = test[labas].score;
+            labas++;
+        }
+        console.log(plzwork);
+    }
 }
