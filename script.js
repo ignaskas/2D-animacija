@@ -22,8 +22,9 @@ function addint() {
         document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
     }
 }
-    // spend skill points to incrise str stat
-    function addstr() {
+
+    // spend skill points to increase str stat
+function addstr() {
         if (pointstospend >= 1) {
             str += 1;
             pointstospend -= 1;
@@ -31,9 +32,10 @@ function addint() {
             document.getElementById("placeholder").innerHTML = "Agy:" + " " + str;
             document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
     }
-    }
+}
 
-    function addagy() {
+    // spend skill points to increase agy stat
+function addagy() {
         if (pointstospend >= 1) {
             agy += 1;
             pointstospend -= 1;
@@ -41,4 +43,14 @@ function addint() {
             document.getElementById("placeholder").innerHTML = "Agy:" + " " + agy;
             document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
         }
-    }
+}
+
+    // select cyberpunk stlye gameboard
+function gamestyle_cyberpunk() {
+    $('#starting_screen').css("background-image", "url(assets/cyberpunk.jpg)");
+}
+
+    // select medival style gameboard
+function gamestyle_medieval() {
+        $('#starting_screen').css("background-image", "url(assets/medieval.jpg)");
+}

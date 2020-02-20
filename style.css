@@ -14,6 +14,8 @@ body{
 
 .Main_menu{
     position: absolute;
+    background-image: url("assets/cyberpunk.jpg");
+    background-repeat: no-repeat;
     width: 500px;
     height: 500px;
     border: 3px blue solid;
