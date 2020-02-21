@@ -1,14 +1,19 @@
     // genres
-let rpg = 0;
-let horror = 0;
-let adventure = 0;
-let strategy = 0;
-let scfi = 0;
+let genres = {
+    rpg: 10,
+    horror: 11,
+    adventure: 0,
+    strategy : 0,
+    scfi: 0
+};
+
     // atributes
 let int = 4;
 let str = 4;
 let agy = 4;
 let pointstospend = 5;
+    // move counter
+let moves = 0;
     // event memory
     // event memory goes here
 
@@ -54,3 +59,40 @@ function gamestyle_cyberpunk() {
 function gamestyle_medieval() {
         $('#starting_screen').css("background-image", "url(assets/medieval.jpg)");
 }
+
+    // 1 button move animation + move counter
+function makeMove() {
+    moves += 1;
+    if (moves === 1) {
+        $('#player').animate({left: "20px", top: "40px"});
+
+    } else if (moves === 2){
+        $('#player').animate({left: "60px", top: "40px"});
+    }
+}
+        //TODO: fit all atribute cheks in to 1 function
+    // atribute check at specific move
+function strchek() {
+    if (str >= 5 && moves === 3){
+        $('#player').animate({left: "80px", top: "60px"});
+    }
+}
+
+    // pull highest value from genre object array returnit as variable name
+function chekme(genres){
+        var max = -Infinity;
+        var maxname = null;
+        for (var key in genres){
+            var num = genres[key];
+
+            if (num > max){
+                max = num;
+                maxname = key;
+            }
+
+            max = (num > max && num) || max;
+        }
+
+        return maxname;
+}
+    console.log(chekme(genres));
