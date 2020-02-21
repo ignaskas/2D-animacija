@@ -77,7 +77,7 @@ function strchek() {
         $('#player').animate({left: "80px", top: "60px"});
     }
 }
-
+        //TODO: clean this up a bit!
     // pull highest value from genre object array returnit as variable name
 function chekme(genres){
         var max = -Infinity;
