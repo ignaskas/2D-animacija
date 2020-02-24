@@ -1,4 +1,5 @@
     // genres
+        //TODO: set values to 0 before final test!
 let genres = {
     rpg: 10,
     horror: 11,
@@ -6,7 +7,6 @@ let genres = {
     strategy : 0,
     scfi: 0
 };
-
     // atributes
 let int = 4;
 let str = 4;
@@ -15,6 +15,7 @@ let pointstospend = 5;
     // move counter
 let moves = 0;
     // event memory
+    console.log(genres.rpg = + 1);
     // event memory goes here
 
     // spend skills points to increase int stat

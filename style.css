@@ -83,3 +83,85 @@ body{
     border: 2px orange solid;
     border-radius: 20px;
 }
+
+/*    BOARD TEST*/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+figure {
+    margin: 0;
+}
+
+.row {
+    position: absolute;
+    left: 400px;
+    top: 250px;
+    width: 960px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+}
+.column {
+    padding:20px;
+    width:50%;
+    max-width: 50%;
+    flex: 1 1 50%;
+}
+
+.row,
+.column,
+.ItemCard,
+.ItemCard__dest,
+.ItemCard__thumb {
+    position: relative;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.cover {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ItemCard__thumb img {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate3d(0, 0, 20px);
+}
+
+.shadow {
+    display: block;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: .9;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.column:hover .ItemCard__dest {
+    z-index: 10;
+}
+.column:hover .ItemCard__dest,
+.column:hover .ItemCard__thumb img {
+    transform: translate3d(0, 0, 50px) rotateX(-90deg);
+    transform-origin: center bottom;
+}
+.column:hover .ItemCard__thumb .shadow {
+    opacity: .6;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.1);
+}
