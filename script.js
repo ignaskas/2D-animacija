@@ -7,6 +7,12 @@ let genres = {
     strategy : 0,
     scfi: 0
 };
+    //player location
+let player = {
+    position: 1,
+    xy: [0,0],
+    card: 0
+};
     // atributes
 let int = 4;
 let str = 4;
@@ -97,4 +103,5 @@ function chekbest(genres){
 function startgame() {
     genres.rpg += 1;
     console.log("yhe i work");
+    $('#player').animate({left: "40%", top: "60%"});
 }

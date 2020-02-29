@@ -8,19 +8,26 @@
     <title>Page Title</title>
 </head>
 <body>
-<div id="game_area" class="Main_game_area">
-    <div id="starting_screen" class="Main_menu">
-        <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>
-        <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>
-        <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>
-        <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>
-        <div class="atributes">
-            <span id="statint">Int: 4</span>
-            <span id="statstr">Str: 4</span>
-            <span id="statagy">Agy: 4</span>
-            <span id="pointsleft">Left: 5</span>
+<div id="game_area" class="main_game_area">
+        <div id="starting_screen" class="Main_menu">
+            <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>
+            <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>
+            <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>
+            <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>
+            <div class="atributes">
+                <span id="statint">Int: 4</span>
+                <span id="statstr">Str: 4</span>
+                <span id="statagy">Agy: 4</span>
+                <span id="pointsleft">Left: 5</span>
+            </div>
         </div>
+    <!--        BOARD-->
+    <div class="player" id="player"></div>
+    <div class="grid"></div>
+    <div class="board">
+        <div class="layer"></div>
     </div>
+    <!--    BOARD ENDS-->
 </div>
 
 </body>

@@ -1,7 +1,14 @@
 body{
     background-color: grey;
+    height: 99%;
+    width: 99%;
+    margin: 0;
 }
-
+html{
+    height: 99%;
+    width: 99%;
+    margin: 0;
+}
 /**{*/
 /*    margin: 0;*/
 /*    padding: 0;*/
@@ -9,7 +16,7 @@ body{
 /*}*/
 
 :root {
-    --menuButtonColor: #ffffff;
+    --menuButtonColor: silver;
     --menuButtonBackgroundColor: #3498db;
     --menuButtonBorde: 2px #ffffff solid;
     --menuButtonFontSize: 1em;
@@ -18,7 +25,17 @@ body{
     --menuButtonFont: Open Sans Condensed;
     --menuButtonTextDecroration: none;
     --menuTransitionSpeed: all 0.5s;
-    --menuMargin: 10px 0 0 5px;
+    --menuMargin: 2px 0 0 5px;
+    --playerSpritePosition: 0px 0;
+}
+
+#game_area{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 3px red solid;
 }
 
 h1 {
@@ -39,60 +56,21 @@ h1:hover:after {
     font-size: 0.5em;
 }
 
+.Main_menu{
+    position: relative;
+    width: 500px;
+    /*left: 0;*/
+    /*top: 0;*/
+    margin: auto;
+    /*border: 3px blue solid;*/
+    z-index: 110;
+    /*background-color: orange;*/
+}
+
         /*Main Menu Buttons*/
 
-#startgame {
-    position: absolute;
-    top: 20%;
-    left: 40%;
-    width: var(--menuButtonWidth);
-    height: var(--menuButtonHeight);
-    color: var(--menuButtonColor);
-    background-color: var(--menuButtonBackgroundColor);
-    font-family: var(--menuButtonFont);
-    text-decoration: var(--menuButtonTextDecroration);
-    font-size: var(--menuButtonFontSize);
-    border: var(--menuButtonBorde);
-    margin: var(--menuMargin);
-    transition: var(--menuTransitionSpeed);
-}
-
-#intbutton {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    width: var(--menuButtonWidth);
-    height: var(--menuButtonHeight);
-    color: var(--menuButtonColor);
-    background-color: var(--menuButtonBackgroundColor);
-    font-family: var(--menuButtonFont);
-    text-decoration: var(--menuButtonTextDecroration);
-    font-size: var(--menuButtonFontSize);
-    border: var(--menuButtonBorde);
-    margin: var(--menuMargin);
-    transition: var(--menuTransitionSpeed);
-}
-
-#strbutton {
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    width: var(--menuButtonWidth);
-    height: var(--menuButtonHeight);
-    color: var(--menuButtonColor);
-    background-color: var(--menuButtonBackgroundColor);
-    font-family: var(--menuButtonFont);
-    text-decoration: var(--menuButtonTextDecroration);
-    font-size: var(--menuButtonFontSize);
-    border: var(--menuButtonBorde);
-    margin: var(--menuMargin);
-    transition: var(--menuTransitionSpeed);
-}
-
-#agybutton {
-    position: absolute;
-    top: 50%;
-    left: 40%;
+.main_menu_button {
+    display: inline-block;
     width: var(--menuButtonWidth);
     height: var(--menuButtonHeight);
     color: var(--menuButtonColor);
@@ -110,11 +88,9 @@ button:hover {
 }
 
 .main_menu_button:hover {
-    color: #009999;
-    border: #009999;
+    color: silver;
+    border: white;
     opacity: 100%;
-    -webkit-transform: scale(2, 2);
-    -moz-transform: scale(2, 2);
     transform: scale(1.3, 1.3);
 }
 
@@ -124,11 +100,148 @@ button:hover {
 
 .atributes{
     position: absolute;
+    width: 170px;
+    height: 20px;
     font-family: var(--menuButtonFont);
     font-size: var(--menuButtonFontSize);
     text-decoration: var(--menuButtonTextDecroration);
     color: var(--menuButtonColor);
     border: 25px solid #B88846;
     border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23B88846' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
+}
+/*ATRIBUTE BOXES END*/
 
+/*BOARD STARTS*/
+/*THIS IS GRID NOT BOARTD*/
+
+.board
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
+    width: 480px;
+    height: 480px;
+    transition: 0.5s;
+    /*background: #000;*/
+    background-image: url("./assets/grid.png");
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    opacity: 70%;
+    z-index: 2;
+}
+    /*TODO: fix the names!*/
+    /*THIS IS GRASS NOT GRID*/
+.grid
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
+    width: 480px;
+    height: 480px;
+    transition: 0.5s;
+    /*background: #000;*/
+    background-image: url("./assets/grass.jpg");
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    box-shadow: -20px 20px 20px rgba(0,0,0,.5);
+    z-index: 1;
+}
+/*.board:hover*/
+/*{*/
+/*    top: 45%;*/
+/*    box-shadow: -50px 50px 50px rgba(0,0,0,.5);*/
+/*}*/
+/*.board span*/
+/*{*/
+/*    width: 480px;*/
+/*    height: 60px;*/
+/*    display: block;*/
+/*}*/
+/*.board span:nth-child(odd)*/
+/*{*/
+/*    !*background: linear-gradient(90deg, #f1f1f1 0%, #f1f1f1 50%, #333 50%, #333 100%);*!*/
+/*    background-image: url("./assets/cyberpunk.jpg");*/
+/*    background-size: 100% no-repeat;*/
+/*}*/
+/*.board span:nth-child(even)*/
+/*{*/
+/*    background: linear-gradient(90deg, #333 0%, #333 50%, #f1f1f1 50%, #f1f1f1 100%);*/
+/*    background-size: 120px;*/
+/*}*/
+/*.board:before*/
+/*{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 10px;*/
+/*    left: -20px;*/
+/*    height: 100%;*/
+/*    width: 20px;*/
+/*    !*background: linear-gradient(180deg, #fff 0%, #fff 50%, #000 50%, #000 100%);*!*/
+/*    background-image: url("./assets/cyberpunk.jpg");*/
+/*    background-size: 5px;*/
+/*    transform: rotate(0deg) skewY(-45deg);*/
+/*}*/
+/*.board:after*/
+/*{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: -20px;*/
+/*    left: -10px;*/
+/*    height: 20px;*/
+/*    width: 100%;*/
+/*    background: linear-gradient(90deg, #000 0%, #000 50%, #fff 50%, #fff 100%);*/
+/*    background-size: 120px;*/
+/*    transform: rotate(0deg) skewX(-45deg);*/
+/*}*/
+/*.layer*/
+/*{*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(255,255,255,.2);*/
+/*    box-shadow: -1px 1px 4px rgba(0,0,0,0.1);*/
+/*    transition: 0.5s;*/
+/*    overflow: hidden;*/
+/*}*/
+/*.board:hover .layer*/
+/*{*/
+/*    transform: translate(40px,-40px);*/
+/*}*/
+/*.layer:before*/
+/*{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: -70%;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background: rgba(255,255,255,.2);*/
+/*    transform: skewX(-5deg);*/
+/*    transition: 0.5s;*/
+/*    filter: blur(4px);*/
+/*}*/
+/*.board:hover .layer:before*/
+/*{*/
+/*    left: 120%;*/
+/*}*/
+/*BOARD ENDS*/
+
+/*Player*/
+.player{
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    left: 520px;
+    top: 365px;
+    /*border: 3px red solid;*/
+    background-image: url("./assets/player1.png");
+    background-position: var(--playerSpritePosition);
+    background-size: cover;
+    z-index: 10;
+    transform: none;
+    /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
 }
