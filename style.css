@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color: black;
     height: 99%;
     width: 99%;
     margin: 0;
@@ -237,11 +237,58 @@ button:hover {
     height: 80px;
     left: 520px;
     top: 365px;
-    /*border: 3px red solid;*/
+    /*border: 1px red solid;*/
     background-image: url("./assets/player1.png");
     background-position: var(--playerSpritePosition);
     background-size: cover;
     z-index: 10;
     transform: none;
     /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
+}
+
+#C1{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 474px;
+    top: 871px;
+    background-image: url("./assets/gayyyyy.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+     /*border: 3px orange solid;*/
+    transition: height 1s, top 1s;
+    z-index: 99;
+}
+
+#C2{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 774px;
+    top: 871px;
+    background-image: url("./assets/gayyyyy.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+    /*border: 3px orange solid;*/
+    transition: height 1s, top 1s;
+    z-index: 99;
+}
+
+#C3{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 1080px;
+    top: 871px;
+    background-image: url("./assets/gayyyyy.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+    /*border: 3px orange solid;*/
+    transition: height 1s, top 1s;
+    z-index: 99;
+}
+
+#C1:hover,#C2:hover,#C3:hover{
+    height: 450px;
+    top: 500px;
 }
