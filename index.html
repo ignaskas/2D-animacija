@@ -6,46 +6,19 @@
     <title>Page Title</title>
 </head>
 <body>
-<div id="Game_area" class="Main_game_area">
+<div id="game_area" class="Main_game_area">
     <div id="starting_screen" class="Main_menu">
-        <span id="placeholder">Int: 4</span>
-        <span id="pointsleft">left: 5</span>
-        <button id="addint" onclick="addint()">add int</button>
-        <button id="addstr" onclick="addstr()">add str</button>
-        <button id="addagy" onclick="addagy()">add agy</button>
-        <button id="selectgamestyle_cyberpunk" onclick="gamestyle_cyberpunk()">cyberpunk</button>
-        <button id="selectgamestyle_medieval" onclick="gamestyle_medieval()">medieval</button>
-    </div>
-    <div id="map" class="game_map">
-        <button onclick="makeMove()">move!</button>
-        <button onclick="strchek()">str chek</button>
-        <div id="player"></div>
-        <div id="first_move"></div>
-        <div id="second_move"></div>
-        <div id="third_move"></div>
-    </div>
-</div>
-
-<!--TEST 3D-->
-
-<div class="row">
-    <div class="column">
-        <div class="ItemCard">
-            <figure class="ItemCard__thumb">
-                <img src="./assets/cyberpunk.jpg" height="340" width="510" alt="">
-                <span class="shadow cover"></span>
-            </figure>
+        <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>
+        <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>
+        <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>
+        <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>
+        <div class="atributes">
+            <span id="statint">Int: 4</span>
+            <span id="statstr">Str: 4</span>
+            <span id="statagy">Agy: 4</span>
+            <span id="pointsleft">Left: 5</span>
         </div>
     </div>
-    <div class="column">
-        <div class="ItemCard">
-            <figure class="ItemCard__thumb">
-                <img src="./assets/medieval.jpg" height="540" width="710" alt="">
-                <span class="shadow cover"></span>
-            </figure>
-        </div>
-    </div>
-    <!-- 7 more items... -->
 </div>
 
 </body>

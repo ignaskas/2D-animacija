@@ -23,8 +23,7 @@ function addint() {
     if (pointstospend >= 1) {
         int += 1;
         pointstospend -= 1;
-        //TODO: change the placeholder to proper windos
-        document.getElementById("placeholder").innerHTML = "Int:" + " " + int;
+        document.getElementById("statint").innerHTML = "Int:" + " " + int;
         document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
     }
 }
@@ -34,8 +33,7 @@ function addstr() {
         if (pointstospend >= 1) {
             str += 1;
             pointstospend -= 1;
-            //TODO: change the placeholder to proper windos
-            document.getElementById("placeholder").innerHTML = "Agy:" + " " + str;
+            document.getElementById("statstr").innerHTML = "Agy:" + " " + str;
             document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
     }
 }
@@ -45,8 +43,7 @@ function addagy() {
         if (pointstospend >= 1) {
             agy += 1;
             pointstospend -= 1;
-            //TODO: change the placeholder to proper windos
-            document.getElementById("placeholder").innerHTML = "Agy:" + " " + agy;
+            document.getElementById("statagy").innerHTML = "Agy:" + " " + agy;
             document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
         }
 }
@@ -97,3 +94,7 @@ function chekme(genres){
         return maxname;
 }
     console.log(chekme(genres));
+
+function startgame() {
+    console.log("yhe i work");
+}
