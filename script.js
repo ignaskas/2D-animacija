@@ -15,7 +15,6 @@ let pointstospend = 5;
     // move counter
 let moves = 0;
     // event memory
-    console.log(genres.rpg = + 1);
     // event memory goes here
 
     // spend skills points to increase int stat
@@ -77,7 +76,7 @@ function strchek() {
 }
         //TODO: clean this up a bit!
     // pull highest value from genre object array returnit as variable name
-function chekme(genres){
+function chekbest(genres){
         var max = -Infinity;
         var maxname = null;
         for (var key in genres){
@@ -93,8 +92,9 @@ function chekme(genres){
 
         return maxname;
 }
-    console.log(chekme(genres));
+    console.log(chekbest(genres));
 
 function startgame() {
+    genres.rpg += 1;
     console.log("yhe i work");
 }
