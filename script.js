@@ -167,4 +167,42 @@ function firstcard() {
 
 function secondcard() {
     moves += 1;
+    if (moves === 1) {
+        moveonX = path[3].locationX;
+        moveonY = path[3].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if (moves === 2){
+        moveonX = path[2].locationX;
+        moveonY = path[2].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if(moves === 3){
+        moveonX = path[4].locationX;
+        moveonY = path[4].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    }
+    makeMove();
+}
+
+function thirdcard() {
+    moves += 1;
+    if (moves === 1) {
+        moveonX = path[3].locationX;
+        moveonY = path[3].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if (moves === 2){
+        moveonX = path[2].locationX;
+        moveonY = path[2].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if(moves === 3){
+        moveonX = path[4].locationX;
+        moveonY = path[4].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    }
+    makeMove();
 }
