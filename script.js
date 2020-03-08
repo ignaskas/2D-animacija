@@ -164,3 +164,7 @@ function firstcard() {
     }
     makeMove();
 }
+
+function secondcard() {
+    moves += 1;
+}
