@@ -292,3 +292,8 @@ button:hover {
     height: 450px;
     top: 500px;
 }
+
+/*TODO: REMOVE THIS*/
+#pos{
+    color: silver;
+}
