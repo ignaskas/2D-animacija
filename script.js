@@ -142,7 +142,8 @@ function makeMove() {
     path[0].locationY = path[1].locationY;
 
 }
-
+// TODO: proably change this to a proper function
+// moves from first card
 function firstcard() {
     moves += 1;
     if (moves === 1) {
