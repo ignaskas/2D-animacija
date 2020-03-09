@@ -154,19 +154,18 @@ span::after {
 
 /*BOARD STARTS*/
 /*THIS IS GRID NOT BOARTD*/
-
 .board
 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 480px;
-    height: 480px;
-    transition: 0.5s;
+    width: 700px;
+    height: 700px;
+    /*transition: 0.5s;*/
     /*background: #000;*/
     background-image: url("./assets/grid.png");
-    background-size: cover;
+    background-size: contain;
     /*background-repeat: no-repeat;*/
     opacity: 70%;
     z-index: 2;
@@ -179,12 +178,12 @@ span::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 480px;
-    height: 480px;
+    width: 700px;
+    height: 700px;
     transition: 0.5s;
     /*background: #000;*/
-    background-image: url("./assets/grass.jpg");
-    background-size: cover;
+    background-image: url("./assets/map_game.jpg");
+    background-size: contain;
     /*background-repeat: no-repeat;*/
     box-shadow: -20px 20px 20px rgba(0,0,0,.5);
     z-index: 1;
@@ -211,31 +210,32 @@ span::after {
 /*    background: linear-gradient(90deg, #333 0%, #333 50%, #f1f1f1 50%, #f1f1f1 100%);*/
 /*    background-size: 120px;*/
 /*}*/
-/*.board:before*/
-/*{*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    top: 10px;*/
-/*    left: -20px;*/
-/*    height: 100%;*/
-/*    width: 20px;*/
-/*    !*background: linear-gradient(180deg, #fff 0%, #fff 50%, #000 50%, #000 100%);*!*/
-/*    background-image: url("./assets/cyberpunk.jpg");*/
-/*    background-size: 5px;*/
-/*    transform: rotate(0deg) skewY(-45deg);*/
-/*}*/
-/*.board:after*/
-/*{*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    bottom: -20px;*/
-/*    left: -10px;*/
-/*    height: 20px;*/
-/*    width: 100%;*/
-/*    background: linear-gradient(90deg, #000 0%, #000 50%, #fff 50%, #fff 100%);*/
-/*    background-size: 120px;*/
-/*    transform: rotate(0deg) skewX(-45deg);*/
-/*}*/
+.board:before
+{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    /*background: linear-gradient(180deg, #fff 0%, #fff 50%, #000 50%, #000 100%);*/
+    background-image: url("./assets/board_side.jpg");
+    background-size: 100px;
+    transform: rotate(0deg) skewY(-45deg);
+}
+.board:after
+{
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    /*background: linear-gradient(90deg, #000 0%, #000 50%, #fff 50%, #fff 100%);*/
+    background-image: url("./assets/board_side.jpg");
+    background-size: 100px;
+    transform: rotate(0deg) skewX(-45deg);
+}
 /*.layer*/
 /*{*/
 /*    position: absolute;*/
