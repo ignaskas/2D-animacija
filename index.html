@@ -10,15 +10,19 @@
 <body>
 <div id="game_area" class="main_game_area">
         <div id="starting_screen" class="Main_menu">
-            <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>
-            <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>
-            <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>
-            <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>
+<!--            <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>-->
+<!--            <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>-->
+<!--            <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>-->
+<!--            <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>-->
+            <a href="#"><span onclick="startgame()">Start Game</span></a>
+            <a href="#"><span onclick="addint()">Int + 1</span></a>
+            <a href="#"><span onclick="addstr()">Str + 1</span></a>
+            <a href="#"><span onclick="addagy()">Agy + 1</span></a>
             <div class="atributes">
-                <span id="statint">Int: 4</span>
-                <span id="statstr">Str: 4</span>
-                <span id="statagy">Agy: 4</span>
-                <span id="pointsleft">Left: 5</span>
+               <a href="#"><span id="statint">Int: 4</span></a>
+               <a href="#"><span id="statstr">Str: 4</span></a>
+               <a href="#"><span id="statagy">Agy: 4</span></a>
+               <a href="#"><span id="pointsleft">Left: 5</span></a>
             </div>
         </div>
     <!--        BOARD-->
@@ -28,10 +32,13 @@
         <div class="layer"></div>
     </div>
     <!--    BOARD ENDS-->
+<!--    CARDS-->
     <div id="C1" onclick="firstcard()"></div>
     <div id="C2" onclick="secondcard()"></div>
     <div id="C3" onclick="thirdcard()"></div>
-
+<!--CARDS END-->
+    <button onclick="test()">testing</button>
+    <div id="flavor_text"></div>
     <div id="pos"></div>
 </div>
 

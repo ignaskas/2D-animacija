@@ -7,9 +7,11 @@ let genres = {
     strategy: 0,
     scfi: 0
 };
+
 // were are we going
 let moveonX = 0;
 let moveonY = 0;
+
 //TODO: change the cordinates to fit the map
 //Path we take
 let path = [
@@ -37,15 +39,33 @@ let path = [
         name: "3thmove",
         locationX: 938,
         locationY: 243
+    },
+    {
+        name: "4thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "5thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "6thmove",
+        locationX: 938,
+        locationY: 243
     }
 ];
+
 // atributes
 let int = 4;
 let str = 4;
 let agy = 4;
 let pointstospend = 5;
+
 // move counter
 let moves = 0;
+
 // event memory
 // event memory goes here
 
@@ -124,6 +144,7 @@ function chekbest(genres) {
 
 console.log(chekbest(genres));
 
+//TODO: remove this before test
 //prints location of mouse curson onclick
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
@@ -136,15 +157,16 @@ document.addEventListener("click", printMousePos);
 //  move animation
 function makeMove() {
     witchsidedoiface();
-    $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000)
-        .delay(1000);
+    $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000);
+        setTimeout(flavortextshowhide, 5000);
     path[0].locationX = path[1].locationX;
     path[0].locationY = path[1].locationY;
-
 }
-// TODO: proably change this to a proper function
+
+// TODO: change this to a proper function
 // moves from first card
 function firstcard() {
+    flavortextshowhide();
     moves += 1;
     if (moves === 1) {
         moveonX = path[3].locationX;
@@ -165,6 +187,7 @@ function firstcard() {
     makeMove();
 }
 
+// moves from second card
 function secondcard() {
     moves += 1;
     if (moves === 1) {
@@ -186,6 +209,7 @@ function secondcard() {
     makeMove();
 }
 
+// moves from third card
 function thirdcard() {
     moves += 1;
     if (moves === 1) {
@@ -206,3 +230,13 @@ function thirdcard() {
     }
     makeMove();
 }
+
+//make flavor text apear
+// TODO: change the timer for this and add a proper trigger
+function flavortextshowhide() {
+    $('#flavor_text').toggle("slow");
+}
+//TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
+window.onload = function() {
+    flavortextshowhide();
+};
