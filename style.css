@@ -50,6 +50,8 @@ a {
     text-decoration: none;
     font-family: sans-serif;
     width: 78%;
+    left: 500px;
+    top: 10px;
     position: relative;
     z-index: 10;
     background: lightblue;
@@ -131,14 +133,22 @@ span::after {
     border-left-width: 12px;
 }
 
+.startgame{
+    left: 0px;
+    top: 250px;
+}
  /*Main menu buttons end*/
 
 /*Atribute boxes*/
 
 .atributes{
     position: absolute;
-    width: 170px;
-    height: 20px;
+    left: 1119px;
+    top: 22px;
+}
+
+.pointsleft{
+    top: 25px;
 }
 /*ATRIBUTE BOXES END*/
 

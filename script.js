@@ -75,7 +75,7 @@ function addint() {
         int += 1;
         pointstospend -= 1;
         document.getElementById("statint").innerHTML = "Int:" + " " + int;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
@@ -85,7 +85,7 @@ function addstr() {
         str += 1;
         pointstospend -= 1;
         document.getElementById("statstr").innerHTML = "Agy:" + " " + str;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
@@ -95,7 +95,7 @@ function addagy() {
         agy += 1;
         pointstospend -= 1;
         document.getElementById("statagy").innerHTML = "Agy:" + " " + agy;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
@@ -189,6 +189,7 @@ function firstcard() {
 
 // moves from second card
 function secondcard() {
+    flavortextshowhide();
     moves += 1;
     if (moves === 1) {
         moveonX = path[3].locationX;
@@ -211,6 +212,7 @@ function secondcard() {
 
 // moves from third card
 function thirdcard() {
+    flavortextshowhide();
     moves += 1;
     if (moves === 1) {
         moveonX = path[3].locationX;
@@ -231,11 +233,12 @@ function thirdcard() {
     makeMove();
 }
 
-//make flavor text apear
+//hide/show flavor text
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
     $('#flavor_text').toggle("slow");
 }
+
 //TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
 window.onload = function() {
     flavortextshowhide();

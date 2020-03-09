@@ -5,16 +5,13 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Page Title</title>
+    <title>2D Animacija</title>
 </head>
 <body>
 <div id="game_area" class="main_game_area">
+<!--    Main menu-->
         <div id="starting_screen" class="Main_menu">
-<!--            <button class="main_menu_button" id="startgame"  onclick="startgame()">Start Game</button>-->
-<!--            <button class="main_menu_button" id="intbutton" onclick="addint()">Int + 1</button>-->
-<!--            <button class="main_menu_button" id="strbutton" onclick="addstr()">Str + 1</button>-->
-<!--            <button class="main_menu_button" id="agybutton" onclick="addagy()">Agy + 1</button>-->
-            <a href="#"><span onclick="startgame()">Start Game</span></a>
+            <a class="startgame" href="#"><span onclick="startgame()">Start Game</span></a>
             <a href="#"><span onclick="addint()">Int + 1</span></a>
             <a href="#"><span onclick="addstr()">Str + 1</span></a>
             <a href="#"><span onclick="addagy()">Agy + 1</span></a>
@@ -22,9 +19,11 @@
                <a href="#"><span id="statint">Int: 4</span></a>
                <a href="#"><span id="statstr">Str: 4</span></a>
                <a href="#"><span id="statagy">Agy: 4</span></a>
-               <a href="#"><span id="pointsleft">Left: 5</span></a>
+               <a class="pointsleft" href="#"><span id="pointsleft">Points Left: 5</span></a>
             </div>
         </div>
+<!--    Main menu ends-->
+
     <!--        BOARD-->
     <div class="player" id="player"></div>
     <div class="grid"></div>
@@ -32,13 +31,21 @@
         <div class="layer"></div>
     </div>
     <!--    BOARD ENDS-->
+
 <!--    CARDS-->
     <div id="C1" onclick="firstcard()"></div>
     <div id="C2" onclick="secondcard()"></div>
     <div id="C3" onclick="thirdcard()"></div>
 <!--CARDS END-->
-    <button onclick="test()">testing</button>
+
+<!--    Flavor text div-->
     <div id="flavor_text"></div>
+<!--Flavor text ends-->
+
+
+
+<!--TODO: this is for testing only remove this-->
+    <button onclick="test()">testing</button>
     <div id="pos"></div>
 </div>
 
