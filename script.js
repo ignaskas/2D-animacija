@@ -7,12 +7,12 @@ let genres = {
     strategy: 0,
     scfi: 0
 };
-//player location
-let player = {
-    position: 1,
-    xy: [0, 0],
-    card: 0
-};
+
+// were are we going
+let moveonX = 0;
+let moveonY = 0;
+
+//TODO: change the cordinates to fit the map
 //Path we take
 let path = [
     {
@@ -21,23 +21,51 @@ let path = [
         locationY: 0
     },
     {
-        name: "firstmove",
+        name: "ournewpos",
         locationX: 670,
         locationY: 293
     },
     {
-        name: "secondmove",
+        name: "firstmove",
         locationX: 864,
         locationY: 447
+    },
+    {
+        name: "secondmove",
+        locationX: 1046,
+        locationY: 479
+    },
+    {
+        name: "3thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "4thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "5thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "6thmove",
+        locationX: 938,
+        locationY: 243
     }
 ];
+
 // atributes
 let int = 4;
 let str = 4;
 let agy = 4;
 let pointstospend = 5;
+
 // move counter
 let moves = 0;
+
 // event memory
 // event memory goes here
 
@@ -47,7 +75,7 @@ function addint() {
         int += 1;
         pointstospend -= 1;
         document.getElementById("statint").innerHTML = "Int:" + " " + int;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
@@ -57,7 +85,7 @@ function addstr() {
         str += 1;
         pointstospend -= 1;
         document.getElementById("statstr").innerHTML = "Agy:" + " " + str;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
@@ -67,19 +95,11 @@ function addagy() {
         agy += 1;
         pointstospend -= 1;
         document.getElementById("statagy").innerHTML = "Agy:" + " " + agy;
-        document.getElementById("pointsleft").innerHTML = "left:" + " " + pointstospend;
+        document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
-// 1 button move animation + move counter
-function makeMove() {
-    witchsidedoiface();
-    $('#player').animate({left: path[1].locationX - 30, top: path[1].locationY - 80},5000)
-    .delay(1000);
-    path[0].locationX = path[1].locationX;
-    path[0].locationY = path[1].locationY;
-}
-
+// switches divsbackground image based on witch way charter is moving
 function witchsidedoiface() {
     if ((path[0].locationY > path[1].locationY)&&(path[0].locationX > path[1].locationX)){  //we are moving NW
         $('#player').css('background-position', '120px 0px');
@@ -124,13 +144,102 @@ function chekbest(genres) {
 
 console.log(chekbest(genres));
 
+//TODO: remove this before test
+//prints location of mouse curson onclick
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX +
         " - clientY: " + event.clientY;
-    path[1].locationY = event.clientY;
-    path[1].locationX = event.clientX;
-    makeMove();
 }
 
 document.addEventListener("click", printMousePos);
+
+//  move animation
+function makeMove() {
+    witchsidedoiface();
+    $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000);
+        setTimeout(flavortextshowhide, 5000);
+    path[0].locationX = path[1].locationX;
+    path[0].locationY = path[1].locationY;
+}
+
+// TODO: change this to a proper function
+// moves from first card
+function firstcard() {
+    flavortextshowhide();
+    moves += 1;
+    if (moves === 1) {
+        moveonX = path[3].locationX;
+        moveonY = path[3].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if (moves === 2){
+        moveonX = path[2].locationX;
+        moveonY = path[2].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if(moves === 3){
+        moveonX = path[4].locationX;
+        moveonY = path[4].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    }
+    makeMove();
+}
+
+// moves from second card
+function secondcard() {
+    flavortextshowhide();
+    moves += 1;
+    if (moves === 1) {
+        moveonX = path[3].locationX;
+        moveonY = path[3].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if (moves === 2){
+        moveonX = path[2].locationX;
+        moveonY = path[2].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if(moves === 3){
+        moveonX = path[4].locationX;
+        moveonY = path[4].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    }
+    makeMove();
+}
+
+// moves from third card
+function thirdcard() {
+    flavortextshowhide();
+    moves += 1;
+    if (moves === 1) {
+        moveonX = path[3].locationX;
+        moveonY = path[3].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if (moves === 2){
+        moveonX = path[2].locationX;
+        moveonY = path[2].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    } else if(moves === 3){
+        moveonX = path[4].locationX;
+        moveonY = path[4].locationY;
+        path[1].locationY = moveonY;
+        path[1].locationX = moveonX;
+    }
+    makeMove();
+}
+
+//hide/show flavor text
+// TODO: change the timer for this and add a proper trigger
+function flavortextshowhide() {
+    $('#flavor_text').toggle("slow");
+}
+
+//TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
+window.onload = function() {
+    flavortextshowhide();
+};

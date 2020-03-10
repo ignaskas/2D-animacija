@@ -1,0 +1,42 @@
+[
+    {
+        name: "ourlastpos",
+        locationX: 0,
+        locationY: 0
+    },
+    {
+        name: "ournewpos",
+        locationX: 670,
+        locationY: 293
+    },
+    {
+        name: "firstmove",
+        locationX: 864,
+        locationY: 447
+    },
+    {
+        name: "secondmove",
+        locationX: 1046,
+        locationY: 479
+    },
+    {
+        name: "3thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "4thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "5thmove",
+        locationX: 938,
+        locationY: 243
+    },
+    {
+        name: "6thmove",
+        locationX: 938,
+        locationY: 243
+    }
+];
