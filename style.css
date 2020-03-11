@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: #2f2f2f;
     height: 99%;
     width: 99%;
     margin: 0;
@@ -8,25 +8,6 @@ html{
     height: 99%;
     width: 99%;
     margin: 0;
-}
-/**{*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    transform: all 0.5s;*/
-/*}*/
-
-:root {
-    --menuButtonColor: silver;
-    --menuButtonBackgroundColor: #3498db;
-    --menuButtonBorde: 2px #ffffff solid;
-    --menuButtonFontSize: 1em;
-    --menuButtonWidth: 100px;
-    --menuButtonHeight: 50px;
-    --menuButtonFont: Open Sans Condensed;
-    --menuButtonTextDecroration: none;
-    --menuTransitionSpeed: all 0.5s;
-    --menuMargin: 2px 0 0 5px;
-    --playerSpritePosition: 0px 0;
 }
 
 #game_area{
@@ -49,7 +30,7 @@ a {
     text-transform: uppercase;
     text-decoration: none;
     font-family: sans-serif;
-    width: 78%;
+    width: 40%;
     left: 500px;
     top: 10px;
     position: relative;
@@ -134,7 +115,7 @@ span::after {
 }
 
 .startgame{
-    left: 0px;
+    left: 0;
     top: 250px;
 }
  /*Main menu buttons end*/
@@ -143,12 +124,9 @@ span::after {
 
 .atributes{
     position: absolute;
+    width: 15%;
     left: 1119px;
     top: 22px;
-}
-
-.pointsleft{
-    top: 25px;
 }
 /*ATRIBUTE BOXES END*/
 
@@ -170,6 +148,7 @@ span::after {
     opacity: 70%;
     z-index: 2;
 }
+
     /*TODO: fix the names!*/
     /*THIS IS GRASS NOT GRID*/
 .grid
@@ -188,28 +167,7 @@ span::after {
     box-shadow: -20px 20px 20px rgba(0,0,0,.5);
     z-index: 1;
 }
-/*.board:hover*/
-/*{*/
-/*    top: 45%;*/
-/*    box-shadow: -50px 50px 50px rgba(0,0,0,.5);*/
-/*}*/
-/*.board span*/
-/*{*/
-/*    width: 480px;*/
-/*    height: 60px;*/
-/*    display: block;*/
-/*}*/
-/*.board span:nth-child(odd)*/
-/*{*/
-/*    !*background: linear-gradient(90deg, #f1f1f1 0%, #f1f1f1 50%, #333 50%, #333 100%);*!*/
-/*    background-image: url("./assets/cyberpunk.jpg");*/
-/*    background-size: 100% no-repeat;*/
-/*}*/
-/*.board span:nth-child(even)*/
-/*{*/
-/*    background: linear-gradient(90deg, #333 0%, #333 50%, #f1f1f1 50%, #f1f1f1 100%);*/
-/*    background-size: 120px;*/
-/*}*/
+
 .board:before
 {
     content: '';
@@ -223,6 +181,7 @@ span::after {
     background-size: 100px;
     transform: rotate(0deg) skewY(-45deg);
 }
+
 .board:after
 {
     content: '';
@@ -236,39 +195,6 @@ span::after {
     background-size: 100px;
     transform: rotate(0deg) skewX(-45deg);
 }
-/*.layer*/
-/*{*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background: rgba(255,255,255,.2);*/
-/*    box-shadow: -1px 1px 4px rgba(0,0,0,0.1);*/
-/*    transition: 0.5s;*/
-/*    overflow: hidden;*/
-/*}*/
-/*.board:hover .layer*/
-/*{*/
-/*    transform: translate(40px,-40px);*/
-/*}*/
-/*.layer:before*/
-/*{*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: -70%;*/
-/*    width: 50%;*/
-/*    height: 100%;*/
-/*    background: rgba(255,255,255,.2);*/
-/*    transform: skewX(-5deg);*/
-/*    transition: 0.5s;*/
-/*    filter: blur(4px);*/
-/*}*/
-/*.board:hover .layer:before*/
-/*{*/
-/*    left: 120%;*/
-/*}*/
 /*BOARD ENDS*/
 
 /*Player*/
@@ -280,7 +206,7 @@ span::after {
     top: 365px;
     /*border: 1px red solid;*/
     background-image: url("./assets/player1.png");
-    background-position: var(--playerSpritePosition);
+    background-position: 0;
     background-size: cover;
     z-index: 10;
     transform: none;
@@ -292,7 +218,7 @@ span::after {
     width: 300px;
     height: 30px;
     left: 474px;
-    top: 871px;
+    top: 915px;
     background-image: url("./assets/cardplaceholder.png");
     background-size: 99%;
     background-repeat: no-repeat;
@@ -306,7 +232,7 @@ span::after {
     width: 300px;
     height: 30px;
     left: 774px;
-    top: 871px;
+    top: 915px;
     background-image: url("./assets/cardplaceholder.png");
     background-size: 99%;
     background-repeat: no-repeat;
@@ -320,7 +246,7 @@ span::after {
     width: 300px;
     height: 30px;
     left: 1080px;
-    top: 871px;
+    top: 915px;
     background-image: url("./assets/cardplaceholder.png");
     background-size: 99%;
     background-repeat: no-repeat;
@@ -348,4 +274,28 @@ span::after {
     background-color: white;
     z-index: 11;
     border: 1px blue solid;
+}
+
+.triangle {
+    stroke:#0EB4DB;
+    stroke-dasharray: 17;
+    animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 136;
+    }
+}
+
+.loading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5px;
+    animation: blink .9s ease-in-out infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
