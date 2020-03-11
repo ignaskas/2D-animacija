@@ -206,7 +206,7 @@ span::after {
     top: 365px;
     /*border: 1px red solid;*/
     background-image: url("./assets/player1.png");
-    background-position: var(--playerSpritePosition);
+    background-position: 0;
     background-size: cover;
     z-index: 10;
     transform: none;
