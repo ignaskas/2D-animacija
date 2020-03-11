@@ -237,14 +237,10 @@ function thirdcard() {
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
     $('#flavor_text').toggle("slow");
+    $('#cards').toggle("fast");
 }
 
 //TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
 window.onload = function() {
     flavortextshowhide();
 };
-
-function test() {
-    $('#cards').toggle("fast");
-    $('#starting_screen').toggle("fast");
-}
