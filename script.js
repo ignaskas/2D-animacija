@@ -243,3 +243,8 @@ function flavortextshowhide() {
 window.onload = function() {
     flavortextshowhide();
 };
+
+function test() {
+    $('#cards').toggle("fast");
+    $('#pointsleft').toggle("fast");
+}

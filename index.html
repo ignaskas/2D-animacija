@@ -15,13 +15,13 @@
             <a href="#"><span onclick="addint()">Int + 1</span></a>
             <a href="#"><span onclick="addstr()">Str + 1</span></a>
             <a href="#"><span onclick="addagy()">Agy + 1</span></a>
-            <div class="atributes">
-               <a href="#"><span id="statint">Int: 4</span></a>
-               <a href="#"><span id="statstr">Str: 4</span></a>
-               <a href="#"><span id="statagy">Agy: 4</span></a>
-               <a class="pointsleft" href="#"><span id="pointsleft">Points Left: 5</span></a>
-            </div>
+            <a href="#"><span class="pointsleft" id="pointsleft">Points Left: 5</span></a>
         </div>
+    <div class="atributes">
+        <a href="#"><span id="statint">Int: 4</span></a>
+        <a href="#"><span id="statstr">Str: 4</span></a>
+        <a href="#"><span id="statagy">Agy: 4</span></a>
+    </div>
 <!--    Main menu ends-->
 
     <!--        BOARD-->
@@ -33,9 +33,11 @@
     <!--    BOARD ENDS-->
 
 <!--    CARDS-->
-    <div id="C1" onclick="firstcard()"></div>
-    <div id="C2" onclick="secondcard()"></div>
-    <div id="C3" onclick="thirdcard()"></div>
+    <div id="cards">
+        <div id="C1" onclick="firstcard()"></div>
+        <div id="C2" onclick="secondcard()"></div>
+        <div id="C3" onclick="thirdcard()"></div>
+    </div>
 <!--CARDS END-->
 
 <!--    Flavor text div-->
