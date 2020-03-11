@@ -246,5 +246,5 @@ window.onload = function() {
 
 function test() {
     $('#cards').toggle("fast");
-    $('#pointsleft').toggle("fast");
+    $('#starting_screen').toggle("fast");
 }
