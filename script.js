@@ -27,13 +27,13 @@ let path = [
     },
     {
         name: "firstmove",
-        locationX: 864,
-        locationY: 447
+        locationX: 336,
+        locationY: 635
     },
     {
         name: "secondmove",
-        locationX: 1046,
-        locationY: 479
+        locationX: 882,
+        locationY: 625
     },
     {
         name: "3thmove",
@@ -150,6 +150,7 @@ function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX +
         " - clientY: " + event.clientY;
+    console.log("X" + " " + event.clientX + " " + "Y" + " " + event.clientY);
 }
 
 document.addEventListener("click", printMousePos);

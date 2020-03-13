@@ -138,9 +138,9 @@ span::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 930px;
-    height: 700px;
+    transform: translate(-50%,-50%) rotate3d(1, 0, 0, 40deg);
+    width: 1500px;
+    height: 1100px;
     /*transition: 0.5s;*/
     /*background: #000;*/
     /*background-image: url("./assets/grid.png");*/
@@ -157,9 +157,10 @@ span::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 930px;
-    height: 700px;
+    transform: translate(-50%,-50%) rotate3d(1, 0, 0, 40deg);
+    /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
+    width: 1500px;
+    height: 1100px;
     transition: 0.5s;
     /*background: #000;*/
     background-image: url("./assets/placeholderAF.jpg");
@@ -203,8 +204,8 @@ span::after {
     position: absolute;
     width: 60px;
     height: 80px;
-    left: 520px;
-    top: 365px;
+    left: 310px;
+    top: 560px;
     /*border: 1px red solid;*/
     background-image: url("./assets/player1.png");
     background-position: 0;
