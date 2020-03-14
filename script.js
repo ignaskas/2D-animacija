@@ -114,20 +114,18 @@ function addagy() {
         document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
+
 //ATRIBUTE ASSIGMENT ENDS---------------
 
 // switches divsbackground image based on witch way charter is moving
 function witchsidedoiface() {
-    if ((path[0].locationY > path[1].locationY)&&(path[0].locationX > path[1].locationX)){  //we are moving NW
+    if ((path[0].locationY > path[1].locationY) && (path[0].locationX > path[1].locationX)) {  //we are moving NW
         $('#player').css('background-position', '120px 0px');
-    }
-    else if ((path[0].locationY < path[1].locationY)&&(path[0].locationX < path[1].locationX)){ //we are moving SE
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving SE
         $('#player').css('background-position', '60px 0px');
-    }
-    else if ((path[0].locationY > path[1].locationY)&&(path[0].locationX < path[1].locationX)){ //we are moving NE
+    } else if ((path[0].locationY > path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving NE
         $('#player').css('background-position', '0px 0px');
-    }
-    else if ((path[0].locationY < path[1].locationY)&&(path[0].locationX > path[1].locationX)){ //we are moving SW
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX > path[1].locationX)) { //we are moving SW
         $('#player').css('background-position', '200px 0px');
     }
 }
@@ -158,6 +156,7 @@ function chekbest(genres) {
 
     return maxname;
 }
+
 //TODO: console.log needs to be removed and replaced with proper call function
 console.log(chekbest(genres));
 
@@ -175,8 +174,8 @@ document.addEventListener("click", printMousePos);
 //  Animation and flavor text area showhide
 function makeMove() {
     witchsidedoiface();
-    $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000);
-        setTimeout(flavortextshowhide, 5000);
+    $('#player').animate({left: moveonX - 30, top: moveonY - 80}, 5000);
+    setTimeout(flavortextshowhide, 5000);
     path[0].locationX = path[1].locationX;
     path[0].locationY = path[1].locationY;
 }
@@ -192,12 +191,12 @@ function firstcard() {
         moveonY = path[3].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if (moves === 2){
+    } else if (moves === 2) {
         moveonX = path[2].locationX;
         moveonY = path[2].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if(moves === 3){
+    } else if (moves === 3) {
         moveonX = path[4].locationX;
         moveonY = path[4].locationY;
         path[1].locationY = moveonY;
@@ -215,12 +214,12 @@ function secondcard() {
         moveonY = path[3].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if (moves === 2){
+    } else if (moves === 2) {
         moveonX = path[2].locationX;
         moveonY = path[2].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if(moves === 3){
+    } else if (moves === 3) {
         moveonX = path[4].locationX;
         moveonY = path[4].locationY;
         path[1].locationY = moveonY;
@@ -265,6 +264,7 @@ function thirdcard() {
             break;
     }
 }
+
 //MOVMENT ENDS---------------
 
 // FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
@@ -279,7 +279,7 @@ function flavortextshowhide() {
 //FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
 
 //TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
-window.onload = function() {
+window.onload = function () {
     flavortextshowhide();
 };
 
