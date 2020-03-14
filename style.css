@@ -1,29 +1,34 @@
-body{
+body {
     background-color: #2f2f2f;
     height: 99%;
     width: 99%;
     margin: 0;
 }
-html{
+
+html {
     height: 99%;
     width: 99%;
     margin: 0;
 }
 
-#game_area{
+/*MAIN GAME AREA---------------*/
+#game_area {
     position: relative;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    border: 3px red solid;
+    /*border: 3px red solid;*/
 }
+
 .Main_menu {
     width: 20%;
     min-width: 180px;
     margin: 0 auto;
 }
 
+/*MAIN GAME AREA ENDS---------------*/
+/*MAIN MENU BUTTONS ---------------*/
 a {
     display: block;
     color: white;
@@ -114,62 +119,62 @@ span::after {
     border-left-width: 12px;
 }
 
-.startgame{
+.startgame {
     left: 0;
     top: 250px;
 }
- /*Main menu buttons end*/
 
-/*Atribute boxes*/
+/*ATRIBUTE BOXES---------------*/
 
-.atributes{
+.atributes {
     position: absolute;
     width: 15%;
     left: 1119px;
     top: 22px;
 }
-/*ATRIBUTE BOXES END*/
 
-/*BOARD STARTS*/
+/*ATRIBUTE BOXES END---------------*/
+/*MAIN MENU BUTTONS END---------------*/
+
+/*BOARD---------------*/
 /*THIS IS GRID NOT BOARTD*/
-.board
-{
+/*TODO: FIX THE GAP BETVEN BOARD AND EDGE WOOD*/
+.board {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 700px;
-    height: 700px;
+    transform: translate(-50%, -50%) rotate3d(1, 0, 0, 40deg);
+    width: 1600px;
+    height: 1200px;
     /*transition: 0.5s;*/
     /*background: #000;*/
-    background-image: url("./assets/grid.png");
+    /*background-image: url("./assets/grid.png");*/
     background-size: contain;
-    /*background-repeat: no-repeat;*/
-    opacity: 70%;
+    background-repeat: no-repeat;
+    opacity: 50%;
     z-index: 2;
 }
 
-    /*TODO: fix the names!*/
-    /*THIS IS GRASS NOT GRID*/
-.grid
-{
+/*TODO: fix the names!*/
+/*THIS IS BOARD NOT GRID*/
+.grid {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);
-    width: 700px;
-    height: 700px;
+    transform: translate(-50%, -50%) rotate3d(1, 0, 0, 40deg);
+    /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
+    width: 1600px;
+    height: 1200px;
     transition: 0.5s;
     /*background: #000;*/
-    background-image: url("./assets/map_game.jpg");
+    background-image: url("./assets/placeholderAF.jpg");
     background-size: contain;
-    /*background-repeat: no-repeat;*/
-    box-shadow: -20px 20px 20px rgba(0,0,0,.5);
+    background-repeat: no-repeat;
+    box-shadow: -20px 20px 20px rgba(0, 0, 0, .5);
     z-index: 1;
 }
 
-.board:before
-{
+.board:before {
     content: '';
     position: absolute;
     top: 10px;
@@ -182,8 +187,7 @@ span::after {
     transform: rotate(0deg) skewY(-45deg);
 }
 
-.board:after
-{
+.board:after {
     content: '';
     position: absolute;
     bottom: -20px;
@@ -195,15 +199,16 @@ span::after {
     background-size: 100px;
     transform: rotate(0deg) skewX(-45deg);
 }
-/*BOARD ENDS*/
 
-/*Player*/
-.player{
+/*BOARD ENDS---------------*/
+
+/*Player---------------*/
+.player {
     position: absolute;
     width: 60px;
     height: 80px;
-    left: 520px;
-    top: 365px;
+    left: 310px;
+    top: 560px;
     /*border: 1px red solid;*/
     background-image: url("./assets/player1.png");
     background-position: 0;
@@ -213,7 +218,10 @@ span::after {
     /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
 }
 
-#C1{
+/*PLAYER ENDS ---------------*/
+
+/*CARDS---------------*/
+#C1 {
     position: absolute;
     width: 300px;
     height: 30px;
@@ -222,12 +230,12 @@ span::after {
     background-image: url("./assets/cardplaceholder.png");
     background-size: 99%;
     background-repeat: no-repeat;
-     /*border: 3px orange solid;*/
+    /*border: 3px orange solid;*/
     transition: height 1s, top 1s;
     z-index: 99;
 }
 
-#C2{
+#C2 {
     position: absolute;
     width: 300px;
     height: 30px;
@@ -241,7 +249,7 @@ span::after {
     z-index: 99;
 }
 
-#C3{
+#C3 {
     position: absolute;
     width: 300px;
     height: 30px;
@@ -255,29 +263,52 @@ span::after {
     z-index: 99;
 }
 
-#C1:hover,#C2:hover,#C3:hover{
+#C1:hover, #C2:hover, #C3:hover {
     height: 450px;
     top: 500px;
 }
 
+/*CARDS END---------------*/
+
 /*TODO: REMOVE THIS*/
-#pos{
+#pos {
     color: silver;
 }
 
-#flavor_text{
+/*FLAVOR TEXT---------------*/
+#flavor_text {
     position: absolute;
     width: 500px;
     height: 500px;
     left: 650px;
     top: 200px;
     background-color: white;
-    z-index: 11;
+    z-index: 50;
     border: 1px blue solid;
 }
 
+/*FLAVOR TEXT END---------------*/
+
+/*LOADING SCREEN---------------*/
+#blackout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #484848;
+    z-index: 100;
+}
+
+#loading_screen {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index: 99;
+    width: 160px;
+    height: 160px;
+}
+
 .triangle {
-    stroke:#0EB4DB;
+    stroke: #0EB4DB;
     stroke-dasharray: 17;
     animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
 }
@@ -299,3 +330,5 @@ span::after {
         opacity: 0;
     }
 }
+
+/*LOADING SCREEN END---------------*/

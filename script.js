@@ -2,7 +2,7 @@
 //TODO: set values to 0 before final test!
 let genres = {
     rpg: 10,
-    horror: 11,
+    horror: 0,
     adventure: 0,
     strategy: 0,
     scfi: 0
@@ -16,43 +16,58 @@ let moveonY = 0;
 //Path we take
 let path = [
     {
-        name: "ourlastpos",
+        name: "Current_Position", // 0 for cheking withc direction we are facing
         locationX: 0,
         locationY: 0
     },
     {
-        name: "ournewpos",
+        name: "New_Position", // 1  for cheking withc direction we are facing
         locationX: 670,
         locationY: 293
     },
     {
-        name: "firstmove",
-        locationX: 864,
-        locationY: 447
+        name: "Portal", // 2
+        locationX: 336,
+        locationY: 635
     },
     {
-        name: "secondmove",
-        locationX: 1046,
-        locationY: 479
+        name: "Portal_Exit", // 3
+        locationX: 900,
+        locationY: 500
     },
     {
-        name: "3thmove",
-        locationX: 938,
+        name: "Forest", // 4
+        locationX: 882,
+        locationY: 625
+    },
+    {
+        name: "Bridge_After_Forest", // 5
+        locationX: 900,
+        locationY: 500
+    },
+    {
+        name: "Merchant_Camp",  // 6
+        locationX: 638,
         locationY: 243
     },
     {
-        name: "4thmove",
-        locationX: 938,
+        name: "Jungle",  // 7
+        locationX: 980,
+        locationY: 800
+    },
+    {
+        name: "City",  // 8
+        locationX: 738,
         locationY: 243
     },
     {
-        name: "5thmove",
-        locationX: 938,
+        name: "Bridge_Before_mage_tower",  // 9
+        locationX: 1938,
         locationY: 243
     },
     {
-        name: "6thmove",
-        locationX: 938,
+        name: "Ending",  // 10
+        locationX: 1938,
         locationY: 243
     }
 ];
@@ -69,6 +84,7 @@ let moves = 0;
 // event memory
 // event memory goes here
 
+// ATRIBUTE ASSIGMENT---------------
 // spend skills points to increase int stat
 function addint() {
     if (pointstospend >= 1) {
@@ -99,27 +115,26 @@ function addagy() {
     }
 }
 
+//ATRIBUTE ASSIGMENT ENDS---------------
+
 // switches divsbackground image based on witch way charter is moving
 function witchsidedoiface() {
-    if ((path[0].locationY > path[1].locationY)&&(path[0].locationX > path[1].locationX)){  //we are moving NW
+    if ((path[0].locationY > path[1].locationY) && (path[0].locationX > path[1].locationX)) {  //we are moving NW
         $('#player').css('background-position', '120px 0px');
-    }
-    else if ((path[0].locationY < path[1].locationY)&&(path[0].locationX < path[1].locationX)){ //we are moving SE
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving SE
         $('#player').css('background-position', '60px 0px');
-    }
-    else if ((path[0].locationY > path[1].locationY)&&(path[0].locationX < path[1].locationX)){ //we are moving NE
+    } else if ((path[0].locationY > path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving NE
         $('#player').css('background-position', '0px 0px');
-    }
-    else if ((path[0].locationY < path[1].locationY)&&(path[0].locationX > path[1].locationX)){ //we are moving SW
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX > path[1].locationX)) { //we are moving SW
         $('#player').css('background-position', '200px 0px');
     }
 }
 
 //TODO: fit all atribute cheks in to 1 function
 // atribute check at specific move
-function strchek() {
-    if (str >= 5 && moves === 3) {
-        $('#player').animate({left: "80px", top: "60px"});
+function atributechek() {
+    if (str >= 5) {
+        return true;
     }
 }
 
@@ -142,6 +157,7 @@ function chekbest(genres) {
     return maxname;
 }
 
+//TODO: console.log needs to be removed and replaced with proper call function
 console.log(chekbest(genres));
 
 //TODO: remove this before test
@@ -150,19 +166,21 @@ function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX +
         " - clientY: " + event.clientY;
+    console.log("X" + " " + event.clientX + " " + "Y" + " " + event.clientY);
 }
 
 document.addEventListener("click", printMousePos);
 
-//  move animation
+//  Animation and flavor text area showhide
 function makeMove() {
     witchsidedoiface();
-    $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000);
-        setTimeout(flavortextshowhide, 5000);
+    $('#player').animate({left: moveonX - 30, top: moveonY - 80}, 5000);
+    setTimeout(flavortextshowhide, 5000);
     path[0].locationX = path[1].locationX;
     path[0].locationY = path[1].locationY;
 }
 
+// MOVEMENT---------------
 // TODO: change this to a proper function
 // moves from first card
 function firstcard() {
@@ -173,12 +191,12 @@ function firstcard() {
         moveonY = path[3].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if (moves === 2){
+    } else if (moves === 2) {
         moveonX = path[2].locationX;
         moveonY = path[2].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if(moves === 3){
+    } else if (moves === 3) {
         moveonX = path[4].locationX;
         moveonY = path[4].locationY;
         path[1].locationY = moveonY;
@@ -196,12 +214,12 @@ function secondcard() {
         moveonY = path[3].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if (moves === 2){
+    } else if (moves === 2) {
         moveonX = path[2].locationX;
         moveonY = path[2].locationY;
         path[1].locationY = moveonY;
         path[1].locationX = moveonX;
-    } else if(moves === 3){
+    } else if (moves === 3) {
         moveonX = path[4].locationX;
         moveonY = path[4].locationY;
         path[1].locationY = moveonY;
@@ -214,33 +232,59 @@ function secondcard() {
 function thirdcard() {
     flavortextshowhide();
     moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2){
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if(moves === 3){
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
+    switch (moves) {
+        case 1:
+            moveonX = path[3].locationX;
+            moveonY = path[3].locationY;
+            path[1].locationX = moveonX;
+            path[1].locationY = moveonY;
+            makeMove();
+            break;
+        case 2:
+            moveonX = path[4].locationX;
+            moveonY = path[4].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
+        case 3:
+            moveonX = path[5].locationX;
+            moveonY = path[5].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
+        default:
+            moves = 1;
+            moveonX = path[3].locationX;
+            moveonY = path[3].locationY;
+            path[1].locationX = moveonX;
+            path[1].locationY = moveonY;
+            makeMove();
+            break;
     }
-    makeMove();
 }
 
+//MOVMENT ENDS---------------
+
+// FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 //hide/show flavor text
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
-    $('#flavor_text').toggle("slow");
+    $('#flavor_text').toggle("fast");
     $('#cards').toggle("fast");
+    $('#blackout').fadeOut("slow");
 }
 
+//FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
+
 //TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
-window.onload = function() {
+window.onload = function () {
     flavortextshowhide();
 };
+
+function test() {
+    $('#flavor_text').toggle("slow");
+    $('#cards').toggle("fast");
+    $('#starting_screen').toggle("fast");
+}
