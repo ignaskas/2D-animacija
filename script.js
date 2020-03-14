@@ -2,7 +2,7 @@
 //TODO: set values to 0 before final test!
 let genres = {
     rpg: 10,
-    horror: 11,
+    horror: 0,
     adventure: 0,
     strategy: 0,
     scfi: 0
@@ -16,12 +16,12 @@ let moveonY = 0;
 //Path we take
 let path = [
     {
-        name: "ourlastpos", // 0
+        name: "Current_Position", // 0 for cheking withc direction we are facing
         locationX: 0,
         locationY: 0
     },
     {
-        name: "ournewpos", // 1
+        name: "New_Position", // 1  for cheking withc direction we are facing
         locationX: 670,
         locationY: 293
     },
@@ -31,34 +31,44 @@ let path = [
         locationY: 635
     },
     {
-        name: "Forest", // 3
+        name: "Portal_Exit", // 3
+        locationX: 900,
+        locationY: 500
+    },
+    {
+        name: "Forest", // 4
         locationX: 882,
         locationY: 625
     },
     {
-        name: "Merchant_Camp",  // 4
+        name: "Bridge_After_Forest", // 5
+        locationX: 900,
+        locationY: 500
+    },
+    {
+        name: "Merchant_Camp",  // 6
         locationX: 638,
         locationY: 243
     },
     {
-        name: "Jungle",  // 5
+        name: "Jungle",  // 7
         locationX: 980,
         locationY: 800
     },
     {
-        name: "City",  // 6
+        name: "City",  // 8
         locationX: 738,
         locationY: 243
     },
     {
-        name: "Bridge_Before_mage_tower",  // 7
+        name: "Bridge_Before_mage_tower",  // 9
         locationX: 1938,
         locationY: 243
     },
     {
-        name: "Bridge_After_Forest", // 8
-        locationX: 900,
-        locationY: 500
+        name: "Ending",  // 10
+        locationX: 1938,
+        locationY: 243
     }
 ];
 
@@ -74,6 +84,7 @@ let moves = 0;
 // event memory
 // event memory goes here
 
+// ATRIBUTE ASSIGMENT---------------
 // spend skills points to increase int stat
 function addint() {
     if (pointstospend >= 1) {
@@ -103,6 +114,7 @@ function addagy() {
         document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
+//ATRIBUTE ASSIGMENT ENDS---------------
 
 // switches divsbackground image based on witch way charter is moving
 function witchsidedoiface() {
@@ -146,7 +158,7 @@ function chekbest(genres) {
 
     return maxname;
 }
-
+//TODO: console.log needs to be removed and replaced with proper call function
 console.log(chekbest(genres));
 
 //TODO: remove this before test
@@ -160,7 +172,7 @@ function printMousePos(event) {
 
 document.addEventListener("click", printMousePos);
 
-//  move animation
+//  Animation and flavor text area showhide
 function makeMove() {
     witchsidedoiface();
     $('#player').animate({left: moveonX - 30, top: moveonY - 80},5000);
@@ -168,7 +180,8 @@ function makeMove() {
     path[0].locationX = path[1].locationX;
     path[0].locationY = path[1].locationY;
 }
-// MOVEMENT
+
+// MOVEMENT---------------
 // TODO: change this to a proper function
 // moves from first card
 function firstcard() {
@@ -252,7 +265,9 @@ function thirdcard() {
             break;
     }
 }
-//MOVMENT ENDS
+//MOVMENT ENDS---------------
+
+// FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 //hide/show flavor text
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
@@ -261,10 +276,13 @@ function flavortextshowhide() {
     $('#blackout').fadeOut("slow");
 }
 
+//FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
+
 //TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
 window.onload = function() {
     flavortextshowhide();
 };
+
 function test() {
     $('#flavor_text').toggle("slow");
     $('#cards').toggle("fast");
