@@ -9,7 +9,7 @@ html{
     width: 99%;
     margin: 0;
 }
-
+/*MAIN GAME AREA---------------*/
 #game_area{
     position: relative;
     width: 100%;
@@ -23,7 +23,8 @@ html{
     min-width: 180px;
     margin: 0 auto;
 }
-
+/*MAIN GAME AREA ENDS---------------*/
+/*MAIN MENU BUTTONS ---------------*/
 a {
     display: block;
     color: white;
@@ -118,9 +119,8 @@ span::after {
     left: 0;
     top: 250px;
 }
- /*Main menu buttons end*/
 
-/*Atribute boxes*/
+/*ATRIBUTE BOXES---------------*/
 
 .atributes{
     position: absolute;
@@ -128,9 +128,10 @@ span::after {
     left: 1119px;
     top: 22px;
 }
-/*ATRIBUTE BOXES END*/
+/*ATRIBUTE BOXES END---------------*/
+/*MAIN MENU BUTTONS END---------------*/
 
-/*BOARD STARTS*/
+/*BOARD---------------*/
 /*THIS IS GRID NOT BOARTD*/
 /*TODO: FIX THE GAP BETVEN BOARD AND EDGE WOOD*/
 .board
@@ -197,9 +198,9 @@ span::after {
     background-size: 100px;
     transform: rotate(0deg) skewX(-45deg);
 }
-/*BOARD ENDS*/
+/*BOARD ENDS---------------*/
 
-/*Player*/
+/*Player---------------*/
 .player{
     position: absolute;
     width: 60px;
@@ -214,7 +215,9 @@ span::after {
     transform: none;
     /*transform: translate(-50%,-50%) rotate(-30deg) skew(25deg);*/
 }
+/*PLAYER ENDS ---------------*/
 
+/*CARDS---------------*/
 #C1{
     position: absolute;
     width: 300px;
@@ -261,12 +264,13 @@ span::after {
     height: 450px;
     top: 500px;
 }
+/*CARDS END---------------*/
 
 /*TODO: REMOVE THIS*/
 #pos{
     color: silver;
 }
-
+/*FLAVOR TEXT---------------*/
 #flavor_text{
     position: absolute;
     width: 500px;
@@ -277,8 +281,9 @@ span::after {
     z-index: 50;
     border: 1px blue solid;
 }
+/*FLAVOR TEXT END---------------*/
 
-/*LOADING SCREEN*/
+/*LOADING SCREEN---------------*/
 #blackout{
     position: absolute;
     width: 100%;
@@ -318,4 +323,4 @@ span::after {
         opacity: 0;
     }
 }
-/*LOADING SCREEN ENDS*/
+/*LOADING SCREEN END---------------*/
