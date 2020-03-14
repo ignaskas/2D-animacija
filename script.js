@@ -16,44 +16,49 @@ let moveonY = 0;
 //Path we take
 let path = [
     {
-        name: "ourlastpos",
+        name: "ourlastpos", // 0
         locationX: 0,
         locationY: 0
     },
     {
-        name: "ournewpos",
+        name: "ournewpos", // 1
         locationX: 670,
         locationY: 293
     },
     {
-        name: "firstmove",
+        name: "Portal", // 2
         locationX: 336,
         locationY: 635
     },
     {
-        name: "secondmove",
+        name: "Forest", // 3
         locationX: 882,
         locationY: 625
     },
     {
-        name: "3thmove",
-        locationX: 938,
+        name: "Merchant_Camp",  // 4
+        locationX: 638,
         locationY: 243
     },
     {
-        name: "4thmove",
-        locationX: 938,
+        name: "Jungle",  // 5
+        locationX: 980,
+        locationY: 800
+    },
+    {
+        name: "City",  // 6
+        locationX: 738,
         locationY: 243
     },
     {
-        name: "5thmove",
-        locationX: 938,
+        name: "Bridge_Before_mage_tower",  // 7
+        locationX: 1938,
         locationY: 243
     },
     {
-        name: "6thmove",
-        locationX: 938,
-        locationY: 243
+        name: "Bridge_After_Forest", // 8
+        locationX: 900,
+        locationY: 500
     }
 ];
 
@@ -117,9 +122,9 @@ function witchsidedoiface() {
 
 //TODO: fit all atribute cheks in to 1 function
 // atribute check at specific move
-function strchek() {
-    if (str >= 5 && moves === 3) {
-        $('#player').animate({left: "80px", top: "60px"});
+function atributechek() {
+    if (str >= 5) {
+        return true;
     }
 }
 
@@ -163,7 +168,7 @@ function makeMove() {
     path[0].locationX = path[1].locationX;
     path[0].locationY = path[1].locationY;
 }
-
+// MOVEMENT
 // TODO: change this to a proper function
 // moves from first card
 function firstcard() {
@@ -215,25 +220,39 @@ function secondcard() {
 function thirdcard() {
     flavortextshowhide();
     moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2){
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if(moves === 3){
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
+    switch (moves) {
+        case 1:
+            moveonX = path[3].locationX;
+            moveonY = path[3].locationY;
+            path[1].locationX = moveonX;
+            path[1].locationY = moveonY;
+            makeMove();
+            break;
+        case 2:
+            moveonX = path[4].locationX;
+            moveonY = path[4].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
+        case 3:
+            moveonX = path[5].locationX;
+            moveonY = path[5].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
+        default:
+            moves = 1;
+            moveonX = path[3].locationX;
+            moveonY = path[3].locationY;
+            path[1].locationX = moveonX;
+            path[1].locationY = moveonY;
+            makeMove();
+            break;
     }
-    makeMove();
 }
-
+//MOVMENT ENDS
 //hide/show flavor text
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
