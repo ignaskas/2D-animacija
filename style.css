@@ -270,11 +270,6 @@ span::after {
 
 /*CARDS END---------------*/
 
-/*TODO: REMOVE THIS*/
-#pos {
-    color: silver;
-}
-
 /*FLAVOR TEXT---------------*/
 #flavor_text {
     position: absolute;
@@ -332,3 +327,77 @@ span::after {
 }
 
 /*LOADING SCREEN END---------------*/
+
+/*ITEMS*/
+.itemslot{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 150px;
+    top: 20px;
+    border: 2px red solid;
+    z-index: 10;
+}
+
+#key{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/sword.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#flask{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/flask_empty.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#armor{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/armor.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#sword{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/sword.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#staff{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/staff.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#blaster{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/blaster.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#bagofcoins{
+    width: 30px;
+    height: 40px;
+    background-image: url("./assets/bagOfCoins.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*ITEMS END*/
+/*TODO: REMOVE THIS*/
+#pos {
+    position: relative;
+    color: red;
+    z-index: 10;
+}
