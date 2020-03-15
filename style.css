@@ -398,6 +398,6 @@ span::after {
 /*TODO: REMOVE THIS*/
 #pos {
     position: relative;
-    color: red;
+    color: lime;
     z-index: 10;
 }
