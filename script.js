@@ -22,53 +22,53 @@ let path = [
     },
     {
         name: "New_Position", // 1  for cheking withc direction we are facing
-        locationX: 670,
-        locationY: 293
+        locationX: 0,
+        locationY: 0
     },
     {
         name: "Portal", // 2
-        locationX: 336,
-        locationY: 635
+        locationX: 602,
+        locationY: 877
     },
     {
         name: "Portal_Exit", // 3
-        locationX: 900,
-        locationY: 500
+        locationX: 1508,
+        locationY: 339
     },
     {
         name: "Forest", // 4
-        locationX: 882,
-        locationY: 625
+        locationX: 338,
+        locationY: 409
     },
     {
         name: "Bridge_After_Forest", // 5
-        locationX: 900,
-        locationY: 500
+        locationX: 882,
+        locationY: 331
     },
     {
         name: "Merchant_Camp",  // 6
-        locationX: 638,
-        locationY: 243
+        locationX: 900,
+        locationY: 652
     },
     {
         name: "Jungle",  // 7
-        locationX: 980,
-        locationY: 800
+        locationX: 1021,
+        locationY: 780
     },
     {
         name: "City",  // 8
-        locationX: 738,
-        locationY: 243
+        locationX: 1083,
+        locationY: 540
     },
     {
         name: "Bridge_Before_mage_tower",  // 9
-        locationX: 1938,
-        locationY: 243
+        locationX: 1481,
+        locationY: 552
     },
     {
         name: "Ending",  // 10
-        locationX: 1938,
-        locationY: 243
+        locationX: 1645,
+        locationY: 496
     }
 ];
 
@@ -128,13 +128,13 @@ function addagy() {
 
 // switches divsbackground image based on witch way charter is moving
 function witchsidedoiface() {
-    if ((path[0].locationY > path[1].locationY) && (path[0].locationX > path[1].locationX)) {  //we are moving NW
+    if ((path[0].locationY > path[1].locationY) && (path[0].locationX > path[1].locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
-    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving SE
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving SE -- bottom rigth
         $('#player').css('background-position', '60px 0px');
-    } else if ((path[0].locationY > path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving NE
+    } else if ((path[0].locationY > path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving NE -- top rigth
         $('#player').css('background-position', '0px 0px');
-    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX > path[1].locationX)) { //we are moving SW
+    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX > path[1].locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
     }
 }
@@ -176,6 +176,11 @@ function printMousePos(event) {
         "clientX: " + event.clientX +
         " - clientY: " + event.clientY;
     console.log("X" + " " + event.clientX + " " + "Y" + " " + event.clientY);
+    // moveonX = event.clientX;
+    // moveonY = event.clientY;
+    // path[1].locationY = moveonY;s
+    // path[1].locationX = moveonX;
+    // makeMove();
 }
 
 document.addEventListener("click", printMousePos);
@@ -193,48 +198,12 @@ function makeMove() {
 // TODO: change this to a proper function
 // moves from first card
 function firstcard() {
-    flavortextshowhide();
-    moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2) {
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 3) {
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    }
-    makeMove();
+
 }
 
 // moves from second card
 function secondcard() {
-    flavortextshowhide();
-    moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2) {
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 3) {
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    }
-    makeMove();
+
 }
 
 // moves from third card
@@ -243,30 +212,44 @@ function thirdcard() {
     moves += 1;
     switch (moves) {
         case 1:
-            moveonX = path[3].locationX;
-            moveonY = path[3].locationY;
+            moveonX = path[2].locationX;
+            moveonY = path[2].locationY;
             path[1].locationX = moveonX;
             path[1].locationY = moveonY;
             makeMove();
             break;
         case 2:
+            moveonX = path[3].locationX;
+            moveonY = path[3].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
+        case 3:
             moveonX = path[4].locationX;
             moveonY = path[4].locationY;
             path[1].locationY = moveonY;
             path[1].locationX = moveonX;
             makeMove();
             break;
-        case 3:
+        case 4:
             moveonX = path[5].locationX;
             moveonY = path[5].locationY;
             path[1].locationY = moveonY;
             path[1].locationX = moveonX;
             makeMove();
             break;
+        case 5:
+            moveonX = path[6].locationX;
+            moveonY = path[6].locationY;
+            path[1].locationY = moveonY;
+            path[1].locationX = moveonX;
+            makeMove();
+            break;
         default:
-            moves = 1;
-            moveonX = path[3].locationX;
-            moveonY = path[3].locationY;
+            moves = 0;
+            moveonX = path[2].locationX;
+            moveonY = path[2].locationY;
             path[1].locationX = moveonX;
             path[1].locationY = moveonY;
             makeMove();
