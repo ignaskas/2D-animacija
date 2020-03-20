@@ -12,14 +12,11 @@ let genres = {
 let moveonX = 0;
 let moveonY = 0;
 
-let foo = [
-    [{name: "card1" , locationX: 338, locationY:  409}],
-];
-
+// cordinate system for animation
 let roadlist = [
-    [[{name: "road1" , locationX: 284, locationY: 551}], [{name: "road1", locationX: 392, locationY: 377}], [{name: "road1", locationX: 866, locationY: 329}]],
-    [[{name: "road2" , locationX: 284, locationY: 551}], [{name: "road2", locationX: 392, locationY: 377}], [{name: "road2", locationX: 866, locationY: 329}]],
-    // [{name: "card3" , locationX: 900, locationY: 652}]
+    [[{name: "forest1" , locationX: 284, locationY: 551}], [{name: "forest2", locationX: 392, locationY: 377}], [{name: "forest3", locationX: 866, locationY: 329}]],
+    [[{name: "road1" , locationX: 438, locationY: 681}], [{name: "road2", locationX: 886, locationY: 681}]],
+    [[{name: "portal1" , locationX: 598, locationY: 898}], [{name: "portal2", locationX: 1506, locationY: 358}]],
 ];
 
 //TODO: change the cordinates to fit the map
@@ -27,59 +24,14 @@ let roadlist = [
 let loc = [
     {
         name: "Current_Position", // 0 for cheking withc direction we are facing
-        locationX: 0,
-        locationY: 0
+        locationX: 332,
+        locationY: 643
     },
     {
         name: "New_Position", // 1  for cheking withc direction we are facing
         locationX: 0,
         locationY: 0
     }
-    // {
-    //     name: "Portal", // 2
-    //     locationX: 602,
-    //     locationY: 877,
-    // },
-    // {
-    //     name: "Portal_Exit", // 3
-    //     locationX: 1508,
-    //     locationY: 339
-    // },
-    // {
-    //     name: "Forest", // 4
-    //     locationX: 338,
-    //     locationY: 409
-    // },
-    // {
-    //     name: "Bridge_After_Forest", // 5
-    //     locationX: 882,
-    //     locationY: 331
-    // },
-    // {
-    //     name: "Merchant_Camp",  // 6
-    //     locationX: 900,
-    //     locationY: 652
-    // },
-    // {
-    //     name: "Jungle",  // 7
-    //     locationX: 1021,
-    //     locationY: 780
-    // },
-    // {
-    //     name: "City",  // 8
-    //     locationX: 1083,
-    //     locationY: 540
-    // },
-    // {
-    //     name: "Bridge_Before_mage_tower",  // 9
-    //     locationX: 1481,
-    //     locationY: 552
-    // },
-    // {
-    //     name: "Ending",  // 10
-    //     locationX: 1645,
-    //     locationY: 496
-    // }
 ];
 
 // atributes
@@ -206,7 +158,7 @@ function makeMove(locationX, locationY) {
 }
 
 // MOVEMENT---------------
-// TODO: change this to a proper function
+// TODO: set timeout as a variable
 // moves from first card
 function firstcard() {
     moves += 1;
@@ -214,62 +166,30 @@ function firstcard() {
         console.log(roadlist[0][i][0].locationX + " " + roadlist[0][i][0].locationY);
         makeMove(roadlist[0][i][0].locationX, roadlist[0][i][0].locationY);
     }
+    flavortextshowhide();
+    setTimeout(flavortextshowhide, 5000);
 }
 
 // moves from second card
 function secondcard() {
-
+    moves += 1;
+    for(i = 0; i < roadlist[moves].length; i++){
+        console.log(roadlist[1][i][0].locationX + " " + roadlist[1][i][0].locationY);
+        makeMove(roadlist[1][i][0].locationX, roadlist[1][i][0].locationY);
+    }
+    flavortextshowhide();
+    setTimeout(flavortextshowhide, 5000);
 }
 
 // moves from third card
 function thirdcard() {
-    flavortextshowhide();
     moves += 1;
-    switch (moves) {
-        case 1:
-            moveonX = loc[2].locationX;
-            moveonY = loc[2].locationY;
-            loc[1].locationX = moveonX;
-            loc[1].locationY = moveonY;
-            makeMove();
-            break;
-        case 2:
-            moveonX = loc[3].locationX;
-            moveonY = loc[3].locationY;
-            loc[1].locationY = moveonY;
-            loc[1].locationX = moveonX;
-            makeMove();
-            break;
-        case 3:
-            moveonX = loc[4].locationX;
-            moveonY = loc[4].locationY;
-            loc[1].locationY = moveonY;
-            loc[1].locationX = moveonX;
-            makeMove();
-            break;
-        case 4:
-            moveonX = loc[5].locationX;
-            moveonY = loc[5].locationY;
-            loc[1].locationY = moveonY;
-            loc[1].locationX = moveonX;
-            makeMove();
-            break;
-        case 5:
-            moveonX = loc[6].locationX;
-            moveonY = loc[6].locationY;
-            loc[1].locationY = moveonY;
-            loc[1].locationX = moveonX;
-            makeMove();
-            break;
-        default:
-            moves = 0;
-            moveonX = loc[2].locationX;
-            moveonY = loc[2].locationY;
-            loc[1].locationX = moveonX;
-            loc[1].locationY = moveonY;
-            makeMove();
-            break;
+    for(i = 0; i < roadlist[moves].length; i++){
+        console.log(roadlist[2][i][0].locationX + " " + roadlist[2][i][0].locationY);
+        makeMove(roadlist[2][i][0].locationX, roadlist[2][i][0].locationY);
     }
+    flavortextshowhide();
+    setTimeout(flavortextshowhide, 5000);
 }
 
 //MOVMENT ENDS---------------
