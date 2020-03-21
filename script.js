@@ -46,8 +46,8 @@ let state4 = {
 
 let state1 = {
     name: 'initial',
-    locationX: 0,
-    locationY: 0,
+    locationX: 600,
+    locationY: 400,
     possibleOutcomes: [
         state2,
         state3,
@@ -164,12 +164,6 @@ console.log(chekbest(genres));
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
-    // console.log("X" + " " + event.clientX + " " + "Y" + " " + event.clientY);
-    // moveonX = event.clientX;
-    // moveonY = event.clientY;
-    // loc[1].locationY = moveonY;
-    // loc[1].locationX = moveonX;
-    // makeMove();
 }
 
 document.addEventListener("click", printMousePos);
@@ -186,26 +180,19 @@ currentState = state1;
 updatePossibilities();
 
 function updatePossibilities() {
-    // buttons = [];
     console.log(currentState.possibleOutcomes);
     for (let aState of currentState.possibleOutcomes) {
 
-        // let button = $('#' + aState.name);
         $('#' + aState.name).css('display', 'block');
-        // $('button').click (click);
-        console.log(aState.name);
         $('#' + aState.name).click(function() {
-            console.log("just fuck me");
             aState.complicatedBehaviour();
             click(aState)
         });
 
-        // buttons.push(button);
     }
 }
 
 function click(state) {
-    console.log(state);
     makeMove(state.locationX, state.locationY); /*-> turning, movement*/
     // hide old buttons
     for(let aState of currentState.possibleOutcomes){
