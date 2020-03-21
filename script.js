@@ -22,7 +22,7 @@ let loc = [
         name: "Current_Position", // 0 for cheking withc direction we are facing
         locationX: 332,
         locationY: 643
-    },
+},
     {
         name: "New_Position", // 1  for cheking withc direction we are facing
         locationX: 0,
