@@ -11,6 +11,11 @@ html {
     margin: 0;
 }
 
+.HIDEME{
+    display:none;
+}
+
+
 /*MAIN GAME AREA---------------*/
 #game_area {
     position: relative;
@@ -221,7 +226,7 @@ span::after {
 /*PLAYER ENDS ---------------*/
 
 /*CARDS---------------*/
-#C1 {
+.C1 {
     position: absolute;
     width: 300px;
     height: 30px;

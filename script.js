@@ -8,27 +8,161 @@ let genres = {
     scfi: 0
 };
 
+let currentState;
+let state2 = {
+    name: 'forest',
+    locationX: 10,
+    locationY: 20,
+    possibleOutcomes: [
+        {}
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+let state3 = {
+    name: 'portal',
+    locationX: 20,
+    locationY: 30,
+    possibleOutcomes: [
+        {}
+    ],
+    complicatedBehaviour: function(){
+        // doABarrelRoll()
+    }
+};
+let state4 = {
+    name: 'path',
+    locationX: 40,
+    locationY: 30,
+    possibleOutcomes: [
+        {}
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state1 = {
+    name: 'initial',
+    locationX: 0,
+    locationY: 0,
+    possibleOutcomes: [
+        state2,
+        state3,
+        state4
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+currentState = state1;
+let buttons = [];
+updatePossibilities();
+
+function updatePossibilities() {
+    //hide old buttons
+    for(let button of buttons){
+        // button.applyCss ('DISPLAY: NONE')
+    }
+    buttons = [];
+
+    for (let aState of currentState.possibleOutcomes) {
+
+        // let button = getElementById(aState.name)
+        // button.applyCss(UNHIDE_ME -> add DISPLAY BLOCK instead of NONE)
+        // button.applyOnClick (click)
+        button.click(function() {
+            aState.complicatedBehaviour()
+            click(aState)
+        });
+
+        buttons.push(/*new button that has click(aState) as behaviour */);
+    }
+}
+
+function click(state) {
+    moves+=1;
+    makeMove(state.locationX, state.locationY); /*-> turning, movement*/
+    currentState = state;
+    updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
+}
+
+
 // cordinate system for animation
-let roadlist = [
-    [[{name: "forest1" , locationX: 284, locationY: 551}, {name: "forest2", locationX: 392, locationY: 377}, {name: "forest3", locationX: 866, locationY: 329}], [{name: "city", locationX:1002, locationY: 406}, {name: "city2", locationX: 1064, locationY: 426}, {name: "city3", locationX: 1074, locationY: 512}], [{name: "magetower1", locationX: 1134, locationY: 650}, {name: "magetower2", locationX: 1454, locationY: 550}, {name: "magetower3", locationX: 1634, locationY: 578}]],
-    [[{name: "road1" , locationX: 430, locationY: 668}, {name: "road2", locationX: 856, locationY: 645}, {name: "road3", locationX: 896, locationY: 636}], [{name: "jungle1", locationX: 921, locationY: 683}, {name: "jungle2", locationX: 985, locationY: 695}, {name: "jungle3", locationX: 1013, locationY: 775}], [{name: "backtocamp1", locationX: 991, locationY: 685}, {name: "backtocamp2", locationX: 925, locationY: 681}, {name: "backtocamp3", locationX: 899, locationY: 649}], [{name: "tocityafterjungle1", locationX: 989, locationY: 675}, {name: "tocityafterjungle2", locationX: 1131, locationY: 651}, {name: "tocityafterjungle3", locationX: 1091, locationY: 545}], [{name: "magetower1", locationX: 1134, locationY: 650}, {name: "magetower2", locationX: 1454, locationY: 550}, {name: "magetower3", locationX: 1634, locationY: 578}]],
-    [[{name: "portal1" , locationX: 598, locationY: 898}, {name: "portal2", locationX: 1141, locationY: 365}, {name: "portal3", locationX: 1498, locationY: 360}], [{name: "tomagetower1", locationX: 1579, locationY: 381}, {name: "tomagetower2", locationX: 1679, locationY: 451}, {name: "tomagetower3", locationX: 1667, locationY: 511}]],
-];
+// let roadlist = [
+//     [[{name: "forest1", locationX: 284, locationY: 551}, {
+//         name: "forest2",
+//         locationX: 392,
+//         locationY: 377
+//     }, {name: "forest3", locationX: 866, locationY: 329}], [{
+//         name: "city",
+//         locationX: 1002,
+//         locationY: 406
+//     }, {name: "city2", locationX: 1064, locationY: 426}, {
+//         name: "city3",
+//         locationX: 1074,
+//         locationY: 512
+//     }], [{name: "magetower1", locationX: 1134, locationY: 650}, {
+//         name: "magetower2",
+//         locationX: 1454,
+//         locationY: 550
+//     }, {name: "magetower3", locationX: 1634, locationY: 578}]],
+//     [[{name: "road1", locationX: 430, locationY: 668}, {name: "road2", locationX: 856, locationY: 645}, {
+//         name: "road3",
+//         locationX: 896,
+//         locationY: 636
+//     }], [{name: "jungle1", locationX: 921, locationY: 683}, {
+//         name: "jungle2",
+//         locationX: 985,
+//         locationY: 695
+//     }, {name: "jungle3", locationX: 1013, locationY: 775}], [{
+//         name: "backtocamp1",
+//         locationX: 991,
+//         locationY: 685
+//     }, {name: "backtocamp2", locationX: 925, locationY: 681}, {
+//         name: "backtocamp3",
+//         locationX: 899,
+//         locationY: 649
+//     }], [{name: "tocityafterjungle1", locationX: 989, locationY: 675}, {
+//         name: "tocityafterjungle2",
+//         locationX: 1131,
+//         locationY: 651
+//     }, {name: "tocityafterjungle3", locationX: 1091, locationY: 545}], [{
+//         name: "magetower1",
+//         locationX: 1134,
+//         locationY: 650
+//     }, {name: "magetower2", locationX: 1454, locationY: 550}, {name: "magetower3", locationX: 1634, locationY: 578}]],
+//     [[{name: "portal1", locationX: 598, locationY: 898}, {
+//         name: "portal2",
+//         locationX: 1141,
+//         locationY: 365
+//     }, {name: "portal3", locationX: 1498, locationY: 360}], [{
+//         name: "tomagetower1",
+//         locationX: 1579,
+//         locationY: 381
+//     }, {name: "tomagetower2", locationX: 1679, locationY: 451}, {
+//         name: "tomagetower3",
+//         locationX: 1667,
+//         locationY: 511
+//     }]],
+// ];
 
 //TODO: change the cordinates to fit the map
 //Path we take
-let loc = [
-    {
-        name: "Current_Position", // 0 for cheking withc direction we are facing
-        locationX: 332,
-        locationY: 643
-},
-    {
-        name: "New_Position", // 1  for cheking withc direction we are facing
-        locationX: 0,
-        locationY: 0
-    }
-];
+// let loc = [
+//     {
+//         name: "Current_Position", // 0 for cheking withc direction we are facing
+//         locationX: 332,
+//         locationY: 643
+//     },
+//     {
+//         name: "New_Position", // 1  for cheking withc direction we are facing
+//         locationX: 0,
+//         locationY: 0
+//     }
+// ];
 
 // atributes
 let int = 4;
@@ -88,7 +222,7 @@ function addagy() {
 // switches divsbackground image based on witch way charter is moving
 function witchsidedoiface(locationX, locationY) {
     // console.log("f " + locationX, "f+ " + locationY);
-    if ((loc[0].locationY > locationY) && (loc[0].locationX > locationX)) {  //we are moving NW -- top left
+    if ((currentState.locationY > locationY) && (currentState.locationX > locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
     } else if ((loc[0].locationY < locationY) && (loc[0].locationX < locationX)) { //we are moving SE -- bottom rigth
         $('#player').css('background-position', '60px 0px');
@@ -97,9 +231,8 @@ function witchsidedoiface(locationX, locationY) {
     } else if ((loc[0].locationY < locationY) && (loc[0].locationX > locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
     }
-    loc[0].locationX = locationX;
-    loc[0].locationY = locationY;
 }
+
 //TODO: fit all atribute cheks in to 1 function
 // atribute check at specific move
 function atributechek() {
@@ -159,7 +292,7 @@ function makeMove(locationX, locationY) {
 // moves from first card
 function firstcard() {
     moves += 1;
-    for(i = 0; i < roadlist.length; i++){
+    for (i = 0; i < roadlist.length; i++) {
         console.log(roadlist[0][moves][i].locationX + " " + roadlist[0][moves][i].locationY);
         makeMove(roadlist[0][moves][i].locationX, roadlist[0][moves][i].locationY);
     }
@@ -170,7 +303,7 @@ function firstcard() {
 // moves from second card
 function secondcard() {
     moves += 1;
-    for(i = 0; i < roadlist.length; i++){
+    for (i = 0; i < roadlist.length; i++) {
         console.log(roadlist[1][moves][i].locationX + " " + roadlist[0][moves][i].locationY);
         makeMove(roadlist[1][moves][i].locationX, roadlist[1][moves][i].locationY);
     }
@@ -181,7 +314,7 @@ function secondcard() {
 // moves from third card
 function thirdcard() {
     moves += 1;
-    for(i = 0; i < roadlist.length; i++){
+    for (i = 0; i < roadlist.length; i++) {
         console.log(roadlist[2][moves][i].locationX + " " + roadlist[0][moves][i].locationY);
         makeMove(roadlist[2][moves][i].locationX, roadlist[2][moves][i].locationY);
     }
