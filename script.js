@@ -11,9 +11,9 @@ let genres = {
 // path we take states
 let currentState;
 let state2 = {
-    name: 'forest',
-    locationX: 10,
-    locationY: 20,
+    name: 'forest_bridge',
+    locationX: 321,
+    locationY: 558,
     possibleOutcomes: [
 
     ],
@@ -23,8 +23,8 @@ let state2 = {
 };
 let state3 = {
     name: 'portal',
-    locationX: 20,
-    locationY: 30,
+    locationX: 591,
+    locationY: 896,
     possibleOutcomes: [
 
     ],
@@ -34,8 +34,200 @@ let state3 = {
 };
 let state4 = {
     name: 'road',
-    locationX: 40,
-    locationY: 30,
+    locationX: 896,
+    locationY: 676,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state5 = {
+    name: 'forest',
+    locationX: 405,
+    locationY: 356,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state6 = {
+    name: 'forest_after_water',
+    locationX: 884,
+    locationY: 320,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state7 = {
+    name: 'city_after_forest',
+    locationX: 1130,
+    locationY: 512,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state8 = {
+    name: 'road_after_city',
+    locationX: 1130,
+    locationY: 630,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state9 = {
+    name: 'bridge_before_dragon',
+    locationX: 1478,
+    locationY: 536,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state10 = {
+    name: 'final_boss',
+    locationX: 1640,
+    locationY: 569,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state11 = {
+    name: 'portal_inside',
+    locationX: 1510,
+    locationY: 342,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state12 = {
+    name: 'after_portal_boss',
+    locationX: 1680,
+    locationY: 436,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state13 = {
+    name: 'jungle_quest',
+    locationX: 1022,
+    locationY: 778,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state14 = {
+    name: 'return_to_quest_after_jungle',
+    locationX: 940,
+    locationY: 666,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state15 = {
+    name: 'go_to_city_after_quest',
+    locationX: 1108,
+    locationY: 574,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state16 = {
+    name: 'ignore_quest',
+    locationX: 1126,
+    locationY: 634,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state17 = {
+    name: 'go_to_mage_tower_before_city',
+    locationX: 1472,
+    locationY: 536,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state18 = {
+    name: 'mage_tower_last_boos_from_city',
+    locationX: 1622,
+    locationY: 568,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state19 = {
+    name: 'go_to_city_after_ignoring_quest',
+    locationX: 1098,
+    locationY: 558,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state20 = {
+    name: 'what_to_do_after_kicked_out_of_city',
+    locationX: 1208,
+    locationY: 614,
     possibleOutcomes: [
 
     ],
@@ -164,6 +356,7 @@ console.log(chekbest(genres));
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+    console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
 }
 
 document.addEventListener("click", printMousePos);
@@ -180,7 +373,6 @@ currentState = state1;
 updatePossibilities();
 
 function updatePossibilities() {
-    console.log(currentState.possibleOutcomes);
     for (let aState of currentState.possibleOutcomes) {
 
         $('#' + aState.name).css('display', 'block');
