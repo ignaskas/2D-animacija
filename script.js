@@ -1,7 +1,7 @@
 // genres
 //TODO: set values to 0 before final test!
 let genres = {
-    rpg: 10,
+    rpg: 0,
     horror: 0,
     adventure: 0,
     strategy: 0,
@@ -9,33 +9,51 @@ let genres = {
 };
 
 // path we take states
+//TODO: fix the order/cordinates
 let currentState;
-let state2 = {
-    name: 'forest_bridge',
-    locationX: 321,
+
+let state21 = {
+    name: 'rob_merchant',
+    locationX: 1208,
+    locationY: 614,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state20 = {
+    name: 'what_to_do_after_kicked_out_of_city',
+    locationX: 1208,
+    locationY: 614,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state19 = {
+    name: 'go_to_city_after_ignoring_quest',
+    locationX: 1098,
     locationY: 558,
     possibleOutcomes: [
-
+        state20,
+        state20,
+        state20
     ],
     complicatedBehaviour: function(){
         // doNothing
     }
 };
-let state3 = {
-    name: 'portal',
-    locationX: 591,
-    locationY: 896,
-    possibleOutcomes: [
 
-    ],
-    complicatedBehaviour: function(){
-        // doABarrelRoll()
-    }
-};
-let state4 = {
-    name: 'road',
-    locationX: 896,
-    locationY: 676,
+let state18 = {
+    name: 'mage_tower_last_boos_from_city',
+    locationX: 1622,
+    locationY: 568,
     possibleOutcomes: [
 
     ],
@@ -44,118 +62,24 @@ let state4 = {
     }
 };
 
-let state5 = {
-    name: 'forest',
-    locationX: 405,
-    locationY: 356,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state6 = {
-    name: 'forest_after_water',
-    locationX: 884,
-    locationY: 320,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state7 = {
-    name: 'city_after_forest',
-    locationX: 1130,
-    locationY: 512,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state8 = {
-    name: 'road_after_city',
-    locationX: 1130,
-    locationY: 630,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state9 = {
-    name: 'bridge_before_dragon',
-    locationX: 1478,
+let state17 = {
+    name: 'go_to_mage_tower_before_city',
+    locationX: 1472,
     locationY: 536,
     possibleOutcomes: [
-
+        state18,
+        state18,
+        state18
     ],
     complicatedBehaviour: function(){
         // doNothing
     }
 };
 
-let state10 = {
-    name: 'final_boss',
-    locationX: 1640,
-    locationY: 569,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state11 = {
-    name: 'portal_inside',
-    locationX: 1510,
-    locationY: 342,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state12 = {
-    name: 'after_portal_boss',
-    locationX: 1680,
-    locationY: 436,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state13 = {
-    name: 'jungle_quest',
-    locationX: 1022,
-    locationY: 778,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state14 = {
-    name: 'return_to_quest_after_jungle',
-    locationX: 940,
-    locationY: 666,
+let state16 = {
+    name: 'ignore_quest',
+    locationX: 1126,
+    locationY: 634,
     possibleOutcomes: [
 
     ],
@@ -176,10 +100,24 @@ let state15 = {
     }
 };
 
-let state16 = {
-    name: 'ignore_quest',
-    locationX: 1126,
-    locationY: 634,
+let state14 = {
+    name: 'return_to_quest_after_jungle',
+    locationX: 940,
+    locationY: 666,
+    possibleOutcomes: [
+        state15,
+        state15,
+        state15
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state13 = {
+    name: 'jungle_quest',
+    locationX: 1022,
+    locationY: 778,
     possibleOutcomes: [
 
     ],
@@ -188,23 +126,123 @@ let state16 = {
     }
 };
 
-let state17 = {
-    name: 'go_to_mage_tower_before_city',
-    locationX: 1472,
+let state12 = {
+    name: 'after_portal_boss',
+    locationX: 1680,
+    locationY: 436,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state11 = {
+    name: 'portal_inside',
+    locationX: 1510,
+    locationY: 342,
+    possibleOutcomes: [
+        state12,
+        state12,
+        state12
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state10 = {
+    name: 'final_boss',
+    locationX: 1640,
+    locationY: 569,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state9 = {
+    name: 'bridge_before_dragon',
+    locationX: 1478,
     locationY: 536,
     possibleOutcomes: [
-
+        state10,
+        state10,
+        state10
     ],
     complicatedBehaviour: function(){
         // doNothing
     }
 };
 
-let state18 = {
-    name: 'mage_tower_last_boos_from_city',
-    locationX: 1622,
-    locationY: 568,
+let state8 = {
+    name: 'road_after_city',
+    locationX: 1130,
+    locationY: 630,
     possibleOutcomes: [
+        state9,
+        state9,
+        state9
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state7 = {
+    name: 'city_after_forest',
+    locationX: 1130,
+    locationY: 512,
+    possibleOutcomes: [
+        state8,
+        state8,
+        state8
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state6 = {
+    name: 'forest_after_water',
+    locationX: 884,
+    locationY: 320,
+    possibleOutcomes: [
+        state7,
+        state7,
+        state7
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state5 = {
+    name: 'forest',
+    locationX: 405,
+    locationY: 356,
+    possibleOutcomes: [
+        state6,
+        state6,
+        state6
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+
+let state4 = {
+    name: 'road',
+    locationX: 896,
+    locationY: 676,
+    possibleOutcomes: [
+        state13,
+        state16,
+        state21
 
     ],
     complicatedBehaviour: function(){
@@ -212,24 +250,27 @@ let state18 = {
     }
 };
 
-let state19 = {
-    name: 'go_to_city_after_ignoring_quest',
-    locationX: 1098,
+let state3 = {
+    name: 'portal',
+    locationX: 591,
+    locationY: 896,
+    possibleOutcomes: [
+        state11,
+        state11
+    ],
+    complicatedBehaviour: function(){
+        // doABarrelRoll()
+    }
+};
+
+let state2 = {
+    name: 'forest_bridge',
+    locationX: 321,
     locationY: 558,
     possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
-        // doNothing
-    }
-};
-
-let state20 = {
-    name: 'what_to_do_after_kicked_out_of_city',
-    locationX: 1208,
-    locationY: 614,
-    possibleOutcomes: [
-
+        state5,
+        state4,
+        state5
     ],
     complicatedBehaviour: function(){
         // doNothing
@@ -366,7 +407,6 @@ function makeMove(locationX, locationY) {
     witchsidedoiface(locationX, locationY);
     $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
     // setTimeout(flavortextshowhide, 5000);
-
 }
 
 currentState = state1;
@@ -397,8 +437,8 @@ function click(state) {
 
 //MOVMENT ENDS---------------
 
-// FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
-//hide/show flavor text
+/* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
+hide/show flavor text*/
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");

@@ -11,11 +11,6 @@ html {
     margin: 0;
 }
 
-.HIDEME{
-    display:none;
-}
-
-
 /*MAIN GAME AREA---------------*/
 #game_area {
     position: relative;
