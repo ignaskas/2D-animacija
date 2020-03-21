@@ -240,7 +240,7 @@ span::after {
     z-index: 99;
 }
 
-#C2 {
+.C2 {
     position: absolute;
     width: 300px;
     height: 30px;
@@ -254,7 +254,7 @@ span::after {
     z-index: 99;
 }
 
-#C3 {
+.C3 {
     position: absolute;
     width: 300px;
     height: 30px;
@@ -268,7 +268,7 @@ span::after {
     z-index: 99;
 }
 
-#C1:hover, #C2:hover, #C3:hover {
+.C1:hover, .C2:hover, .C3:hover {
     height: 450px;
     top: 500px;
 }
