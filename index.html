@@ -33,7 +33,17 @@
         <a href="#"><span id="statagy">Agy: 4</span></a>
     </div>
     <!--    Main menu ends-->
-
+    <!--ITEMS   -->
+    <div id="items" class="itemslot">
+        <div id="key"></div>
+        <div id="flask"></div>
+        <div id="armor"></div>
+        <div id="sword"></div>
+        <div id="staff"></div>
+        <div id="blaster"></div>
+        <div id="bagofcoins"></div>
+    </div>
+    <!--EMS ENDS-->
     <!--        BOARD-->
     <div class="player" id="player"></div>
     <div class="grid"></div>
@@ -44,20 +54,37 @@
 
     <!--    CARDS-->
     <div id="cards">
-        <div id="C1" onclick="firstcard()"></div>
-        <div id="C2" onclick="secondcard()"></div>
-        <div id="C3" onclick="thirdcard()"></div>
+        <div id="forest_bridge" class="C1" style="display: none;"></div>
+        <div id="forest" class="C1" style="display: none;"></div>
+        <div id="forest_after_water" class="C1" style="display: none;"></div>
+        <div id="city_after_forest" class="C1" style="display: none;"></div>
+        <div id="road_after_city" class="C1" style="display: none;"></div>
+        <div id="bridge_before_dragon" class="C1" style="display: none;"></div>
+        <div id="final_boss" class="C1" style="display: none;"></div>
+        <div id="portal" class="C2" style="display: none;"></div>
+        <div id="portal_inside" class="C2" style="display: none;"></div>
+        <div id="after_portal_boss" class="C2" style="display: none;"></div>
+        <div id="road" class="C3" style="display: none;"></div>
+        <div id="jungle_quest" class="C3" style="display: none;"></div>
+        <div id="return_to_quest_after_jungle" class="C3" style="display: none;"></div>
+        <div id="go_to_city_after_quest" class="C3" style="display: none;"></div>
+        <div id="ignore_quest" class="C3" style="display: none;"></div>
+        <div id="rob_merchant" class="C3" style="display: none;"></div>
+        <div id="go_to_mage_tower_before_city" class="C3" style="display: none;"></div>
+        <div id="mage_tower_last_boos_from_city" class="C3" style="display: none;"></div>
+        <div id="go_to_city_after_ignoring_quest" class="C3" style="display: none;"></div>
+        <div id="what_to_do_after_kicked_out_of_city" class="C3" style="display: none;"></div>
     </div>
     <!--CARDS END-->
 
     <!--    Flavor text div-->
-    <div id="flavor_text"></div>
+<!--    <div id="flavor_text">IMAGE AND TEXT GOES HERE</div>-->
     <!--Flavor text ends-->
 
 
     <!--TODO: this is for testing only remove this-->
-    <button onclick="test()">testing</button>
     <div id="pos"></div>
+    <button onclick="test()">testing</button>
 </div>
 
 </body>

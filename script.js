@@ -1,76 +1,297 @@
 // genres
 //TODO: set values to 0 before final test!
 let genres = {
-    rpg: 10,
+    rpg: 0,
     horror: 0,
     adventure: 0,
     strategy: 0,
     scfi: 0
 };
 
-// were are we going
-let moveonX = 0;
-let moveonY = 0;
+// path we take states
+//TODO: fix the order/cordinates
+let currentState;
 
-//TODO: change the cordinates to fit the map
-//Path we take
-let path = [
-    {
-        name: "Current_Position", // 0 for cheking withc direction we are facing
-        locationX: 0,
-        locationY: 0
-    },
-    {
-        name: "New_Position", // 1  for cheking withc direction we are facing
-        locationX: 670,
-        locationY: 293
-    },
-    {
-        name: "Portal", // 2
-        locationX: 336,
-        locationY: 635
-    },
-    {
-        name: "Portal_Exit", // 3
-        locationX: 900,
-        locationY: 500
-    },
-    {
-        name: "Forest", // 4
-        locationX: 882,
-        locationY: 625
-    },
-    {
-        name: "Bridge_After_Forest", // 5
-        locationX: 900,
-        locationY: 500
-    },
-    {
-        name: "Merchant_Camp",  // 6
-        locationX: 638,
-        locationY: 243
-    },
-    {
-        name: "Jungle",  // 7
-        locationX: 980,
-        locationY: 800
-    },
-    {
-        name: "City",  // 8
-        locationX: 738,
-        locationY: 243
-    },
-    {
-        name: "Bridge_Before_mage_tower",  // 9
-        locationX: 1938,
-        locationY: 243
-    },
-    {
-        name: "Ending",  // 10
-        locationX: 1938,
-        locationY: 243
+let state21 = {
+    name: 'rob_merchant',
+    locationX: 1208,
+    locationY: 614,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
     }
-];
+};
+
+let state20 = {
+    name: 'what_to_do_after_kicked_out_of_city',
+    locationX: 1208,
+    locationY: 614,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state19 = {
+    name: 'go_to_city_after_ignoring_quest',
+    locationX: 1098,
+    locationY: 558,
+    possibleOutcomes: [
+        state20,
+        state20,
+        state20
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state18 = {
+    name: 'mage_tower_last_boos_from_city',
+    locationX: 1622,
+    locationY: 568,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state17 = {
+    name: 'go_to_mage_tower_before_city',
+    locationX: 1472,
+    locationY: 536,
+    possibleOutcomes: [
+        state18,
+        state18,
+        state18
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state16 = {
+    name: 'ignore_quest',
+    locationX: 1126,
+    locationY: 634,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state15 = {
+    name: 'go_to_city_after_quest',
+    locationX: 1108,
+    locationY: 574,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state14 = {
+    name: 'return_to_quest_after_jungle',
+    locationX: 940,
+    locationY: 666,
+    possibleOutcomes: [
+        state15,
+        state15,
+        state15
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state13 = {
+    name: 'jungle_quest',
+    locationX: 1022,
+    locationY: 778,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state12 = {
+    name: 'after_portal_boss',
+    locationX: 1680,
+    locationY: 436,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state11 = {
+    name: 'portal_inside',
+    locationX: 1510,
+    locationY: 342,
+    possibleOutcomes: [
+        state12,
+        state12,
+        state12
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state10 = {
+    name: 'final_boss',
+    locationX: 1640,
+    locationY: 569,
+    possibleOutcomes: [
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state9 = {
+    name: 'bridge_before_dragon',
+    locationX: 1478,
+    locationY: 536,
+    possibleOutcomes: [
+        state10,
+        state10,
+        state10
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state8 = {
+    name: 'road_after_city',
+    locationX: 1130,
+    locationY: 630,
+    possibleOutcomes: [
+        state9,
+        state9,
+        state9
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state7 = {
+    name: 'city_after_forest',
+    locationX: 1130,
+    locationY: 512,
+    possibleOutcomes: [
+        state8,
+        state8,
+        state8
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state6 = {
+    name: 'forest_after_water',
+    locationX: 884,
+    locationY: 320,
+    possibleOutcomes: [
+        state7,
+        state7,
+        state7
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state5 = {
+    name: 'forest',
+    locationX: 405,
+    locationY: 356,
+    possibleOutcomes: [
+        state6,
+        state6,
+        state6
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+
+let state4 = {
+    name: 'road',
+    locationX: 896,
+    locationY: 676,
+    possibleOutcomes: [
+        state13,
+        state16,
+        state21
+
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state3 = {
+    name: 'portal',
+    locationX: 591,
+    locationY: 896,
+    possibleOutcomes: [
+        state11,
+        state11
+    ],
+    complicatedBehaviour: function(){
+        // doABarrelRoll()
+    }
+};
+
+let state2 = {
+    name: 'forest_bridge',
+    locationX: 321,
+    locationY: 558,
+    possibleOutcomes: [
+        state5,
+        state4,
+        state5
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let state1 = {
+    name: 'initial',
+    locationX: 600,
+    locationY: 400,
+    possibleOutcomes: [
+        state2,
+        state3,
+        state4
+    ],
+    complicatedBehaviour: function(){
+        // doNothing
+    }
+};
+
+let buttons = [];
 
 // atributes
 let int = 4;
@@ -79,7 +300,17 @@ let agy = 4;
 let pointstospend = 5;
 
 // move counter
-let moves = 0;
+let moves = -1;
+
+// items
+let glassKey = true;
+let armor = false;
+let flask = true;
+let flaskfull = false;
+let sword = false;
+let blaster = false;
+let staff = false;
+let bagOfCoins = false;
 
 // event memory
 // event memory goes here
@@ -118,14 +349,15 @@ function addagy() {
 //ATRIBUTE ASSIGMENT ENDS---------------
 
 // switches divsbackground image based on witch way charter is moving
-function witchsidedoiface() {
-    if ((path[0].locationY > path[1].locationY) && (path[0].locationX > path[1].locationX)) {  //we are moving NW
+function witchsidedoiface(locationX, locationY) {
+    // console.log("f " + locationX, "f+ " + locationY);
+    if ((currentState.locationY > locationY) && (currentState.locationX > locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
-    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving SE
+    } else if ((currentState.locationY < locationY) && (currentState.locationX < locationX)) { //we are moving SE -- bottom rigth
         $('#player').css('background-position', '60px 0px');
-    } else if ((path[0].locationY > path[1].locationY) && (path[0].locationX < path[1].locationX)) { //we are moving NE
+    } else if ((currentState.locationY > locationY) && (currentState.locationX < locationX)) { //we are moving NE -- top rigth
         $('#player').css('background-position', '0px 0px');
-    } else if ((path[0].locationY < path[1].locationY) && (path[0].locationX > path[1].locationX)) { //we are moving SW
+    } else if ((currentState.locationY < locationY) && (currentState.locationX > locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
     }
 }
@@ -164,111 +396,49 @@ console.log(chekbest(genres));
 //prints location of mouse curson onclick
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
-        "clientX: " + event.clientX +
-        " - clientY: " + event.clientY;
-    console.log("X" + " " + event.clientX + " " + "Y" + " " + event.clientY);
+        "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+    console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
 }
 
 document.addEventListener("click", printMousePos);
 
 //  Animation and flavor text area showhide
-function makeMove() {
-    witchsidedoiface();
-    $('#player').animate({left: moveonX - 30, top: moveonY - 80}, 5000);
-    setTimeout(flavortextshowhide, 5000);
-    path[0].locationX = path[1].locationX;
-    path[0].locationY = path[1].locationY;
+function makeMove(locationX, locationY) {
+    witchsidedoiface(locationX, locationY);
+    $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
+    // setTimeout(flavortextshowhide, 5000);
 }
 
-// MOVEMENT---------------
-// TODO: change this to a proper function
-// moves from first card
-function firstcard() {
-    flavortextshowhide();
-    moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2) {
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 3) {
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
+currentState = state1;
+updatePossibilities();
+
+function updatePossibilities() {
+    for (let aState of currentState.possibleOutcomes) {
+
+        $('#' + aState.name).css('display', 'block');
+        $('#' + aState.name).click(function() {
+            aState.complicatedBehaviour();
+            click(aState)
+        });
+
     }
-    makeMove();
 }
 
-// moves from second card
-function secondcard() {
-    flavortextshowhide();
-    moves += 1;
-    if (moves === 1) {
-        moveonX = path[3].locationX;
-        moveonY = path[3].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 2) {
-        moveonX = path[2].locationX;
-        moveonY = path[2].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
-    } else if (moves === 3) {
-        moveonX = path[4].locationX;
-        moveonY = path[4].locationY;
-        path[1].locationY = moveonY;
-        path[1].locationX = moveonX;
+function click(state) {
+    makeMove(state.locationX, state.locationY); /*-> turning, movement*/
+    // hide old buttons
+    for(let aState of currentState.possibleOutcomes){
+        $('#' + aState.name).css('display', 'none');
     }
-    makeMove();
+    currentState = state;
+    updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
 }
 
-// moves from third card
-function thirdcard() {
-    flavortextshowhide();
-    moves += 1;
-    switch (moves) {
-        case 1:
-            moveonX = path[3].locationX;
-            moveonY = path[3].locationY;
-            path[1].locationX = moveonX;
-            path[1].locationY = moveonY;
-            makeMove();
-            break;
-        case 2:
-            moveonX = path[4].locationX;
-            moveonY = path[4].locationY;
-            path[1].locationY = moveonY;
-            path[1].locationX = moveonX;
-            makeMove();
-            break;
-        case 3:
-            moveonX = path[5].locationX;
-            moveonY = path[5].locationY;
-            path[1].locationY = moveonY;
-            path[1].locationX = moveonX;
-            makeMove();
-            break;
-        default:
-            moves = 1;
-            moveonX = path[3].locationX;
-            moveonY = path[3].locationY;
-            path[1].locationX = moveonX;
-            path[1].locationY = moveonY;
-            makeMove();
-            break;
-    }
-}
 
 //MOVMENT ENDS---------------
 
-// FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
-//hide/show flavor text
+/* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
+hide/show flavor text*/
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
