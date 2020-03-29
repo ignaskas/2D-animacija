@@ -1,5 +1,4 @@
 // genres
-//TODO: set values to 0 before final test!
 let genres = {
     rpg: 0,
     horror: 0,
@@ -8,287 +7,17 @@ let genres = {
     scfi: 0
 };
 
-// path we take states
-//TODO: fix the order/cordinates
+// game states / movement cordinates / atribute checks
 let currentState;
 
-let state21 = {
-    name: 'rob_merchant',
-    locationX: 1208,
-    locationY: 614,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state20 = {
-    name: 'what_to_do_after_kicked_out_of_city',
-    locationX: 1208,
-    locationY: 614,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state19 = {
-    name: 'go_to_city_after_ignoring_quest',
-    locationX: 1098,
-    locationY: 558,
-    possibleOutcomes: [
-        state20,
-        state20,
-        state20
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state18 = {
-    name: 'mage_tower_last_boos_from_city',
-    locationX: 1622,
-    locationY: 568,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state17 = {
-    name: 'go_to_mage_tower_before_city',
-    locationX: 1472,
-    locationY: 536,
-    possibleOutcomes: [
-        state18,
-        state18,
-        state18
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state16 = {
-    name: 'ignore_quest',
-    locationX: 1126,
-    locationY: 634,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state15 = {
-    name: 'go_to_city_after_quest',
-    locationX: 1108,
-    locationY: 574,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state14 = {
-    name: 'return_to_quest_after_jungle',
-    locationX: 940,
-    locationY: 666,
-    possibleOutcomes: [
-        state15,
-        state15,
-        state15
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state13 = {
-    name: 'jungle_quest',
-    locationX: 1022,
-    locationY: 778,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state12 = {
-    name: 'after_portal_boss',
-    locationX: 1680,
-    locationY: 436,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state11 = {
-    name: 'portal_inside',
-    locationX: 1510,
-    locationY: 342,
-    possibleOutcomes: [
-        state12,
-        state12,
-        state12
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state10 = {
-    name: 'final_boss',
-    locationX: 1640,
-    locationY: 569,
-    possibleOutcomes: [],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state9 = {
-    name: 'bridge_before_dragon',
-    locationX: 1478,
-    locationY: 536,
-    possibleOutcomes: [
-        state10,
-        state10,
-        state10
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state8 = {
-    name: 'road_after_city',
-    locationX: 1130,
-    locationY: 630,
-    possibleOutcomes: [
-        state9,
-        state9,
-        state9
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state7 = {
-    name: 'city_after_forest',
-    locationX: 1130,
-    locationY: 512,
-    possibleOutcomes: [
-        state8,
-        state8,
-        state8
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state6 = {
-    name: 'forest_after_water',
-    locationX: 884,
-    locationY: 320,
-    possibleOutcomes: [
-        state7,
-        state7,
-        state7
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
 let state5 = {
-    name: 'forest',
-    locationX: 405,
-    locationY: 356,
-    possibleOutcomes: [
-        state6,
-        state6,
-        state6
-    ],
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-
-let state4 = {
-    name: 'road',
-    locationX: 896,
-    locationY: 676,
-    possibleOutcomes: [
-        // state13,
-        // state16,
-        // state21
-
-    ],
-    steps: [
-        {
-            locationX: 500,
-            locationY: 255
-        },
-        {
-            locationX: 123,
-            locationY: 234
-        },
-        {
-            locationX: 456,
-            locationY: 678
-        }
-    ],
-    attributeCheck: function() {
-        return intellect > 4;
-    },
-    complicatedBehaviour: function () {
-        // doNothing
-    }
-};
-
-let state3 = {
-    name: 'portal',
-    // locationX: 591,
-    // locationY: 896,
-    possibleOutcomes: [
-        // state11,
-        // state11
-    ],
-    steps: [
-        {
-            locationX: 0,
-            locationY: 0
-        },
-        {
-            locationX: 123,
-            locationY: 234
-        },
-        {
-            locationX: 456,
-            locationY: 678
-        }
-    ],
-    attributeCheck: function() {
-        return int > 4;
-    },
-    complicatedBehaviour: function () {
-
-    }
-};
-
-let state2 = {
-    name: 'forest_bridge',
+    name: 'notnow',
     locationX: 321,
     locationY: 558,
     possibleOutcomes: [
-        // state5,
         // state4,
-        // state5
+        // state4,
+        // state4
     ],
     steps: [
         {
@@ -302,13 +31,118 @@ let state2 = {
         {
             locationX: 456,
             locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        if(int >= 6){
+            return true
+        } else {
+            return false
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 15000);
+    }
+};
+
+let state4 = {
+    name: 'portal',
+    locationX: 597,
+    locationY: 893,
+    possibleOutcomes: [
+        state5,
+        state5,
+        state5
+    ],
+    steps: [
+        {
+            locationX: 419,
+            locationY: 689
+        },
+        {
+            locationX: 429,
+            locationY: 741
+        },
+        {
+            locationX: 597,
+            locationY: 893
         }
     ],
     attributeCheck: function() {
         return true;
     },
     complicatedBehaviour: function () {
-        // doNothing
+        genres.rpg += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 15000);
+    }
+};
+
+let state3 = {
+    name: 'road',
+    locationX: 853,
+    locationY: 681,
+    possibleOutcomes: [
+        state4,
+        state4,
+        state4
+    ],
+    steps: [
+        {
+            locationX: 455,
+            locationY: 675
+        },
+        {
+            locationX: 619,
+            locationY: 679
+        },
+        {
+            locationX: 853,
+            locationY: 681
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 15000);
+    }
+};
+
+let state2 = {
+    name: 'dark_forest',
+    locationX: 457,
+    locationY: 393,
+    possibleOutcomes: [
+        state3,
+        state4,
+        state5
+    ],
+    steps: [
+        {
+            locationX: 379,
+            locationY: 597
+        },
+        {
+            locationX: 253,
+            locationY: 543
+        },
+        {
+            locationX: 457,
+            locationY: 393
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 15000);
     }
 };
 
@@ -336,11 +170,7 @@ let state1 = {
         }
     ],
     attributeCheck: function() {
-      if(int===4&&agy===5&&str===999999){
-          return true
-      } else {
-          return false
-      }
+
     },
 
     complicatedBehaviour: function () {
@@ -420,16 +250,7 @@ function witchsidedoiface(prevX, locationX, prevY, locationY) {
     }
 }
 
-//TODO: fit all atribute cheks in to 1 function
-// atribute check at specific move
-function atributechek() {
-    if (str >= 5) {
-        return true;
-    }
-}
-
-//TODO: clean this up a bit!
-// pull highest value from genre object array returnit as variable name
+// chek witch genre got the highest score return the name of genre
 function chekbest(genres) {
     var max = -Infinity;
     var maxname = null;
@@ -460,14 +281,12 @@ function printMousePos(event) {
 
 document.addEventListener("click", printMousePos);
 
-//  Animation and flavor text area showhide
+// animate movement from array call withcwaydoiface function
 function makeMove(prevX, locationX, prevY, locationY) {
     witchsidedoiface(prevX, locationX, prevY, locationY);
     $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
-    // setTimeout(()=>console.log('now'),5000)
-    // setTimeout(flavortextshowhide, 5000);
 }
-
+//check game state set new game state generate new set of cards for posibale movement set text for next move
 currentState = state1;
 updatePossibilities();
 
@@ -485,16 +304,16 @@ function updatePossibilities() {
     }
 }
 
+// assign click function to generated cards based on game state call movement function with a delay
 function click(state) {
-    let x = currentState.locationX;//1.x
-    let y = currentState.locationY;//1.y
+    let x = currentState.locationX;
+    let y = currentState.locationY;
     state.steps.forEach(function (value, index) {
         setTimeout(()=>{
-            makeMove(x/*1.x*/, value.locationX/*2.x*/, y/*1.y*/, value.locationY/*2.y*/);
+            makeMove(x, value.locationX, y, value.locationY);
             x=value.locationX;
             y=value.locationY;
         }, index*5000)
-         /*-> turning, movement*/
     });
     setTimeout(()=>{
         for (let aState of currentState.possibleOutcomes) {
@@ -503,7 +322,6 @@ function click(state) {
         currentState = state;
         updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
     },state.steps.length*5000)
-    // hide old buttons
 }
 
 
@@ -512,7 +330,7 @@ function click(state) {
 /* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 hide/show flavor text*/
 
-// TODO: change the timer for this and add a proper trigger
+//hide loading screen hide cards during movement hide flavor text during movment
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
     $('#cards').toggle("fast");
@@ -525,7 +343,7 @@ function flavortextshowhide() {
 window.onload = function () {
     flavortextshowhide();
 };
-
+//TODO: this needs to go as well
 function test() {
     $('#flavor_text').toggle("slow");
     $('#cards').toggle("fast");
