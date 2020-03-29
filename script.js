@@ -16,10 +16,8 @@ let state21 = {
     name: 'rob_merchant',
     locationX: 1208,
     locationY: 614,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -28,10 +26,8 @@ let state20 = {
     name: 'what_to_do_after_kicked_out_of_city',
     locationX: 1208,
     locationY: 614,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -45,7 +41,7 @@ let state19 = {
         state20,
         state20
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -54,10 +50,8 @@ let state18 = {
     name: 'mage_tower_last_boos_from_city',
     locationX: 1622,
     locationY: 568,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -71,7 +65,7 @@ let state17 = {
         state18,
         state18
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -80,10 +74,8 @@ let state16 = {
     name: 'ignore_quest',
     locationX: 1126,
     locationY: 634,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -92,10 +84,8 @@ let state15 = {
     name: 'go_to_city_after_quest',
     locationX: 1108,
     locationY: 574,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -109,7 +99,7 @@ let state14 = {
         state15,
         state15
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -118,10 +108,8 @@ let state13 = {
     name: 'jungle_quest',
     locationX: 1022,
     locationY: 778,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -130,10 +118,8 @@ let state12 = {
     name: 'after_portal_boss',
     locationX: 1680,
     locationY: 436,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -147,7 +133,7 @@ let state11 = {
         state12,
         state12
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -156,10 +142,8 @@ let state10 = {
     name: 'final_boss',
     locationX: 1640,
     locationY: 569,
-    possibleOutcomes: [
-
-    ],
-    complicatedBehaviour: function(){
+    possibleOutcomes: [],
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -173,7 +157,7 @@ let state9 = {
         state10,
         state10
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -187,7 +171,7 @@ let state8 = {
         state9,
         state9
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -201,7 +185,7 @@ let state7 = {
         state8,
         state8
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -215,7 +199,7 @@ let state6 = {
         state7,
         state7
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -229,7 +213,7 @@ let state5 = {
         state6,
         state6
     ],
-    complicatedBehaviour: function(){
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
@@ -240,26 +224,60 @@ let state4 = {
     locationX: 896,
     locationY: 676,
     possibleOutcomes: [
-        state13,
-        state16,
-        state21
+        // state13,
+        // state16,
+        // state21
 
     ],
-    complicatedBehaviour: function(){
+    steps: [
+        {
+            locationX: 500,
+            locationY: 255
+        },
+        {
+            locationX: 123,
+            locationY: 234
+        },
+        {
+            locationX: 456,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return intellect > 4;
+    },
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
 
 let state3 = {
     name: 'portal',
-    locationX: 591,
-    locationY: 896,
+    // locationX: 591,
+    // locationY: 896,
     possibleOutcomes: [
-        state11,
-        state11
+        // state11,
+        // state11
     ],
-    complicatedBehaviour: function(){
-        // doABarrelRoll()
+    steps: [
+        {
+            locationX: 0,
+            locationY: 0
+        },
+        {
+            locationX: 123,
+            locationY: 234
+        },
+        {
+            locationX: 456,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return int > 4;
+    },
+    complicatedBehaviour: function () {
+
     }
 };
 
@@ -268,25 +286,65 @@ let state2 = {
     locationX: 321,
     locationY: 558,
     possibleOutcomes: [
-        state5,
-        state4,
-        state5
+        // state5,
+        // state4,
+        // state5
     ],
-    complicatedBehaviour: function(){
+    steps: [
+        {
+            locationX: 0,
+            locationY: 0
+        },
+        {
+            locationX: 123,
+            locationY: 234
+        },
+        {
+            locationX: 456,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
         // doNothing
     }
 };
 
 let state1 = {
     name: 'initial',
-    locationX: 600,
-    locationY: 400,
+    locationX: 310,
+    locationY: 560,
     possibleOutcomes: [
         state2,
         state3,
         state4
     ],
-    complicatedBehaviour: function(){
+    steps: [
+        {
+            locationX: 0,
+            locationY: 0
+        },
+        {
+            locationX: 123,
+            locationY: 234
+        },
+        {
+            locationX: 456,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+      if(int===4&&agy===5&&str===999999){
+          return true
+      } else {
+          return false
+      }
+    },
+
+    complicatedBehaviour: function () {
+        // click(this)
         // doNothing
     }
 };
@@ -349,15 +407,15 @@ function addagy() {
 //ATRIBUTE ASSIGMENT ENDS---------------
 
 // switches divsbackground image based on witch way charter is moving
-function witchsidedoiface(locationX, locationY) {
+function witchsidedoiface(prevX, locationX, prevY, locationY) {
     // console.log("f " + locationX, "f+ " + locationY);
-    if ((currentState.locationY > locationY) && (currentState.locationX > locationX)) {  //we are moving NW -- top left
+    if ((prevY > locationY) && (prevX > locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
-    } else if ((currentState.locationY < locationY) && (currentState.locationX < locationX)) { //we are moving SE -- bottom rigth
+    } else if ((prevY < locationY) && (prevX < locationX)) { //we are moving SE -- bottom rigth
         $('#player').css('background-position', '60px 0px');
-    } else if ((currentState.locationY > locationY) && (currentState.locationX < locationX)) { //we are moving NE -- top rigth
+    } else if ((prevY > locationY) && (prevX < locationX)) { //we are moving NE -- top rigth
         $('#player').css('background-position', '0px 0px');
-    } else if ((currentState.locationY < locationY) && (currentState.locationX > locationX)) { //we are moving SW -- bottom left
+    } else if ((prevY < locationY) && (prevX > locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
     }
 }
@@ -403,9 +461,10 @@ function printMousePos(event) {
 document.addEventListener("click", printMousePos);
 
 //  Animation and flavor text area showhide
-function makeMove(locationX, locationY) {
-    witchsidedoiface(locationX, locationY);
+function makeMove(prevX, locationX, prevY, locationY) {
+    witchsidedoiface(prevX, locationX, prevY, locationY);
     $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
+    // setTimeout(()=>console.log('now'),5000)
     // setTimeout(flavortextshowhide, 5000);
 }
 
@@ -415,23 +474,36 @@ updatePossibilities();
 function updatePossibilities() {
     for (let aState of currentState.possibleOutcomes) {
 
-        $('#' + aState.name).css('display', 'block');
-        $('#' + aState.name).click(function() {
-            aState.complicatedBehaviour();
-            click(aState)
-        });
+        if(aState.attributeCheck()){
+            $('#' + aState.name).css('display', 'block');
+            $('#' + aState.name).click(function () {
+                aState.complicatedBehaviour();
+                click(aState)
+            });
+        }
 
     }
 }
 
 function click(state) {
-    makeMove(state.locationX, state.locationY); /*-> turning, movement*/
+    let x = currentState.locationX;//1.x
+    let y = currentState.locationY;//1.y
+    state.steps.forEach(function (value, index) {
+        setTimeout(()=>{
+            makeMove(x/*1.x*/, value.locationX/*2.x*/, y/*1.y*/, value.locationY/*2.y*/);
+            x=value.locationX;
+            y=value.locationY;
+        }, index*5000)
+         /*-> turning, movement*/
+    });
+    setTimeout(()=>{
+        for (let aState of currentState.possibleOutcomes) {
+            $('#' + aState.name).css('display', 'none');
+        }
+        currentState = state;
+        updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
+    },state.steps.length*5000)
     // hide old buttons
-    for(let aState of currentState.possibleOutcomes){
-        $('#' + aState.name).css('display', 'none');
-    }
-    currentState = state;
-    updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
 }
 
 
@@ -439,6 +511,7 @@ function click(state) {
 
 /* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 hide/show flavor text*/
+
 // TODO: change the timer for this and add a proper trigger
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
