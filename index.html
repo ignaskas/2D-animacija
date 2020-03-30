@@ -4,6 +4,7 @@
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>2D Animacija</title>
 </head>
@@ -35,13 +36,30 @@
     <!--    Main menu ends-->
     <!--ITEMS   -->
     <div id="items" class="itemslot">
-        <div id="key"></div>
-        <div id="flask"></div>
-        <div id="armor"></div>
-        <div id="sword"></div>
-        <div id="staff"></div>
-        <div id="blaster"></div>
-        <div id="bagofcoins"></div>
+        <div id="glass_key">
+            <div id="glass_key_text" class="item_text">This is a glass key</div>
+        </div>
+        <div id="flask">
+            <div id="flask_text" class="item_text">This is an empty flask</div>
+        </div>
+        <div id="flask_full">
+            <div id="flask_full_text" class="item_text">This is a full flask</div>
+        </div>
+        <div id="armor">
+            <div id="armor_text" class="item_text">This is armor</div>
+        </div>
+        <div id="sword">
+            <div id="sword_text" class="item_text">This is a sword</div>
+        </div>
+        <div id="staff">
+            <div id="staff_text" class="item_text">This is a staff</div>
+        </div>
+        <div id="blaster">
+            <div id="blaster_text" class="item_text">This is a blaster</div>
+        </div>
+        <div id="bagofcoins">
+            <div id="bagofcoins_text" class="item_text">This is a bag of coins</div>
+        </div>
     </div>
     <!--EMS ENDS-->
     <!--        BOARD-->
@@ -54,21 +72,52 @@
 
     <!--    CARDS-->
     <div id="cards">
-        <div id="dark_forest" class="C1" style="display: none;"></div>
-        <div id="road" class="C2" style="display: none;"></div>
-        <div id="portal" class="C3" style="display: none;"></div>
+        <div id="swordchoise" class="C1" style="display: none;">SWORD</div>
+        <div id="staffchoise" class="C2" style="display: none;">STAFF</div>
+        <div id="blasterchoise" class="C3" style="display: none;">BLASTER</div>
+        <div id="forest" class="C1" style="display: none;">FOREST</div>
+        <div id="portal" class="C2" style="display: none;">PORTAL</div>
+        <div id="road" class="C3" style="display: none;">ROAD</div>
+        <div id="forest_choise_drink" class="C2" style="display: none;">DRINK</div>
+        <div id="forest_choise_ignore" class="C1" style="display: none;">WALK</div>
+        <div id="forest_choise_intchek" class="C3" style="display: none;">FILL</div>
+        <div id="go_tocity" class="C2" style="display: none;">ONLY PICK</div>
+        <div id="no_money_for_armor" class="C1" style="display: none;">NO MONEY</div>
+        <div id="steal_armor" class="C3" style="display: none;">STEAL ARMOR</div>
+        <div id="ask_for_quest" class="C2" style="display: none;">ASK AROUND</div>
+        <div id="dragon_run" class="C1" style="display: none;">BOOS FIGTH LOSE</div>
+        <div id="dragon_posion" class="C3" style="display: none;">BOOS FIGTH posion</div>
+        <div id="dragon_steal" class="C2" style="display: none;">BOOS FIGTH steal</div>
+        <div id="after_portal_dragon_figth_lose" class="C1" style="display: none;">BOOS lose</div>
+        <div id="after_portal_win" class="C2" style="display: none;">BOOS win</div>
+        <div id="help_merchant" class="C1" style="display: none;">HELP MERCH</div>
+        <div id="ignore_merchant" class="C2" style="display: none;">IGNORE ME</div>
+        <div id="lizard_men_go_back_to_merchant" class="C2" style="display: none;">GO BACK</div>
+        <div id="lizard_men_go_to_city" class="C3" style="display: none;">TO TOWN</div>
+        <div id="go_to_city_after_returing_to_merchant" class="C2" style="display: none;">TO TOWN AFTER GOING BACK</div>
+        <div id="city_after_lizard_men" class="C1" style="display: none;">TO TOWN AFTER GOING BACK</div>
+        <div id="shop_city_buy_armor" class="C1" style="display: none;">BUY ARMOR</div>
+        <div id="steal_armor_after_merchant" class="C2" style="display: none;">STEAL ARMOR</div>
+        <div id="ignore_shop" class="C3" style="display: none;">IGNORE SHOP</div>
+        <div id="dragon_figth_lose" class="C1" style="display: none;">BOSS LOSE</div>
+        <div id="dragon_figth_win_bcs_armor" class="C2" style="display: none;">BOSS WIN</div>
 
     </div>
     <!--CARDS END-->
 
     <!--    Flavor text div-->
     <div id="flavor_text">IMAGE AND TEXT GOES HERE</div>
+    <div id="didntSpendAllPointsBeforePressingStart">Spent all atribute points</div>
     <!--Flavor text ends-->
 
 
     <!--TODO: this is for testing only remove this-->
     <div id="pos"></div>
-    <button onclick="test()">testing</button>
+    <div id="rpg">THIS IS RPG</div>
+    <div id="horror">THIS IS HORROR</div>
+    <div id="adve">THIS IS ADVE</div>
+    <div id="stra">THIS IS STRAG</div>
+    <div id="scifi">THIS IS SCIFI</div>
 </div>
 
 </body>
