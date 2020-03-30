@@ -31,21 +31,22 @@ html {
 /*MAIN MENU BUTTONS ---------------*/
 a {
     display: block;
-    color: white;
+    color: #c2cbca;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: sans-serif;
-    width: 40%;
+    font-family: 'Cormorant Unicase', serif;
+    font-weight: bold;
+    width: 43%;
     left: 500px;
     top: 10px;
     position: relative;
     z-index: 10;
-    background: lightblue;
+    background: #77592a;
     margin: 10px 11%;
 }
 
 a:hover {
-    background: #87C0D3;
+    background: #ed2100;
 }
 
 span {
@@ -66,7 +67,7 @@ a::before, a::after, span::before, span::after {
     background: inherit;
     z-index: -1;
     background-clip: padding-box;
-    border-color: #eee;
+    border-color: #b49e1f;
     border-style: solid;
     border-width: 0;
 }

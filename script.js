@@ -250,7 +250,7 @@ function witchsidedoiface(prevX, locationX, prevY, locationY) {
     }
 }
 
-// chek witch genre got the highest score return the name of genre
+// check witch genre got the highest score return the name of genre
 function chekbest(genres) {
     var max = -Infinity;
     var maxname = null;
@@ -271,7 +271,7 @@ function chekbest(genres) {
 //TODO: console.log needs to be removed and replaced with proper call function
 console.log(chekbest(genres));
 
-//TODO: remove this before test
+//TODO: remove this when pathing is done
 //prints location of mouse curson onclick
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
@@ -286,7 +286,7 @@ function makeMove(prevX, locationX, prevY, locationY) {
     witchsidedoiface(prevX, locationX, prevY, locationY);
     $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
 }
-//check game state set new game state generate new set of cards for posibale movement set text for next move
+//check game state set new game state generate new set of cards for possible movement set text for next move
 currentState = state1;
 updatePossibilities();
 
@@ -330,11 +330,10 @@ function click(state) {
 /* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 hide/show flavor text*/
 
-//hide loading screen hide cards during movement hide flavor text during movment
+//hide cards during movement hide flavor text during movment
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
     $('#cards').toggle("fast");
-    $('#blackout').fadeOut("slow");
 }
 
 //FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
@@ -349,6 +348,7 @@ window.onload = function () {
     $('#blaster').hide();
     $('#bagofcoins').hide();
     $('#didntSpendAllPointsBeforePressingStart').hide();
+    $('#blackout').fadeOut("slow");
 };
 // start the game only if all atribute points were spent
 function startgame() {
