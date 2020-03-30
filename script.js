@@ -10,130 +10,329 @@ let genres = {
 // game states / movement cordinates / atribute checks
 let currentState;
 
-let state5 = {
-    name: 'notnow',
-    locationX: 321,
-    locationY: 558,
+//GO TO CITY AFTER FOREST
+let state11 = {
+    name: 'go_tocity',
+    locationX: 1102,
+    locationY: 556,
     possibleOutcomes: [
-        // state4,
-        // state4,
-        // state4
+
     ],
     steps: [
         {
-            locationX: 0,
-            locationY: 0
+            locationX: 1062,
+            locationY: 414
         },
         {
-            locationX: 123,
-            locationY: 234
+            locationX: 1078,
+            locationY: 464
         },
         {
-            locationX: 456,
+            locationX: 1102,
+            locationY: 556
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//INT CHECK FOREST
+let state10 = {
+    name: 'forest_choise_intchek',
+    locationX: 1008,
+    locationY: 415,
+    possibleOutcomes: [
+        state11,    //TO CITY
+    ],
+    steps: [
+        {
+            locationX: 694,
+            locationY: 309
+        },
+        {
+            locationX: 898,
+            locationY: 339
+        },
+        {
+            locationX: 1008,
+            locationY: 415
+        }
+    ],
+    attributeCheck: function() {
+        if (int >= 6){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        filltheflask();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//JUST WALK AWAY
+let state9 = {
+    name: 'forest_choise_ignore',
+    locationX: 1008,
+    locationY: 415,
+    possibleOutcomes: [
+        state11,    //TO CITY
+    ],
+    steps: [
+        {
+            locationX: 694,
+            locationY: 309
+        },
+        {
+            locationX: 898,
+            locationY: 339
+        },
+        {
+            locationX: 1008,
+            locationY: 415
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+//TODO: add dead state
+//DRINK THE WATER
+let state8 = {
+    name: 'forest_choise_drink',
+    locationX: 316,
+    locationY: 379,
+    possibleOutcomes: [
+
+    ],
+    steps: [
+        {
+            locationX: 378,
+            locationY: 355
+        },
+        {
+            locationX: 356,
+            locationY: 359
+        },
+        {
+            locationX: 316,
+            locationY: 379
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        youhavedied();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+//ROAD
+let state7 = {
+    name: 'road',
+    locationX: 894,
+    locationY: 671,
+    possibleOutcomes: [
+
+    ],
+    steps: [
+        {
+            locationX: 602,
+            locationY: 673
+        },
+        {
+            locationX: 728,
+            locationY: 693
+        },
+        {
+            locationX: 894,
+            locationY: 671
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//PORTAL
+let state6 = {
+    name: 'portal',
+    locationX: 1510,
+    locationY: 344,
+    possibleOutcomes: [
+
+    ],
+    steps: [
+        {
+            locationX: 420,
+            locationY: 720
+        },
+        {
+            locationX: 606,
+            locationY: 884
+        },
+        {
+            locationX: 1510,
+            locationY: 344
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.scfi += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//FOREST
+let state5 = {
+    name: 'forest',
+    locationX: 444,
+    locationY: 370,
+    possibleOutcomes: [
+        state8,     //DRINK
+        state9,     //WALK AWAY
+        state10     //INT CHECK
+    ],
+    steps: [
+        {
+            locationX: 370,
+            locationY: 574
+        },
+        {
+            locationX: 266,
+            locationY: 536
+        },
+        {
+            locationX: 444,
+            locationY: 370
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//BLASTER
+let state4 = {
+    name: 'blasterchoise',
+    locationX: 424,
+    locationY: 678,
+    possibleOutcomes: [
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
+    ],
+    steps: [
+        {
+            locationX: 366,
+            locationY: 638
+        },
+        {
+            locationX: 360,
+            locationY: 676
+        },
+        {
+            locationX: 424,
             locationY: 678
         }
     ],
     attributeCheck: function() {
-        if(int >= 6){
-            return true
-        } else {
-            return false
-        }
-    },
-    complicatedBehaviour: function () {
-        genres.rpg += 1;
-        flavortextshowhide();
-        setTimeout(flavortextshowhide, 15000);
-    }
-};
-
-let state4 = {
-    name: 'portal',
-    locationX: 597,
-    locationY: 893,
-    possibleOutcomes: [
-        state5,
-        state5,
-        state5
-    ],
-    steps: [
-        {
-            locationX: 419,
-            locationY: 689
-        },
-        {
-            locationX: 429,
-            locationY: 741
-        },
-        {
-            locationX: 597,
-            locationY: 893
-        }
-    ],
-    attributeCheck: function() {
         return true;
     },
     complicatedBehaviour: function () {
-        genres.rpg += 1;
+        genres.scfi += 1;
+        hidethekey();
+        showblaster();
         flavortextshowhide();
-        setTimeout(flavortextshowhide, 15000);
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+//STAFF
 let state3 = {
-    name: 'road',
-    locationX: 853,
-    locationY: 681,
+    name: 'staffchoise',
+    locationX: 424,
+    locationY: 678,
     possibleOutcomes: [
-        state4,
-        state4,
-        state4
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
     ],
     steps: [
         {
-            locationX: 455,
-            locationY: 675
+            locationX: 366,
+            locationY: 638
         },
         {
-            locationX: 619,
-            locationY: 679
+            locationX: 360,
+            locationY: 676
         },
         {
-            locationX: 853,
-            locationY: 681
+            locationX: 424,
+            locationY: 678
         }
     ],
     attributeCheck: function() {
         return true;
     },
     complicatedBehaviour: function () {
-        genres.rpg += 1;
+        genres.adventure += 1;
+        hidethekey();
+        showstaff();
         flavortextshowhide();
-        setTimeout(flavortextshowhide, 15000);
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+//SWORD
 let state2 = {
-    name: 'dark_forest',
-    locationX: 457,
-    locationY: 393,
+    name: 'swordchoise',
+    locationX: 424,
+    locationY: 678,
     possibleOutcomes: [
-        state3,
-        state4,
-        state5
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
     ],
     steps: [
         {
-            locationX: 379,
-            locationY: 597
+            locationX: 366,
+            locationY: 638
         },
         {
-            locationX: 253,
-            locationY: 543
+            locationX: 360,
+            locationY: 676
         },
         {
-            locationX: 457,
-            locationY: 393
+            locationX: 424,
+            locationY: 678
         }
     ],
     attributeCheck: function() {
@@ -142,19 +341,20 @@ let state2 = {
     complicatedBehaviour: function () {
         genres.rpg += 1;
         hidethekey();
+        showsword();
         flavortextshowhide();
-        setTimeout(flavortextshowhide, 15000);
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+// initial state of the game
 let state1 = {
     name: 'initial',
     locationX: 310,
     locationY: 560,
     possibleOutcomes: [
-        state2,
-        state3,
-        state4
+        state2,     //SWORD
+        state3,     //STAFF
+        state4      //BLASTER
     ],
     steps: [
         {
@@ -284,7 +484,7 @@ document.addEventListener("click", printMousePos);
 // animate movement from array call withcwaydoiface function
 function makeMove(prevX, locationX, prevY, locationY) {
     witchsidedoiface(prevX, locationX, prevY, locationY);
-    $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
+    $('#player').animate({left: locationX - 30, top: locationY - 80}, 2000);
 }
 //check game state set new game state generate new set of cards for possible movement set text for next move
 currentState = state1;
@@ -313,7 +513,7 @@ function click(state) {
             makeMove(x, value.locationX, y, value.locationY);
             x=value.locationX;
             y=value.locationY;
-        }, index*5000)
+        }, index*2000)
     });
     setTimeout(()=>{
         for (let aState of currentState.possibleOutcomes) {
@@ -321,7 +521,7 @@ function click(state) {
         }
         currentState = state;
         updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
-    },state.steps.length*5000)
+    },state.steps.length*2000)
 }
 
 
@@ -362,10 +562,40 @@ function startgame() {
     }
 }
 
-// item checks show / hide
+// item checks show / hide-------------------------------
 
 // hides the glass key item div
 function hidethekey() {
     $('#glass_key').hide();
     glassKey = false;
 }
+// player picked sword so we show it and set the variable to true
+function showsword() {
+    $('#sword').show();
+    sword = true;
+}
+// player picked staff so we show it and set the variable to true
+function showstaff() {
+    $('#staff').show();
+    staff = true;
+}
+// player picked blaster so we show it and set the variable to true
+function showblaster() {
+    $('#blaster').show();
+    blaster = true;
+}
+// we past the int check change the picutre of flask to full set flask_full value to true set flask value to false
+function filltheflask() {
+    $('#flask').hide();
+    $('#flask_full').show();
+    flask = false;
+    flaskfull = true;
+}
+//items end ---------------------------------------
+//ENDING---------------------------
+//DEAD---
+function youhavedied() {
+    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
+}
+//DEAD END---
+//ENDING END-------------------------------

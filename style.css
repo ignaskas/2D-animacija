@@ -289,7 +289,7 @@ span::after {
     height: 500px;
     left: 650px;
     top: 200px;
-    background-color: white;
+    background-image: url("./assets/chest_closed.png");
     z-index: 50;
     border: 1px blue solid;
 }
