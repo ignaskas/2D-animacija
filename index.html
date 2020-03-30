@@ -4,6 +4,7 @@
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>2D Animacija</title>
 </head>
@@ -35,13 +36,30 @@
     <!--    Main menu ends-->
     <!--ITEMS   -->
     <div id="items" class="itemslot">
-        <div id="key"></div>
-        <div id="flask"></div>
-        <div id="armor"></div>
-        <div id="sword"></div>
-        <div id="staff"></div>
-        <div id="blaster"></div>
-        <div id="bagofcoins"></div>
+        <div id="glass_key">
+            <div id="glass_key_text" class="item_text">This is a glass key</div>
+        </div>
+        <div id="flask">
+            <div id="flask_text" class="item_text">This is an empty flask</div>
+        </div>
+        <div id="flask_full">
+            <div id="flask_full_text" class="item_text">This is a full flask</div>
+        </div>
+        <div id="armor">
+            <div id="armor_text" class="item_text">This is armor</div>
+        </div>
+        <div id="sword">
+            <div id="sword_text" class="item_text">This is a sword</div>
+        </div>
+        <div id="staff">
+            <div id="staff_text" class="item_text">This is a staff</div>
+        </div>
+        <div id="blaster">
+            <div id="blaster_text" class="item_text">This is a blaster</div>
+        </div>
+        <div id="bagofcoins">
+            <div id="bagofcoins_text" class="item_text">This is a bag of coins</div>
+        </div>
     </div>
     <!--EMS ENDS-->
     <!--        BOARD-->
@@ -63,12 +81,12 @@
 
     <!--    Flavor text div-->
     <div id="flavor_text">IMAGE AND TEXT GOES HERE</div>
+    <div id="didntSpendAllPointsBeforePressingStart">Spent all atribute points</div>
     <!--Flavor text ends-->
 
 
     <!--TODO: this is for testing only remove this-->
     <div id="pos"></div>
-    <button onclick="test()">testing</button>
 </div>
 
 </body>

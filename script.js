@@ -141,6 +141,7 @@ let state2 = {
     },
     complicatedBehaviour: function () {
         genres.rpg += 1;
+        hidethekey();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 15000);
     }
@@ -174,8 +175,7 @@ let state1 = {
     },
 
     complicatedBehaviour: function () {
-        // click(this)
-        // doNothing
+
     }
 };
 
@@ -339,13 +339,33 @@ function flavortextshowhide() {
 
 //FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
 
-//TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
+// set values to starting state
 window.onload = function () {
     flavortextshowhide();
+    $('#flask_full').hide();
+    $('#armor').hide();
+    $('#sword').hide();
+    $('#staff').hide();
+    $('#blaster').hide();
+    $('#bagofcoins').hide();
+    $('#didntSpendAllPointsBeforePressingStart').hide();
 };
-//TODO: this needs to go as well
-function test() {
-    $('#flavor_text').toggle("slow");
-    $('#cards').toggle("fast");
-    $('#starting_screen').toggle("fast");
+// start the game only if all atribute points were spent
+function startgame() {
+    if (pointstospend === 0) {
+        $('#flavor_text').toggle("slow");
+        $('#cards').toggle("fast");
+        $('#starting_screen').toggle("fast");
+        $('#didntSpendAllPointsBeforePressingStart').hide();
+    } else {
+        $('#didntSpendAllPointsBeforePressingStart').show();
+    }
+}
+
+// item checks show / hide
+
+// hides the glass key item div
+function hidethekey() {
+    $('#glass_key').hide();
+    glassKey = false;
 }
