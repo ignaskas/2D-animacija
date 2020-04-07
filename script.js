@@ -1,5 +1,4 @@
 // genres
-//TODO: set values to 0 before final test!
 let genres = {
     rpg: 0,
     horror: 0,
@@ -8,286 +7,1039 @@ let genres = {
     scfi: 0
 };
 
-// path we take states
-//TODO: fix the order/cordinates
+// game states / movement cordinates / atribute checks
 let currentState;
 
-let state21 = {
-    name: 'rob_merchant',
-    locationX: 1208,
-    locationY: 614,
+//win the game bcs you have armor
+let state30 = {
+    name: 'dragon_figth_win_bcs_armor',
+    locationX: 1659,
+    locationY: 503,
     possibleOutcomes: [
 
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1639,
+            locationY: 565
+        },
+        {
+            locationX: 1667,
+            locationY: 523
+        },
+        {
+            locationX: 1659,
+            locationY: 503
+        }
+    ],
+    attributeCheck: function() {
+        if (armor === true){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        youwin();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
-let state20 = {
-    name: 'what_to_do_after_kicked_out_of_city',
-    locationX: 1208,
-    locationY: 614,
+//TODO: fix the cordinates
+//lose to boss
+let state29 = {
+    name: 'dragon_figth_lose',
+    locationX: 1605,
+    locationY: 579,
     possibleOutcomes: [
 
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1137,
+            locationY: 645
+        },
+        {
+            locationX: 1483,
+            locationY: 545
+        },
+        {
+            locationX: 1605,
+            locationY: 579
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        youhavedied();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
-let state19 = {
-    name: 'go_to_city_after_ignoring_quest',
-    locationX: 1098,
+//ignore shop go to dragon
+let state28 = {
+    name: 'ignore_shop',
+    locationX: 1605,
+    locationY: 579,
+    possibleOutcomes: [
+        state29,    //YOU DIE
+        state30,    //WIN BCS ARMOR
+
+    ],
+    steps: [
+        {
+            locationX: 1137,
+            locationY: 645
+        },
+        {
+            locationX: 1483,
+            locationY: 545
+        },
+        {
+            locationX: 1605,
+            locationY: 579
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+//steal armor with your agy check
+let state27 = {
+    name: 'steal_armor_after_merchant',
+    locationX: 1605,
+    locationY: 579,
+    possibleOutcomes: [
+        state29,    //YOU DIE
+        state30,    //WIN BCS ARMOR
+    ],
+    steps: [
+        {
+            locationX: 1137,
+            locationY: 645
+        },
+        {
+            locationX: 1483,
+            locationY: 545
+        },
+        {
+            locationX: 1605,
+            locationY: 579
+        }
+    ],
+    attributeCheck: function() {
+        if (agy >= 6){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        getarmor();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// buy armor with your bag of coins
+let state26 = {
+    name: 'shop_city_buy_armor',
+    locationX: 1605,
+    locationY: 579,
+    possibleOutcomes: [
+        state29,    //YOU DIE
+        state30,    //WIN BCS ARMOR
+    ],
+    steps: [
+        {
+            locationX: 1137,
+            locationY: 645
+        },
+        {
+            locationX: 1483,
+            locationY: 545
+        },
+        {
+            locationX: 1605,
+            locationY: 579
+        }
+    ],
+    attributeCheck: function() {
+        if (bagOfCoins === true){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        getarmor();
+        removecoins();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// YOU LOSE
+let state25 = {
+    name: 'city_after_lizard_men',
+    locationX: 1091,
     locationY: 558,
     possibleOutcomes: [
-        state20,
-        state20,
-        state20
+
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1101,
+            locationY: 560
+        },
+        {
+            locationX: 1097,
+            locationY: 558
+        },
+        {
+            locationX: 1091,
+            locationY: 558
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        jailed();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+//TODO: fix the cordinates
+// go to city after returing to merchant
+let state24 = {
+    name: 'go_to_city_after_returing_to_merchant',
+    locationX: 1113,
+    locationY: 580,
+    possibleOutcomes: [
+        state26,    //BUY ARMOR
+        state27,    //STEAL ARMOR
+        state28     //IGNORE ARMOR
+    ],
+    steps: [
+        {
+            locationX: 955,
+            locationY: 678
+        },
+        {
+            locationX: 1133,
+            locationY: 580
+        },
+        {
+            locationX: 1113,
+            locationY: 580
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+// go to city after lizard men are dead
+let state23 = {
+    name: 'lizard_men_go_to_city',
+    locationX: 1099,
+    locationY: 573,
+    possibleOutcomes: [
+        state25,    //GO TO CITY
+    ],
+    steps: [
+        {
+            locationX: 987,
+            locationY: 683
+        },
+        {
+            locationX: 1125,
+            locationY: 649
+        },
+        {
+            locationX: 1099,
+            locationY: 573
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        bagofcoins();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// go back to merchant after kiling lizardmen
+let state22 = {
+    name: 'lizard_men_go_back_to_merchant',
+    locationX: 899,
+    locationY: 647,
+    possibleOutcomes: [
+        state24,    //GO TO CITY
+    ],
+    steps: [
+        {
+            locationX: 993,
+            locationY: 677
+        },
+        {
+            locationX: 915,
+            locationY: 677
+        },
+        {
+            locationX: 899,
+            locationY: 647
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        bagofcoins();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// ignore merchant and go to city
+let state21 = {
+    name: 'ignore_merchant',
+    locationX: 1091,
+    locationY: 555,
+    possibleOutcomes: [
+
+    ],
+    steps: [
+        {
+            locationX: 947,
+            locationY: 675
+        },
+        {
+            locationX: 1123,
+            locationY: 647
+        },
+        {
+            locationX: 1071,
+            locationY: 555
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// help merchant
+let state20 = {
+    name: 'help_merchant',
+    locationX: 1025,
+    locationY: 777,
+    possibleOutcomes: [
+        state22,    //GO BACK TO ME
+        state23     //GO TO CITY
+    ],
+    steps: [
+        {
+            locationX: 993,
+            locationY: 677
+        },
+        {
+            locationX: 1003,
+            locationY: 731
+        },
+        {
+            locationX: 1025,
+            locationY: 777
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// win if you have blaster
+let state19 = {
+    name: 'after_portal_win',
+    locationX: 1677,
+    locationY: 494,
+    possibleOutcomes: [
+
+    ],
+    steps: [
+        {
+            locationX: 1579,
+            locationY: 386
+        },
+        {
+            locationX: 1681,
+            locationY: 446
+        },
+        {
+            locationX: 1677,
+            locationY: 494
+        }
+    ],
+    attributeCheck: function() {
+        if (blaster === true){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.scifi += 1;
+        youwin();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
+    }
+};
+
+// if you dont have blaster you die to dragon
 let state18 = {
-    name: 'mage_tower_last_boos_from_city',
-    locationX: 1622,
-    locationY: 568,
+    name: 'after_portal_dragon_figth_lose',
+    locationX: 1677,
+    locationY: 494,
     possibleOutcomes: [
 
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1579,
+            locationY: 386
+        },
+        {
+            locationX: 1681,
+            locationY: 446
+        },
+        {
+            locationX: 1677,
+            locationY: 494
+        }
+    ],
+    attributeCheck: function() {
+        return true
+    },
+    complicatedBehaviour: function () {
+        genres.scifi += 1;
+        youhavedied();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//WIN game lower discount
 let state17 = {
-    name: 'go_to_mage_tower_before_city',
-    locationX: 1472,
-    locationY: 536,
+    name: 'dragon_steal',
+    locationX: 1663,
+    locationY: 451,
     possibleOutcomes: [
-        state18,
-        state18,
-        state18
+
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1669,
+            locationY: 525
+        },
+        {
+            locationX: 1683,
+            locationY: 471
+        },
+        {
+            locationX: 1663,
+            locationY: 451
+        }
+    ],
+    attributeCheck: function() {
+        return true
+    },
+    //TODO: change this outcome to a difrtent function
+    complicatedBehaviour: function () {
+        genres.strategy += 1;
+        youwin();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//Int agy flask check to poison dragon
 let state16 = {
-    name: 'ignore_quest',
-    locationX: 1126,
-    locationY: 634,
+    name: 'dragon_posion',
+    locationX: 1663,
+    locationY: 451,
     possibleOutcomes: [
 
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1669,
+            locationY: 525
+        },
+        {
+            locationX: 1683,
+            locationY: 471
+        },
+        {
+            locationX: 1663,
+            locationY: 451
+        }
+    ],
+    attributeCheck: function() {
+        if (int >= 6 && agy >= 7 && flaskfull === true){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        youwin();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+// LOSE DRAGON FIGTH
 let state15 = {
-    name: 'go_to_city_after_quest',
-    locationX: 1108,
-    locationY: 574,
+    name: 'dragon_run',
+    locationX: 1663,
+    locationY: 451,
     possibleOutcomes: [
 
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1669,
+            locationY: 525
+        },
+        {
+            locationX: 1683,
+            locationY: 471
+        },
+        {
+            locationX: 1663,
+            locationY: 451
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        youhavedied();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//ASK FOR QUEST
 let state14 = {
-    name: 'return_to_quest_after_jungle',
-    locationX: 940,
-    locationY: 666,
+    name: 'ask_for_quest',
+    locationX: 1597,
+    locationY: 571,
     possibleOutcomes: [
-        state15,
-        state15,
-        state15
+        state15,    //LOSE DRAGON FIGTH
+        state16,    //POISION DRAGON
+        state17     //STEAL FROM DRAGON
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1133,
+            locationY: 643
+        },
+        {
+            locationX: 1467,
+            locationY: 539
+        },
+        {
+            locationX: 1597,
+            locationY: 571
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+// STEAL ARMOR AGY CHECK
 let state13 = {
-    name: 'jungle_quest',
-    locationX: 1022,
-    locationY: 778,
+    name: 'steal_armor',
+    locationX: 1597,
+    locationY: 571,
     possibleOutcomes: [
-
+        state15,    //LOSE DRAGON FIGTH
+        state16,    //POISION DRAGON
+        state17     //STEAL FROM DRAGON
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1133,
+            locationY: 643
+        },
+        {
+            locationX: 1467,
+            locationY: 539
+        },
+        {
+            locationX: 1597,
+            locationY: 571
+        }
+    ],
+    attributeCheck: function() {
+        if (agy >= 7){
+            return true;
+        } else{
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        getarmor();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//TO DRAGON AFTER CITY
 let state12 = {
-    name: 'after_portal_boss',
-    locationX: 1680,
-    locationY: 436,
+    name: 'no_money_for_armor',
+    locationX: 1597,
+    locationY: 571,
     possibleOutcomes: [
-
+        state15,    //LOSE DRAGON FIGHT
+        state16,    //POISION DRAGON
+        state17     //STEAL FROM DRAGON
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1133,
+            locationY: 643
+        },
+        {
+            locationX: 1467,
+            locationY: 539
+        },
+        {
+            locationX: 1597,
+            locationY: 571
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.strategy += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//GO TO CITY AFTER FOREST
 let state11 = {
-    name: 'portal_inside',
-    locationX: 1510,
-    locationY: 342,
+    name: 'go_tocity',
+    locationX: 1102,
+    locationY: 556,
     possibleOutcomes: [
-        state12,
-        state12,
-        state12
+        state12,    //No Money for armor
+        state13,    //agy check steal armor
+        state14     //Ask for directions
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 1062,
+            locationY: 414
+        },
+        {
+            locationX: 1078,
+            locationY: 464
+        },
+        {
+            locationX: 1102,
+            locationY: 556
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//INT CHECK FOREST
 let state10 = {
-    name: 'final_boss',
-    locationX: 1640,
-    locationY: 569,
+    name: 'forest_choise_intchek',
+    locationX: 1008,
+    locationY: 415,
     possibleOutcomes: [
-
+        state11,    //TO CITY
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 694,
+            locationY: 309
+        },
+        {
+            locationX: 898,
+            locationY: 339
+        },
+        {
+            locationX: 1008,
+            locationY: 415
+        }
+    ],
+    attributeCheck: function() {
+        if (int >= 6){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        filltheflask();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//JUST WALK AWAY
 let state9 = {
-    name: 'bridge_before_dragon',
-    locationX: 1478,
-    locationY: 536,
+    name: 'forest_choise_ignore',
+    locationX: 1008,
+    locationY: 415,
     possibleOutcomes: [
-        state10,
-        state10,
-        state10
+        state11,    //TO CITY
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 694,
+            locationY: 309
+        },
+        {
+            locationX: 898,
+            locationY: 339
+        },
+        {
+            locationX: 1008,
+            locationY: 415
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//DRINK THE WATER
 let state8 = {
-    name: 'road_after_city',
-    locationX: 1130,
-    locationY: 630,
+    name: 'forest_choise_drink',
+    locationX: 316,
+    locationY: 379,
     possibleOutcomes: [
-        state9,
-        state9,
-        state9
+
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 378,
+            locationY: 355
+        },
+        {
+            locationX: 356,
+            locationY: 359
+        },
+        {
+            locationX: 316,
+            locationY: 379
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        youhavedied();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+//ROAD
 let state7 = {
-    name: 'city_after_forest',
-    locationX: 1130,
-    locationY: 512,
+    name: 'road',
+    locationX: 894,
+    locationY: 671,
     possibleOutcomes: [
-        state8,
-        state8,
-        state8
+        state20,    //HELP
+        state21,    //IGNORE
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 602,
+            locationY: 673
+        },
+        {
+            locationX: 728,
+            locationY: 693
+        },
+        {
+            locationX: 894,
+            locationY: 671
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//PORTAL
 let state6 = {
-    name: 'forest_after_water',
-    locationX: 884,
-    locationY: 320,
+    name: 'portal',
+    locationX: 1510,
+    locationY: 344,
     possibleOutcomes: [
-        state7,
-        state7,
-        state7
+        state18,    //LOSE
+        state19,    //WIN ONLY IF YOU HAVE BLASTER
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 420,
+            locationY: 720
+        },
+        {
+            locationX: 606,
+            locationY: 884
+        },
+        {
+            locationX: 1510,
+            locationY: 344
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.scfi += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
+//FOREST
 let state5 = {
     name: 'forest',
-    locationX: 405,
-    locationY: 356,
+    locationX: 444,
+    locationY: 370,
     possibleOutcomes: [
-        state6,
-        state6,
-        state6
+        state8,     //DRINK
+        state9,     //WALK AWAY
+        state10     //INT CHECK
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 370,
+            locationY: 574
+        },
+        {
+            locationX: 266,
+            locationY: 536
+        },
+        {
+            locationX: 444,
+            locationY: 370
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.horror += 1;
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
 
-
+//BLASTER
 let state4 = {
-    name: 'road',
-    locationX: 896,
-    locationY: 676,
+    name: 'blasterchoise',
+    locationX: 424,
+    locationY: 678,
     possibleOutcomes: [
-        state13,
-        state16,
-        state21
-
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 366,
+            locationY: 638
+        },
+        {
+            locationX: 360,
+            locationY: 676
+        },
+        {
+            locationX: 424,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.scfi += 1;
+        hidethekey();
+        showblaster();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+//STAFF
 let state3 = {
-    name: 'portal',
-    locationX: 591,
-    locationY: 896,
+    name: 'staffchoise',
+    locationX: 424,
+    locationY: 678,
     possibleOutcomes: [
-        state11,
-        state11
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
     ],
-    complicatedBehaviour: function(){
-        // doABarrelRoll()
+    steps: [
+        {
+            locationX: 366,
+            locationY: 638
+        },
+        {
+            locationX: 360,
+            locationY: 676
+        },
+        {
+            locationX: 424,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.adventure += 1;
+        hidethekey();
+        showstaff();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+//SWORD
 let state2 = {
-    name: 'forest_bridge',
-    locationX: 321,
-    locationY: 558,
+    name: 'swordchoise',
+    locationX: 424,
+    locationY: 678,
     possibleOutcomes: [
-        state5,
-        state4,
-        state5
+        state5,     //FOREST
+        state6,     //PORTAL
+        state7      //ROAD
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 366,
+            locationY: 638
+        },
+        {
+            locationX: 360,
+            locationY: 676
+        },
+        {
+            locationX: 424,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+        return true;
+    },
+    complicatedBehaviour: function () {
+        genres.rpg += 1;
+        hidethekey();
+        showsword();
+        flavortextshowhide();
+        setTimeout(flavortextshowhide, 6000);
     }
 };
-
+// initial state of the game
 let state1 = {
     name: 'initial',
-    locationX: 600,
-    locationY: 400,
+    locationX: 310,
+    locationY: 560,
     possibleOutcomes: [
-        state2,
-        state3,
-        state4
+        state2,     //SWORD
+        state3,     //STAFF
+        state4      //BLASTER
     ],
-    complicatedBehaviour: function(){
-        // doNothing
+    steps: [
+        {
+            locationX: 0,
+            locationY: 0
+        },
+        {
+            locationX: 123,
+            locationY: 234
+        },
+        {
+            locationX: 456,
+            locationY: 678
+        }
+    ],
+    attributeCheck: function() {
+
+    },
+
+    complicatedBehaviour: function () {
+
     }
 };
 
@@ -301,6 +1053,9 @@ let pointstospend = 5;
 
 // move counter
 let moves = -1;
+
+//genre name after wining
+let genrewin = "";
 
 // items
 let glassKey = true;
@@ -349,29 +1104,20 @@ function addagy() {
 //ATRIBUTE ASSIGMENT ENDS---------------
 
 // switches divsbackground image based on witch way charter is moving
-function witchsidedoiface(locationX, locationY) {
+function witchsidedoiface(prevX, locationX, prevY, locationY) {
     // console.log("f " + locationX, "f+ " + locationY);
-    if ((currentState.locationY > locationY) && (currentState.locationX > locationX)) {  //we are moving NW -- top left
+    if ((prevY > locationY) && (prevX > locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
-    } else if ((currentState.locationY < locationY) && (currentState.locationX < locationX)) { //we are moving SE -- bottom rigth
+    } else if ((prevY < locationY) && (prevX < locationX)) { //we are moving SE -- bottom rigth
         $('#player').css('background-position', '60px 0px');
-    } else if ((currentState.locationY > locationY) && (currentState.locationX < locationX)) { //we are moving NE -- top rigth
+    } else if ((prevY > locationY) && (prevX < locationX)) { //we are moving NE -- top rigth
         $('#player').css('background-position', '0px 0px');
-    } else if ((currentState.locationY < locationY) && (currentState.locationX > locationX)) { //we are moving SW -- bottom left
+    } else if ((prevY < locationY) && (prevX > locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
     }
 }
 
-//TODO: fit all atribute cheks in to 1 function
-// atribute check at specific move
-function atributechek() {
-    if (str >= 5) {
-        return true;
-    }
-}
-
-//TODO: clean this up a bit!
-// pull highest value from genre object array returnit as variable name
+// check witch genre got the highest score return the name of genre
 function chekbest(genres) {
     var max = -Infinity;
     var maxname = null;
@@ -386,13 +1132,10 @@ function chekbest(genres) {
         max = (num > max && num) || max;
     }
 
-    return maxname;
+    genrewin = maxname;
 }
 
-//TODO: console.log needs to be removed and replaced with proper call function
-console.log(chekbest(genres));
-
-//TODO: remove this before test
+//TODO: remove this when pathing is done
 //prints location of mouse curson onclick
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
@@ -402,36 +1145,47 @@ function printMousePos(event) {
 
 document.addEventListener("click", printMousePos);
 
-//  Animation and flavor text area showhide
-function makeMove(locationX, locationY) {
-    witchsidedoiface(locationX, locationY);
-    $('#player').animate({left: locationX - 30, top: locationY - 80}, 5000);
-    // setTimeout(flavortextshowhide, 5000);
+// animate movement from array call withcwaydoiface function
+function makeMove(prevX, locationX, prevY, locationY) {
+    witchsidedoiface(prevX, locationX, prevY, locationY);
+    $('#player').animate({left: locationX - 30, top: locationY - 80}, 2000);
 }
-
+//check game state set new game state generate new set of cards for possible movement set text for next move
 currentState = state1;
 updatePossibilities();
 
 function updatePossibilities() {
     for (let aState of currentState.possibleOutcomes) {
 
-        $('#' + aState.name).css('display', 'block');
-        $('#' + aState.name).click(function() {
-            aState.complicatedBehaviour();
-            click(aState)
-        });
+        if(aState.attributeCheck()){
+            $('#' + aState.name).css('display', 'block');
+            $('#' + aState.name).click(function () {
+                aState.complicatedBehaviour();
+                click(aState)
+            });
+        }
 
     }
 }
 
+// assign click function to generated cards based on game state call movement function with a delay
 function click(state) {
-    makeMove(state.locationX, state.locationY); /*-> turning, movement*/
-    // hide old buttons
-    for(let aState of currentState.possibleOutcomes){
-        $('#' + aState.name).css('display', 'none');
-    }
-    currentState = state;
-    updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
+    let x = currentState.locationX;
+    let y = currentState.locationY;
+    state.steps.forEach(function (value, index) {
+        setTimeout(()=>{
+            makeMove(x, value.locationX, y, value.locationY);
+            x=value.locationX;
+            y=value.locationY;
+        }, index*2000)
+    });
+    setTimeout(()=>{
+        for (let aState of currentState.possibleOutcomes) {
+            $('#' + aState.name).css('display', 'none');
+        }
+        currentState = state;
+        updatePossibilities(); /*-> hide old buttons, create new buttons for all the possible next outcomes*/
+    },state.steps.length*2000)
 }
 
 
@@ -439,22 +1193,117 @@ function click(state) {
 
 /* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
 hide/show flavor text*/
-// TODO: change the timer for this and add a proper trigger
+
+//hide cards during movement hide flavor text during movment
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
     $('#cards').toggle("fast");
-    $('#blackout').fadeOut("slow");
 }
 
 //FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
 
-//TODO: REMOVE THIS THIS IS FOR TESTING ONLY MUST BE REMOVES AFTER BUTTON STYLE IS DONE!
+// set values to starting state
 window.onload = function () {
     flavortextshowhide();
-};
+    $('#flask_full').hide();
+    $('#armor').hide();
+    $('#sword').hide();
+    $('#staff').hide();
+    $('#blaster').hide();
+    $('#bagofcoins').hide();
+    $('#didntSpendAllPointsBeforePressingStart').hide();
+    $('#blackout').fadeOut("slow");
 
-function test() {
-    $('#flavor_text').toggle("slow");
-    $('#cards').toggle("fast");
-    $('#starting_screen').toggle("fast");
+    $('#rpg').hide();
+    $('#horror').hide();
+    $('#adve').hide();
+    $('#stra').hide();
+    $('#scifi').hide();
+};
+// start the game only if all atribute points were spent
+function startgame() {
+    if (pointstospend === 0) {
+        $('#flavor_text').toggle("slow");
+        $('#cards').toggle("fast");
+        $('#starting_screen').toggle("fast");
+        $('#didntSpendAllPointsBeforePressingStart').hide();
+    } else {
+        $('#didntSpendAllPointsBeforePressingStart').show();
+    }
 }
+
+// item checks show / hide-------------------------------
+
+// hides the glass key item div
+function hidethekey() {
+    $('#glass_key').hide();
+    glassKey = false;
+}
+// player picked sword so we show it and set the variable to true
+function showsword() {
+    $('#sword').show();
+    sword = true;
+}
+// player picked staff so we show it and set the variable to true
+function showstaff() {
+    $('#staff').show();
+    staff = true;
+}
+// player picked blaster so we show it and set the variable to true
+function showblaster() {
+    $('#blaster').show();
+    blaster = true;
+}
+// we past the int check change the picutre of flask to full set flask_full value to true set flask value to false
+function filltheflask() {
+    $('#flask').hide();
+    $('#flask_full').show();
+    flask = false;
+    flaskfull = true;
+}
+// player has acquired armor show armor icon set armor value to true
+function getarmor() {
+    $('#armor').show();
+    armor = true;
+}
+// show bag of coins icon set bagofcoins variable to true
+function bagofcoins() {
+    $('#bagofcoins').show();
+    bagOfCoins = true;
+}
+//hide bag of coins icon set bagofcoins variable to false
+function removecoins() {
+    $('#bagofcoins').hide();
+    bagOfCoins = false;
+}
+//items end ---------------------------------------
+//ENDING---------------------------
+function youwin() {
+    chekbest(genres);
+    setTimeout(whatdiscountwegive, 6000);
+}
+//what dicound do we give based on choises
+function whatdiscountwegive() {
+    if (genrewin === "rpg"){
+        $('#rpg').show();
+    } else if (genrewin === "horrror"){
+        $('#horror').show();
+    } else if (genrewin === "adventure"){
+        $('#adve').show();
+    } else if (genrewin === "strategy"){
+        $('#stra').show();
+    } else if (genrewin === "scifi"){
+        $('#scifi').show();
+    }
+}
+//DEAD---
+function youhavedied() {
+    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
+}
+
+function jailed() {
+    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
+
+}
+//DEAD END---
+//ENDING END-------------------------------
