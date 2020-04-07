@@ -11,6 +11,12 @@ html {
     margin: 0;
 }
 
+:root{
+    --endingScreenPos: absolute;
+    --endingScreenW: 99%;
+    --endingScreenH: 99%;
+}
+
 /*MAIN GAME AREA---------------*/
 #game_area {
     position: relative;
@@ -150,7 +156,7 @@ span::after {
 
 /*BOARD---------------*/
 /*THIS IS GRID NOT BOARTD*/
-/*TODO: FIX THE GAP BETVEN BOARD AND EDGE WOOD*/
+
 .board {
     position: absolute;
     top: 50%;
@@ -167,7 +173,7 @@ span::after {
     z-index: 2;
 }
 
-/*TODO: fix the names!*/
+
 /*THIS IS BOARD NOT GRID*/
 .grid {
     position: absolute;
@@ -285,13 +291,15 @@ span::after {
 /*FLAVOR TEXT---------------*/
 #flavor_text {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 643px;
+    height: 450px;
     left: 650px;
     top: 200px;
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/banner temple.png");
+    background-repeat: no-repeat;
+    background-size: auto;
     z-index: 50;
-    border: 1px blue solid;
+    /*border: 1px blue solid;*/
 }
 
 /*FLAVOR TEXT END---------------*/
@@ -478,3 +486,45 @@ span::after {
     color: lime;
     z-index: 10;
 }
+
+/*ENDING SCREEN*/
+#rpg{
+    position: var(--endingScreenPos);
+    height: var(--endingScreenH);
+    width: var(--endingScreenW);
+    background-image: url("./assets/chest_closed.png");
+    z-index: 99;
+}
+
+#horror{
+    position: var(--endingScreenPos);
+    height: var(--endingScreenH);
+    width: var(--endingScreenW);
+    background-image: url("./assets/chest_closed.png");
+    z-index: 99;
+}
+
+#adve{
+    position: var(--endingScreenPos);
+    height: var(--endingScreenH);
+    width: var(--endingScreenW);
+    background-image: url("./assets/chest_closed.png");
+    z-index: 99;
+}
+
+#stra{
+    position: var(--endingScreenPos);
+    height: var(--endingScreenH);
+    width: var(--endingScreenW);
+    background-image: url("./assets/chest_closed.png");
+    z-index: 99;
+}
+
+#scifi{
+    position: var(--endingScreenPos);
+    height: var(--endingScreenH);
+    width: var(--endingScreenW);
+    background-image: url("./assets/chest_closed.png");
+    z-index: 99;
+}
+/*ENDING SCREEN END*/

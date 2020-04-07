@@ -10,7 +10,7 @@ let genres = {
 // game states / movement cordinates / atribute checks
 let currentState;
 
-
+//win the game bcs you have armor
 let state30 = {
     name: 'dragon_figth_win_bcs_armor',
     locationX: 1659,
@@ -772,7 +772,7 @@ let state9 = {
         setTimeout(flavortextshowhide, 6000);
     }
 };
-//TODO: add dead state
+
 //DRINK THE WATER
 let state8 = {
     name: 'forest_choise_drink',
@@ -1280,9 +1280,9 @@ function removecoins() {
 //ENDING---------------------------
 function youwin() {
     chekbest(genres);
-    whatdiscountwegive();
+    setTimeout(whatdiscountwegive, 6000);
 }
-
+//what dicound do we give based on choises
 function whatdiscountwegive() {
     if (genrewin === "rpg"){
         $('#rpg').show();
