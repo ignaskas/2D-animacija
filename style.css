@@ -273,13 +273,19 @@ span::after {
 /*FLAVOR TEXT---------------*/
 #flavor_text {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 643px;
+    height: 450px;
     left: 650px;
     top: 200px;
+<<<<<<< Updated upstream
     background-color: white;
+=======
+    background-image: url("./assets/banner_template1.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+>>>>>>> Stashed changes
     z-index: 50;
-    border: 1px blue solid;
+/border: 1px blue solid;/
 }
 
 /*FLAVOR TEXT END---------------*/
