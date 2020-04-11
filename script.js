@@ -44,6 +44,7 @@ let state30 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_defeated.png)");
     }
 };
 //TODO: fix the cordinates
@@ -77,6 +78,7 @@ let state29 = {
         youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_die.png)");
     }
 };
 
@@ -111,6 +113,7 @@ let state28 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)");
     }
 };
 
@@ -149,6 +152,7 @@ let state27 = {
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)");
     }
 };
 
@@ -192,7 +196,7 @@ let state26 = {
             $('#flavor_text').css("background-image", "url(./assets/Buy_Armour.png)")
                 .delay(3000)
                 .fadeOut("slow")
-            setTimeout(thief, 4000);
+            setTimeout(aftertownboss, 4000);
         }, 6000);
     }
 };
@@ -267,6 +271,7 @@ let state24 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -367,6 +372,7 @@ let state21 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -400,7 +406,7 @@ let state20 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        $('#flavor_text').css("background-image", "url(./assets/Help1.png)")
+        $('#flavor_text').css("background-image", "url(./assets/Help1.png)");
     }
 };
 
@@ -438,6 +444,7 @@ let state19 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Blaster_dragon.png)");
     }
 };
 
@@ -471,6 +478,7 @@ let state18 = {
         youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
     }
 };
 
@@ -505,6 +513,7 @@ let state17 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_steal.png)");
     }
 };
 
@@ -542,6 +551,7 @@ let state16 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Poison_dragon.png)");
     }
 };
 
@@ -897,6 +907,7 @@ let state6 = {
         genres.scfi += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/After-Portal.png)");
     }
 };
 
@@ -1380,6 +1391,12 @@ function merchant() {
 //stealing is bad mkay? change background imange to trhown out of town
 function thief() {
     $('#flavor_text').css("background-image", "url(./assets/Town_Problems.png)")
+        .fadeIn("slow")
+}
+
+// change background imange to before boss state
+function aftertownboss() {
+    $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
         .fadeIn("slow")
 }
 //FLAVOR TEXT CHANGE FUNTIONS END-----
