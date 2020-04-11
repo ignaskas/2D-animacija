@@ -188,6 +188,12 @@ let state26 = {
         removecoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Buy_Armour.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(thief, 4000);
+        }, 6000);
     }
 };
 
@@ -221,6 +227,12 @@ let state25 = {
         jailed();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Town_Problems.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(thief, 4000);
+        }, 6000);
     }
 };
 //TODO: fix the cordinates
@@ -288,6 +300,7 @@ let state23 = {
         bagofcoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help_not.png)");
     }
 };
 
@@ -321,6 +334,7 @@ let state22 = {
         bagofcoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help2.png)");
     }
 };
 
@@ -386,6 +400,7 @@ let state20 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help1.png)")
     }
 };
 
@@ -560,9 +575,11 @@ let state15 = {
         youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
     }
 };
 
+//TODO: remove this mabye
 //ASK FOR QUEST
 let state14 = {
     name: 'ask_for_quest',
@@ -633,6 +650,7 @@ let state13 = {
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
     }
 };
 
@@ -667,6 +685,7 @@ let state12 = {
         genres.strategy += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_broke.png)");
     }
 };
 
@@ -701,6 +720,7 @@ let state11 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -738,6 +758,7 @@ let state10 = {
         filltheflask();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Flask.png)");
     }
 };
 
@@ -770,6 +791,7 @@ let state9 = {
         genres.horror += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Clearing.png)");
     }
 };
 
@@ -802,6 +824,7 @@ let state8 = {
         genres.horror += 1;
         youhavedied();
         flavortextshowhide();
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Dead.png)");
         setTimeout(flavortextshowhide, 6000);
     }
 };
@@ -835,6 +858,12 @@ let state7 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Field_Road.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(merchant, 4000);
+        }, 6000);
     }
 };
 
@@ -902,6 +931,12 @@ let state5 = {
         genres.horror += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Choose_Forest.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(foreststart, 4000);
+        }, 6000);
     }
 };
 
@@ -938,6 +973,12 @@ let state4 = {
         showblaster();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Plasma_Blaster.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 //STAFF
@@ -973,6 +1014,12 @@ let state3 = {
         showstaff();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Wizard_Staff.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 //SWORD
@@ -1008,6 +1055,12 @@ let state2 = {
         showsword();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Bastard_Sword.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 // initial state of the game
@@ -1307,3 +1360,26 @@ function jailed() {
 }
 //DEAD END---
 //ENDING END-------------------------------
+
+// FLAVOR TEXT CHANGE FUCNTIONS-------
+// change the backroung of flavor text to advance story after chosing your wepon
+function afterwepon() {
+    $('#flavor_text').css("background-image", "url(./assets/Three_Paths.png)")
+        .fadeIn("slow")
+}
+// change the backrgoun image of flavor text to advance story and set to spring image
+function foreststart() {
+    $('#flavor_text').css("background-image", "url(./assets/Forest_Spring.png)")
+        .fadeIn("slow")
+}
+//change the background image to helping merchant
+function merchant() {
+    $('#flavor_text').css("background-image", "url(./assets/Merchant_Troubles.png)")
+        .fadeIn("slow")
+}
+//stealing is bad mkay? change background imange to trhown out of town
+function thief() {
+    $('#flavor_text').css("background-image", "url(./assets/Town_Problems.png)")
+        .fadeIn("slow")
+}
+//FLAVOR TEXT CHANGE FUNTIONS END-----
