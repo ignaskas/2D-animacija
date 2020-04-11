@@ -231,12 +231,7 @@ let state25 = {
         jailed();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
-            $('#flavor_text').css("background-image", "url(./assets/Town_Problems.png)")
-                .delay(3000)
-                .fadeOut("slow")
-            setTimeout(thief, 4000);
-        }, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town-jail.png)");
     }
 };
 //TODO: fix the cordinates
@@ -660,7 +655,12 @@ let state13 = {
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(wizardtoweraftertown, 4000);
+        }, 6000);
     }
 };
 
@@ -695,7 +695,12 @@ let state12 = {
         genres.strategy += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        $('#flavor_text').css("background-image", "url(./assets/Town_broke.png)");
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(wizardtoweraftertown, 4000);
+        }, 6000);
     }
 };
 
@@ -1389,8 +1394,8 @@ function merchant() {
         .fadeIn("slow")
 }
 //stealing is bad mkay? change background imange to trhown out of town
-function thief() {
-    $('#flavor_text').css("background-image", "url(./assets/Town_Problems.png)")
+function wizardtoweraftertown() {
+    $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
         .fadeIn("slow")
 }
 
