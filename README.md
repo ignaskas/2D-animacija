@@ -41,17 +41,17 @@ You take a sip of water, but it does only increase your thirst, you try drinking
 As you move away from the spring you notice a dead deer near it. The deer looks like if has fallen asleep and drowned. Your choice has saved your life, and the enchanted water in your flask might come in handy in the future. You pass the forest without any further incidents and approach a small village.
 
 //Path//
-Following a path you approach a merchant in distress. The merchant cries for your help. It seems that some goblins have stolen his wares and run away. You have to decide:
+Following a path you approach a merchant in distress. The merchant cries for your help. It seems that some lizardmen have stolen his wares and run away. You have to decide:
 
-A. Pursue the goblins to help the merchant reclaim the stolen treasure.
+A. Pursue the lizardmen to help the merchant reclaim the stolen treasure.
 B. Ignore the merchant, you have more important matters to attend.
-C. Chase and slay the goblins to take all the loot for yourself.
+C. Chase and slay the lizardmen to take all the loot for yourself.
 
-You follow the tracks left by the goblins and notice two of them trying to divide the items recently stolen from the merchant. As you approach, the goblins try to attack you, but you are faster, you draw your weapon, and the goblins flee in terror. You take the loot and return it back to the merchant. He is very pleased and rewards you with a hefty sum of coin. You follow the path further and approach a small village.
+You follow the tracks left by the lizardmen and notice two of them trying to divide the items recently stolen from the merchant. As you approach, the lizardmen try to attack you, but you are faster, you draw your weapon, and the lizardmen flee in terror. You take the loot and return it back to the merchant. He is very pleased and rewards you with a hefty sum of coin. You follow the path further and approach a small village.
 
 You ignore the cries of the merchant and move along. As you move along the road you approach a small town. 
 
-You charge to the direction goblins were going to. You approach two goblin figures, draw the weapon and slay them where they stand before they can even make a move. The treasures they have stolen have no significant value, but you take them in hopes of pawning them. You return to the path and approach a small village.
+You charge to the direction lizardmen were going to. You approach two lizardmen figures, draw the weapon and slay them where they stand before they can even make a move. The treasures they have stolen have no significant value, but you take them in hopes of pawning them. You return to the path and approach a small village.
 
 //Town//
 
@@ -68,7 +68,7 @@ A. A tower it is.
 B. You choose a mountain path, maybe it will lead to dwarves.
 
 //Mountains//
-As you approach the mountains you notice a dwarf city. Dwarves are friendly and welcome you as one of their own. You show exceptional talent in building and drinking and you like living with them. You decide to spend the rest of your life among the dwarves crafting things and drinking ale. You weren't the tallest person anyway. 
+As you approach the mountains you notice a dwarf city. Dwarves are friendly and welcome you as one of their own. You show exceptional talent in building and drinking, and you like living with them. You decide to spend the rest of your life among the dwarves crafting things and drinking ale. You weren't the tallest person anyway. 
 
 //Tower//
 You notice a burning tower and a dragon moving around it as it spits giant fireballs. You have to act quick before the dragon sees you and you become his next charred crispy meal.:
