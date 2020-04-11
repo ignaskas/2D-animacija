@@ -245,7 +245,7 @@ span::after {
     height: 30px;
     left: 474px;
     top: 915px;
-    background-image: url("./assets/cardplaceholder.png");
+    background-image: url("./assets/card.png");
     background-size: 99%;
     background-repeat: no-repeat;
     /*border: 3px orange solid;*/
@@ -259,7 +259,7 @@ span::after {
     height: 30px;
     left: 774px;
     top: 915px;
-    background-image: url("./assets/cardplaceholder.png");
+    background-image: url("./assets/card.png");
     background-size: 99%;
     background-repeat: no-repeat;
     /*border: 3px orange solid;*/
@@ -273,7 +273,7 @@ span::after {
     height: 30px;
     left: 1080px;
     top: 915px;
-    background-image: url("./assets/cardplaceholder.png");
+    background-image: url("./assets/portal_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
     /*border: 3px orange solid;*/
