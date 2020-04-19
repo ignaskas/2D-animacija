@@ -44,6 +44,7 @@ let state30 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_defeated.png)");
     }
 };
 //TODO: fix the cordinates
@@ -74,9 +75,10 @@ let state29 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_die.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
@@ -111,6 +113,7 @@ let state28 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)");
     }
 };
 
@@ -149,6 +152,7 @@ let state27 = {
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)");
     }
 };
 
@@ -188,6 +192,12 @@ let state26 = {
         removecoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Buy_Armour.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(aftertownboss, 4000);
+        }, 6000);
     }
 };
 
@@ -221,6 +231,8 @@ let state25 = {
         jailed();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town-jail.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 //TODO: fix the cordinates
@@ -255,6 +267,7 @@ let state24 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -288,6 +301,7 @@ let state23 = {
         bagofcoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help_not.png)");
     }
 };
 
@@ -321,6 +335,7 @@ let state22 = {
         bagofcoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help2.png)");
     }
 };
 
@@ -353,6 +368,7 @@ let state21 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -386,6 +402,7 @@ let state20 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Help1.png)");
     }
 };
 
@@ -423,6 +440,7 @@ let state19 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Blaster_dragon.png)");
     }
 };
 
@@ -453,9 +471,10 @@ let state18 = {
     },
     complicatedBehaviour: function () {
         genres.scifi += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
@@ -490,6 +509,7 @@ let state17 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_steal.png)");
     }
 };
 
@@ -527,6 +547,7 @@ let state16 = {
         youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Poison_dragon.png)");
     }
 };
 
@@ -557,12 +578,14 @@ let state15 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
+//TODO: remove this mabye
 //ASK FOR QUEST
 let state14 = {
     name: 'ask_for_quest',
@@ -633,6 +656,12 @@ let state13 = {
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(wizardtoweraftertown, 4000);
+        }, 6000);
     }
 };
 
@@ -667,6 +696,12 @@ let state12 = {
         genres.strategy += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(wizardtoweraftertown, 4000);
+        }, 6000);
     }
 };
 
@@ -701,6 +736,7 @@ let state11 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Town_Store.png)");
     }
 };
 
@@ -738,6 +774,7 @@ let state10 = {
         filltheflask();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Flask.png)");
     }
 };
 
@@ -770,6 +807,7 @@ let state9 = {
         genres.horror += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Clearing.png)");
     }
 };
 
@@ -800,9 +838,10 @@ let state8 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
+        $('#flavor_text').css("background-image", "url(./assets/Forest_Dead.png)");
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(youhavedied, 6000);
     }
 };
 //ROAD
@@ -835,6 +874,12 @@ let state7 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Field_Road.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(merchant, 4000);
+        }, 6000);
     }
 };
 
@@ -868,6 +913,7 @@ let state6 = {
         genres.scfi += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        $('#flavor_text').css("background-image", "url(./assets/After-Portal.png)");
     }
 };
 
@@ -902,6 +948,12 @@ let state5 = {
         genres.horror += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Choose_Forest.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(foreststart, 4000);
+        }, 6000);
     }
 };
 
@@ -938,6 +990,12 @@ let state4 = {
         showblaster();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Plasma_Blaster.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 //STAFF
@@ -973,6 +1031,12 @@ let state3 = {
         showstaff();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Wizard_Staff.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 //SWORD
@@ -1008,6 +1072,12 @@ let state2 = {
         showsword();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(function () {
+            $('#flavor_text').css("background-image", "url(./assets/Bastard_Sword.png)")
+                .delay(3000)
+                .fadeOut("slow")
+            setTimeout(afterwepon, 4000);
+        }, 6000);
     }
 };
 // initial state of the game
@@ -1067,6 +1137,10 @@ let blaster = false;
 let staff = false;
 let bagOfCoins = false;
 
+//sounds
+let backgroundmusic = new Audio("./assets/background_music.mp3");
+let deathsound = new Audio("./assets/died.mp3");
+//sounds end
 // event memory
 // event memory goes here
 
@@ -1214,6 +1288,7 @@ window.onload = function () {
     $('#didntSpendAllPointsBeforePressingStart').hide();
     $('#blackout').fadeOut("slow");
 
+
     $('#rpg').hide();
     $('#horror').hide();
     $('#adve').hide();
@@ -1227,6 +1302,9 @@ function startgame() {
         $('#cards').toggle("fast");
         $('#starting_screen').toggle("fast");
         $('#didntSpendAllPointsBeforePressingStart').hide();
+        backgroundmusic.play();
+        backgroundmusic.loop = true;
+        backgroundmusic.volume = 0.1;
     } else {
         $('#didntSpendAllPointsBeforePressingStart').show();
     }
@@ -1298,7 +1376,10 @@ function whatdiscountwegive() {
 }
 //DEAD---
 function youhavedied() {
-    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
+    $('#restart').css('display', 'block');
+    backgroundmusic.pause();
+    deathsound.play();
+    deathsound.volume = 0.2;
 }
 
 function jailed() {
@@ -1307,3 +1388,38 @@ function jailed() {
 }
 //DEAD END---
 //ENDING END-------------------------------
+
+// FLAVOR TEXT CHANGE FUCNTIONS-------
+// change the backroung of flavor text to advance story after chosing your wepon
+function afterwepon() {
+    $('#flavor_text').css("background-image", "url(./assets/Three_Paths.png)")
+        .fadeIn("slow")
+}
+// change the backrgoun image of flavor text to advance story and set to spring image
+function foreststart() {
+    $('#flavor_text').css("background-image", "url(./assets/Forest_Spring.png)")
+        .fadeIn("slow")
+}
+//change the background image to helping merchant
+function merchant() {
+    $('#flavor_text').css("background-image", "url(./assets/Merchant_Troubles.png)")
+        .fadeIn("slow")
+}
+//stealing is bad mkay? change background imange to trhown out of town
+function wizardtoweraftertown() {
+    $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
+        .fadeIn("slow")
+}
+
+// change background imange to before boss state
+function aftertownboss() {
+    $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
+        .fadeIn("slow")
+}
+//FLAVOR TEXT CHANGE FUNTIONS END-----
+
+//restart game after you died
+function restart() {
+    location.reload();
+}
+//restart game after you died end
