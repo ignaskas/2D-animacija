@@ -37,7 +37,7 @@ html {
 /*MAIN MENU BUTTONS ---------------*/
 a {
     display: block;
-    color: #c2cbca;
+    color: #b8844a;
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'Cormorant Unicase', serif;
@@ -47,12 +47,12 @@ a {
     top: 10px;
     position: relative;
     z-index: 10;
-    background: #77592a;
+    background: #000000;
     margin: 10px 11%;
 }
 
 a:hover {
-    background: #ed2100;
+    background: #3d3838;
 }
 
 span {
@@ -73,7 +73,7 @@ a::before, a::after, span::before, span::after {
     background: inherit;
     z-index: -1;
     background-clip: padding-box;
-    border-color: #b49e1f;
+    border-color: #be8534;
     border-style: solid;
     border-width: 0;
 }
@@ -145,7 +145,7 @@ span::after {
     position: absolute;
     top: 220px;
     left: 780px;
-    color: red;
+    color: lime;
     /*text-shadow: 2px 2px black;*/
     font-family: Cormorant Unicase, serif;
     font-weight: bold;
@@ -480,19 +480,19 @@ span::after {
     display: block;
 }
 /*ITEMS END*/
-/*TODO: REMOVE THIS*/
-#pos {
-    position: absolute;
-    color: lime;
-    z-index: 10;
-}
+
+/*#pos {*/
+/*    position: absolute;*/
+/*    color: lime;*/
+/*    z-index: 10;*/
+/*}*/
 
 /*ENDING SCREEN*/
 #rpg{
     position: var(--endingScreenPos);
     height: var(--endingScreenH);
     width: var(--endingScreenW);
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/rpg.png");
     z-index: 99;
 }
 
@@ -500,7 +500,7 @@ span::after {
     position: var(--endingScreenPos);
     height: var(--endingScreenH);
     width: var(--endingScreenW);
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/horror.png");
     z-index: 99;
 }
 
@@ -508,7 +508,7 @@ span::after {
     position: var(--endingScreenPos);
     height: var(--endingScreenH);
     width: var(--endingScreenW);
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/adventure.png");
     z-index: 99;
 }
 
@@ -516,7 +516,7 @@ span::after {
     position: var(--endingScreenPos);
     height: var(--endingScreenH);
     width: var(--endingScreenW);
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/strategy.png");
     z-index: 99;
 }
 
@@ -524,7 +524,7 @@ span::after {
     position: var(--endingScreenPos);
     height: var(--endingScreenH);
     width: var(--endingScreenW);
-    background-image: url("./assets/chest_closed.png");
+    background-image: url("./assets/scifi.png");
     z-index: 99;
 }
 /*ENDING SCREEN END*/
@@ -705,7 +705,7 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: mabye this is bad?*/
+
 #dragon_figth_lose{
     background-image: url("./assets/dragon_attack_fail_card.png");
     background-size: 99%;
@@ -716,4 +716,16 @@ span::after {
     background-image: url("./assets/dragon_attack_win_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
+}
+
+.getcodearea{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    height: auto;
+    width: auto;
+    color: black;
+    font-family: Cormorant Unicase, serif;
+    font-weight: bold;
+    font-size: 25px;
 }
