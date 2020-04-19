@@ -45,7 +45,7 @@ Following a path you approach a merchant in distress. The merchant cries for you
 
 A. Pursue the lizardmen to help the merchant reclaim the stolen treasure.
 B. Ignore the merchant, you have more important matters to attend.
-C. Chase and slay the lizardmen to take all the loot for yourself.
+
 
 You follow the tracks left by the lizardmen and notice two of them trying to divide the items recently stolen from the merchant. As you approach, the lizardmen try to attack you, but you are faster, you draw your weapon, and the lizardmen flee in terror. You take the loot and return it back to the merchant. He is very pleased and rewards you with a hefty sum of coin. You follow the path further and approach a small village.
 
