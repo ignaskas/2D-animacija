@@ -343,7 +343,7 @@ let state21 = {
     locationX: 1091,
     locationY: 555,
     possibleOutcomes: [
-        state24,
+        state24, //GO TO TOWN
     ],
     steps: [
         {
@@ -534,7 +534,7 @@ let state16 = {
         }
     ],
     attributeCheck: function() {
-        if (int >= 6 && agy >= 7 && flaskfull === true){
+        if (int >= 6 && agy >= 5 && flaskfull === true){
             return true;
         } else {
             return false;
