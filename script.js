@@ -1356,7 +1356,7 @@ function removecoins() {
 //ENDING---------------------------
 function youwin() {
     chekbest(genres);
-    setTimeout(whatdiscountwegive, 6000);
+    setTimeout(whatdiscountwegive, 12000);
 }
 //what discount do we give based on choices
 function whatdiscountwegive() {
