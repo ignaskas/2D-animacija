@@ -1137,6 +1137,10 @@ let blaster = false;
 let staff = false;
 let bagOfCoins = false;
 
+//sounds
+let backgroundmusic = new Audio("./assets/background_music.mp3");
+let deathsound = new Audio("./assets/died.mp3");
+//sounds end
 // event memory
 // event memory goes here
 
@@ -1284,6 +1288,7 @@ window.onload = function () {
     $('#didntSpendAllPointsBeforePressingStart').hide();
     $('#blackout').fadeOut("slow");
 
+
     $('#rpg').hide();
     $('#horror').hide();
     $('#adve').hide();
@@ -1297,6 +1302,9 @@ function startgame() {
         $('#cards').toggle("fast");
         $('#starting_screen').toggle("fast");
         $('#didntSpendAllPointsBeforePressingStart').hide();
+        backgroundmusic.play();
+        backgroundmusic.loop = true;
+        backgroundmusic.volume = 0.1;
     } else {
         $('#didntSpendAllPointsBeforePressingStart').show();
     }
@@ -1369,6 +1377,9 @@ function whatdiscountwegive() {
 //DEAD---
 function youhavedied() {
     $('#restart').css('display', 'block');
+    backgroundmusic.pause();
+    deathsound.play();
+    deathsound.volume = 0.2;
 }
 
 function jailed() {
