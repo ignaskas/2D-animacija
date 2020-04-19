@@ -7,7 +7,7 @@ let genres = {
     scfi: 0
 };
 
-// game states / movement cordinates / atribute checks
+// game states / movement coordinates /attributee checks
 let currentState;
 
 //win the game bcs you have armor
@@ -47,27 +47,27 @@ let state30 = {
         $('#flavor_text').css("background-image", "url(./assets/Dragon_defeated.png)");
     }
 };
-//TODO: fix the cordinates
+
 //lose to boss
 let state29 = {
     name: 'dragon_figth_lose',
-    locationX: 1605,
-    locationY: 579,
+    locationX: 1679,
+    locationY: 451,
     possibleOutcomes: [
 
     ],
     steps: [
         {
-            locationX: 1137,
-            locationY: 645
+            locationX: 1636,
+            locationY: 571
         },
         {
-            locationX: 1483,
-            locationY: 545
+            locationX: 1663,
+            locationY: 516
         },
         {
-            locationX: 1605,
-            locationY: 579
+            locationX: 1679,
+            locationY: 451
         }
     ],
     attributeCheck: function() {
@@ -228,15 +228,13 @@ let state25 = {
     },
     complicatedBehaviour: function () {
         genres.adventure += 1;
-        jailed();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Town-jail.png)");
         setTimeout(youhavedied, 6000);
     }
 };
-//TODO: fix the cordinates
-// go to city after returing to merchant
+
 let state24 = {
     name: 'go_to_city_after_returing_to_merchant',
     locationX: 1113,
@@ -305,7 +303,7 @@ let state23 = {
     }
 };
 
-// go back to merchant after kiling lizardmen
+// go back to merchant after killing lizard men
 let state22 = {
     name: 'lizard_men_go_back_to_merchant',
     locationX: 899,
@@ -345,7 +343,7 @@ let state21 = {
     locationX: 1091,
     locationY: 555,
     possibleOutcomes: [
-
+        state24, //GO TO TOWN
     ],
     steps: [
         {
@@ -437,10 +435,10 @@ let state19 = {
     },
     complicatedBehaviour: function () {
         genres.scifi += 1;
-        youwin();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Blaster_dragon.png)");
+        youwin();
     }
 };
 
@@ -503,7 +501,7 @@ let state17 = {
     attributeCheck: function() {
         return true
     },
-    //TODO: change this outcome to a difrtent function
+
     complicatedBehaviour: function () {
         genres.strategy += 1;
         youwin();
@@ -536,7 +534,7 @@ let state16 = {
         }
     ],
     attributeCheck: function() {
-        if (int >= 6 && agy >= 7 && flaskfull === true){
+        if (int >= 6 && agy >= 5 && flaskfull === true){
             return true;
         } else {
             return false;
@@ -551,7 +549,7 @@ let state16 = {
     }
 };
 
-// LOSE DRAGON FIGTH
+// LOSE DRAGON FIGHT
 let state15 = {
     name: 'dragon_run',
     locationX: 1663,
@@ -585,15 +583,14 @@ let state15 = {
     }
 };
 
-//TODO: remove this mabye
 //ASK FOR QUEST
 let state14 = {
     name: 'ask_for_quest',
     locationX: 1597,
     locationY: 571,
     possibleOutcomes: [
-        state15,    //LOSE DRAGON FIGTH
-        state16,    //POISION DRAGON
+        state15,    //LOSE DRAGON FIGHT
+        state16,    //POISON DRAGON
         state17     //STEAL FROM DRAGON
     ],
     steps: [
@@ -626,8 +623,8 @@ let state13 = {
     locationX: 1597,
     locationY: 571,
     possibleOutcomes: [
-        state15,    //LOSE DRAGON FIGTH
-        state16,    //POISION DRAGON
+        state15,    //LOSE DRAGON FIGHT
+        state16,    //POISSON DRAGON
         state17     //STEAL FROM DRAGON
     ],
     steps: [
@@ -672,7 +669,7 @@ let state12 = {
     locationY: 571,
     possibleOutcomes: [
         state15,    //LOSE DRAGON FIGHT
-        state16,    //POISION DRAGON
+        state16,    //POISON DRAGON
         state17     //STEAL FROM DRAGON
     ],
     steps: [
@@ -1115,7 +1112,7 @@ let state1 = {
 
 let buttons = [];
 
-// atributes
+// attributes
 let int = 4;
 let str = 4;
 let agy = 4;
@@ -1144,7 +1141,7 @@ let deathsound = new Audio("./assets/died.mp3");
 // event memory
 // event memory goes here
 
-// ATRIBUTE ASSIGMENT---------------
+// ATTRIBUTE ASSIGMENT---------------
 // spend skills points to increase int stat
 function addint() {
     if (pointstospend >= 1) {
@@ -1160,7 +1157,7 @@ function addstr() {
     if (pointstospend >= 1) {
         str += 1;
         pointstospend -= 1;
-        document.getElementById("statstr").innerHTML = "Agy:" + " " + str;
+        document.getElementById("statstr").innerHTML = "Str:" + " " + str;
         document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
@@ -1170,14 +1167,14 @@ function addagy() {
     if (pointstospend >= 1) {
         agy += 1;
         pointstospend -= 1;
-        document.getElementById("statagy").innerHTML = "Agy:" + " " + agy;
+        document.getElementById("statagy").innerHTML = "Agi:" + " " + agy;
         document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
 
-//ATRIBUTE ASSIGMENT ENDS---------------
+//ATTRIBUTE ASSIGMENT ENDS---------------
 
-// switches divsbackground image based on witch way charter is moving
+// switches divs background image based on witch way charter is moving
 function witchsidedoiface(prevX, locationX, prevY, locationY) {
     // console.log("f " + locationX, "f+ " + locationY);
     if ((prevY > locationY) && (prevX > locationX)) {  //we are moving NW -- top left
@@ -1207,19 +1204,20 @@ function chekbest(genres) {
     }
 
     genrewin = maxname;
+    // console.log(genrewin);
 }
 
-//TODO: remove this when pathing is done
-//prints location of mouse curson onclick
-function printMousePos(event) {
-    document.getElementById("pos").innerHTML =
-        "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
-    console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
-}
 
-document.addEventListener("click", printMousePos);
+//prints location of mouse cursor onclick
+// function printMousePos(event) {
+//     document.getElementById("pos").innerHTML =
+//         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+//     console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
+// }
+//
+// document.addEventListener("click", printMousePos);
 
-// animate movement from array call withcwaydoiface function
+// animate movement from array call witchwaydoiface function
 function makeMove(prevX, locationX, prevY, locationY) {
     witchsidedoiface(prevX, locationX, prevY, locationY);
     $('#player').animate({left: locationX - 30, top: locationY - 80}, 2000);
@@ -1263,9 +1261,9 @@ function click(state) {
 }
 
 
-//MOVMENT ENDS---------------
+//MOVEMENT ENDS---------------
 
-/* FLAVOR TEXT EDDITS/BACKGROUND CHANGES------------------
+/* FLAVOR TEXT EDITS /BACKGROUND CHANGES------------------
 hide/show flavor text*/
 
 //hide cards during movement hide flavor text during movment
@@ -1274,7 +1272,7 @@ function flavortextshowhide() {
     $('#cards').toggle("fast");
 }
 
-//FLAVOR TEXT EDDITS/BACKGROUND CHANGES END---------------
+//FLAVOR TEXT EDITS /BACKGROUND CHANGES END---------------
 
 // set values to starting state
 window.onload = function () {
@@ -1295,7 +1293,7 @@ window.onload = function () {
     $('#stra').hide();
     $('#scifi').hide();
 };
-// start the game only if all atribute points were spent
+// start the game only if all attribute points were spent
 function startgame() {
     if (pointstospend === 0) {
         $('#flavor_text').toggle("slow");
@@ -1332,7 +1330,7 @@ function showblaster() {
     $('#blaster').show();
     blaster = true;
 }
-// we past the int check change the picutre of flask to full set flask_full value to true set flask value to false
+// we past the int check change the picture of flask to full set flask_full value to true set flask value to false
 function filltheflask() {
     $('#flask').hide();
     $('#flask_full').show();
@@ -1344,12 +1342,12 @@ function getarmor() {
     $('#armor').show();
     armor = true;
 }
-// show bag of coins icon set bagofcoins variable to true
+// show bag of coins icon set bag of coins variable to true
 function bagofcoins() {
     $('#bagofcoins').show();
     bagOfCoins = true;
 }
-//hide bag of coins icon set bagofcoins variable to false
+//hide bag of coins icon set bag of coins variable to false
 function removecoins() {
     $('#bagofcoins').hide();
     bagOfCoins = false;
@@ -1358,9 +1356,9 @@ function removecoins() {
 //ENDING---------------------------
 function youwin() {
     chekbest(genres);
-    setTimeout(whatdiscountwegive, 6000);
+    setTimeout(whatdiscountwegive, 12000);
 }
-//what dicound do we give based on choises
+//what discount do we give based on choices
 function whatdiscountwegive() {
     if (genrewin === "rpg"){
         $('#rpg').show();
@@ -1370,7 +1368,7 @@ function whatdiscountwegive() {
         $('#adve').show();
     } else if (genrewin === "strategy"){
         $('#stra').show();
-    } else if (genrewin === "scifi"){
+    } else if (genrewin === "scfi"){
         $('#scifi').show();
     }
 }
@@ -1382,10 +1380,6 @@ function youhavedied() {
     deathsound.volume = 0.2;
 }
 
-function jailed() {
-    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
-
-}
 //DEAD END---
 //ENDING END-------------------------------
 
@@ -1416,7 +1410,7 @@ function aftertownboss() {
     $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
         .fadeIn("slow")
 }
-//FLAVOR TEXT CHANGE FUNTIONS END-----
+//FLAVOR TEXT CHANGE FUNCTIONS END-----
 
 //restart game after you died
 function restart() {
