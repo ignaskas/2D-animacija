@@ -543,3 +543,177 @@ span::after {
     /*border: 2px red solid;*/
 }
 /*restart button end*/
+
+#swordchoise{
+    background-image: url("./assets/sturdy_chest_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#staffchoise{
+    background-image: url("./assets/magic_chest_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#blasterchoise{
+    background-image: url("./assets/tech_chest_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#forest{
+    background-image: url("./assets/forest_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#portal{
+    background-image: url("./assets/portal_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#road{
+    background-image: url("./assets/road_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#forest_choise_drink{
+    background-image: url("./assets/forest_drink_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#forest_choise_ignore{
+    background-image: url("./assets/forest_leave_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#forest_choise_intchek{
+    background-image: url("./assets/forest_flask_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: fix this!*/
+#go_tocity{
+    background-image: url("./assets/forest_leave_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS*/
+#no_money_for_armor{
+    background-image: url("./assets/town_leave_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#steal_armor{
+    background-image: url("./assets/town_steal_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#ask_for_quest{
+    background-image: url("./assets/town_leave_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS!*/
+#dragon_run{
+    background-image: url("./assets/dragon_attack_fail_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#dragon_posion{
+    background-image: url("./assets/dragon_poison_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#dragon_steal{
+    background-image: url("./assets/dragon_steal_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#after_portal_dragon_figth_lose{
+    background-image: url("./assets/dragon_attack_fail_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#after_portal_win{
+    background-image: url("./assets/dragon_use_blaster_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#help_merchant{
+    background-image: url("./assets/follow_lizardmen_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS!*/
+#ignore_merchant{
+    background-image: url("./assets/merchant_keep_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#lizard_men_go_back_to_merchant{
+    background-image: url("./assets/merchant_return_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#lizard_men_go_to_city{
+    background-image: url("./assets/merchant_keep_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS*/
+#go_to_city_after_returing_to_merchant{
+    background-image: url("./assets/town_steal_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS*/
+#city_after_lizard_men{
+    background-image: url("./assets/forest_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#shop_city_buy_armor{
+    background-image: url("./assets/town_buy_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#steal_armor_after_merchant{
+    background-image: url("./assets/town_steal_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: FIX THIS*/
+#ignore_shop{
+    background-image: url("./assets/town_leave_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+/*TODO: mabye this is bad?*/
+#dragon_figth_lose{
+    background-image: url("./assets/dragon_attack_fail_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}
+
+#dragon_figth_win_bcs_armor{
+    background-image: url("./assets/dragon_attack_win_card.png");
+    background-size: 99%;
+    background-repeat: no-repeat;
+}

@@ -1405,3 +1405,9 @@ function aftertownboss() {
         .fadeIn("slow")
 }
 //FLAVOR TEXT CHANGE FUNTIONS END-----
+
+//restart game after you died
+function restart() {
+    location.reload();
+}
+//restart game after you died end
