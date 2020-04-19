@@ -75,10 +75,10 @@ let state29 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Dragon_die.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
@@ -470,10 +470,10 @@ let state18 = {
     },
     complicatedBehaviour: function () {
         genres.scifi += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
@@ -577,10 +577,10 @@ let state15 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Dragon_Run.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 
@@ -837,10 +837,10 @@ let state8 = {
     },
     complicatedBehaviour: function () {
         genres.horror += 1;
-        youhavedied();
         flavortextshowhide();
         $('#flavor_text').css("background-image", "url(./assets/Forest_Dead.png)");
         setTimeout(flavortextshowhide, 6000);
+        setTimeout(youhavedied, 6000);
     }
 };
 //ROAD
@@ -1367,7 +1367,7 @@ function whatdiscountwegive() {
 }
 //DEAD---
 function youhavedied() {
-    $('#flavor_text').css("background-image", "url(./assets/youdie.jpg)");
+    $('#restart').css('display', 'block');
 }
 
 function jailed() {

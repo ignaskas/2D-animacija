@@ -528,3 +528,18 @@ span::after {
     z-index: 99;
 }
 /*ENDING SCREEN END*/
+
+/*restart button*/
+.restart_game{
+    position: absolute;
+    height: 30px;
+    width: 55px;
+    left: 41%;
+    top: 50%;
+    color: black;
+    font-family: Cormorant Unicase, serif;
+    font-weight: bold;
+    z-index: 99;
+    /*border: 2px red solid;*/
+}
+/*restart button end*/
