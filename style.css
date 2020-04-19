@@ -597,15 +597,15 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: fix this!*/
+
 #go_tocity{
-    background-image: url("./assets/forest_leave_card.png");
+    background-image: url("./assets/go_to_town_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS*/
+
 #no_money_for_armor{
-    background-image: url("./assets/town_leave_card.png");
+    background-image: url("./assets/town_no_money_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
@@ -621,9 +621,9 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS!*/
+
 #dragon_run{
-    background-image: url("./assets/dragon_attack_fail_card.png");
+    background-image: url("./assets/dragon_run_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
@@ -657,9 +657,9 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS!*/
+
 #ignore_merchant{
-    background-image: url("./assets/merchant_keep_card.png");
+    background-image: url("./assets/ignore_merchant_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
@@ -675,15 +675,15 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS*/
+
 #go_to_city_after_returing_to_merchant{
-    background-image: url("./assets/town_steal_card.png");
+    background-image: url("./assets/go_to_town_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS*/
+
 #city_after_lizard_men{
-    background-image: url("./assets/forest_card.png");
+    background-image: url("./assets/escape_townsfolk_card.png");
     background-size: 99%;
     background-repeat: no-repeat;
 }
@@ -699,7 +699,7 @@ span::after {
     background-size: 99%;
     background-repeat: no-repeat;
 }
-/*TODO: FIX THIS*/
+
 #ignore_shop{
     background-image: url("./assets/town_leave_card.png");
     background-size: 99%;

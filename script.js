@@ -232,6 +232,7 @@ let state25 = {
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
         $('#flavor_text').css("background-image", "url(./assets/Town-jail.png)");
+        setTimeout(youhavedied, 6000);
     }
 };
 //TODO: fix the cordinates
