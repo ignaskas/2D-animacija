@@ -6,8 +6,8 @@ body {
 }
 
 html {
-    height: 99%;
-    width: 99%;
+    height: 950px;
+    width: 1900px;
     margin: 0;
 }
 
@@ -728,4 +728,5 @@ span::after {
     font-family: Cormorant Unicase, serif;
     font-weight: bold;
     font-size: 25px;
+    z-index: 120;
 }
