@@ -1293,7 +1293,8 @@ window.onload = function () {
     $('#stra').hide();
     $('#scifi').hide();
 };
-// start the game only if all attribute points were spent start background music set volume to 0.1 set background music to loop
+// start the game only if all attribute points were spent
+// start background music set volume to 0.1 set background music to loop
 function startgame() {
     if (pointstospend === 0) {
         $('#flavor_text').toggle("slow");
