@@ -1422,7 +1422,22 @@ function restart() {
 
 
 //NEW STUFF EXPERIMENTAL
-
-function pickWarlock() {
-    document.getElementById("player").style.backgroundImage = 'url("./assets/player1.png")';
+let statues = ['url("./assets/Warlock.png")', 'url("./assets/player1.png")', 'url("./assets/placeholder_statue.png")', 'url("./assets/placeholder_Staute_For_Now.png")'];
+let l = 0;
+function pickFoward() {
+    l += 1;
+    if (l === statues.length){
+        l = 0;
+    }
+    document.getElementById("player").style.backgroundImage = statues[l];
 }
+
+function pickBackwards() {
+    l -= 1;
+    if (l === -1){
+        l = statues.length - 1;
+    }
+
+    document.getElementById("player").style.backgroundImage = statues[l];
+}
+
