@@ -194,9 +194,9 @@ let state26 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Buy_Armour.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(aftertownboss, 4000);
+            setTimeout(aftertownboss, 6000);
         }, 6000);
     }
 };
@@ -655,9 +655,9 @@ let state13 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(wizardtoweraftertown, 4000);
+            setTimeout(wizardtoweraftertown, 6000);
         }, 6000);
     }
 };
@@ -695,9 +695,9 @@ let state12 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(wizardtoweraftertown, 4000);
+            setTimeout(wizardtoweraftertown, 6000);
         }, 6000);
     }
 };
@@ -873,9 +873,9 @@ let state7 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Field_Road.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(merchant, 4000);
+            setTimeout(merchant, 6000);
         }, 6000);
     }
 };
@@ -947,9 +947,9 @@ let state5 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Choose_Forest.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(foreststart, 4000);
+            setTimeout(foreststart, 6000);
         }, 6000);
     }
 };
@@ -989,9 +989,9 @@ let state4 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Plasma_Blaster.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(afterwepon, 4000);
+            setTimeout(afterwepon, 6000);
         }, 6000);
     }
 };
@@ -1030,9 +1030,9 @@ let state3 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Wizard_Staff.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(afterwepon, 4000);
+            setTimeout(afterwepon, 6000);
         }, 6000);
     }
 };
@@ -1071,9 +1071,9 @@ let state2 = {
         setTimeout(flavortextshowhide, 6000);
         setTimeout(function () {
             $('#flavor_text').css("background-image", "url(./assets/Bastard_Sword.png)")
-                .delay(3000)
+                .delay(5000)
                 .fadeOut("slow")
-            setTimeout(afterwepon, 4000);
+            setTimeout(afterwepon, 6000);
         }, 6000);
     }
 };
@@ -1179,9 +1179,9 @@ function witchsidedoiface(prevX, locationX, prevY, locationY) {
     // console.log("f " + locationX, "f+ " + locationY);
     if ((prevY > locationY) && (prevX > locationX)) {  //we are moving NW -- top left
         $('#player').css('background-position', '120px 0px');
-    } else if ((prevY < locationY) && (prevX < locationX)) { //we are moving SE -- bottom rigth
+    } else if ((prevY < locationY) && (prevX < locationX)) { //we are moving SE -- bottom right
         $('#player').css('background-position', '60px 0px');
-    } else if ((prevY > locationY) && (prevX < locationX)) { //we are moving NE -- top rigth
+    } else if ((prevY > locationY) && (prevX < locationX)) { //we are moving NE -- top right
         $('#player').css('background-position', '0px 0px');
     } else if ((prevY < locationY) && (prevX > locationX)) { //we are moving SW -- bottom left
         $('#player').css('background-position', '200px 0px');
@@ -1266,7 +1266,7 @@ function click(state) {
 /* FLAVOR TEXT EDITS /BACKGROUND CHANGES------------------
 hide/show flavor text*/
 
-//hide cards during movement hide flavor text during movment
+//hide cards during movement hide flavor text during movement
 function flavortextshowhide() {
     $('#flavor_text').toggle("fast");
     $('#cards').toggle("fast");
@@ -1294,6 +1294,7 @@ window.onload = function () {
     $('#scifi').hide();
 };
 // start the game only if all attribute points were spent
+// start background music set volume to 0.1 set background music to loop
 function startgame() {
     if (pointstospend === 0) {
         $('#flavor_text').toggle("slow");
@@ -1302,7 +1303,7 @@ function startgame() {
         $('#didntSpendAllPointsBeforePressingStart').hide();
         backgroundmusic.play();
         backgroundmusic.loop = true;
-        backgroundmusic.volume = 0.1;
+        backgroundmusic.volume = 0;
     } else {
         $('#didntSpendAllPointsBeforePressingStart').show();
     }
@@ -1373,18 +1374,19 @@ function whatdiscountwegive() {
     }
 }
 //DEAD---
+// show restart button stop background music play death music set death music volume to 0.2
 function youhavedied() {
     $('#restart').css('display', 'block');
     backgroundmusic.pause();
     deathsound.play();
-    deathsound.volume = 0.2;
+    deathsound.volume = 0;
 }
 
 //DEAD END---
 //ENDING END-------------------------------
 
-// FLAVOR TEXT CHANGE FUCNTIONS-------
-// change the backroung of flavor text to advance story after chosing your wepon
+// FLAVOR TEXT CHANGE FUNCTIONS-------
+// change the background of flavor text to advance story after choosing your weapon
 function afterwepon() {
     $('#flavor_text').css("background-image", "url(./assets/Three_Paths.png)")
         .fadeIn("slow")
@@ -1405,7 +1407,7 @@ function wizardtoweraftertown() {
         .fadeIn("slow")
 }
 
-// change background imange to before boss state
+// change background image to before boss state
 function aftertownboss() {
     $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
         .fadeIn("slow")
@@ -1417,3 +1419,10 @@ function restart() {
     location.reload();
 }
 //restart game after you died end
+
+
+//NEW STUFF EXPERIMENTAL
+
+function pickWarlock() {
+    document.getElementById("player").style.backgroundImage = 'url("./assets/player1.png")';
+}

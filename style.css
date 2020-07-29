@@ -1,13 +1,13 @@
 body {
     background-color: #2f2f2f;
-    height: 99%;
-    width: 99%;
+    height: 950px;
+    width: 1900px;
     margin: 0;
 }
 
 html {
-    height: 99%;
-    width: 99%;
+    height: 950px;
+    width: 1900px;
     margin: 0;
 }
 
@@ -228,7 +228,7 @@ span::after {
     left: 310px;
     top: 560px;
     /*border: 1px red solid;*/
-    background-image: url("./assets/player1.png");
+    background-image: url("./assets/Warlock.png");
     background-position: 0;
     background-size: cover;
     z-index: 10;
@@ -728,4 +728,5 @@ span::after {
     font-family: Cormorant Unicase, serif;
     font-weight: bold;
     font-size: 25px;
+    z-index: 120;
 }
