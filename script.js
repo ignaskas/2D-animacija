@@ -1210,8 +1210,8 @@ function chekbest(genres) {
 
 //prints location of mouse cursor onclick
 // function printMousePos(event) {
-//     document.getElementById("pos").innerHTML =
-//         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+    // document.getElementById("pos").innerHTML =
+    //     "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
 //     console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
 // }
 //
@@ -1441,3 +1441,22 @@ function pickBackwards() {
     document.getElementById("player").style.backgroundImage = statues[l];
 }
 
+let tutorial = {
+    text: ["item", "spent points", "stats", "Start Game"],
+    top: [118, 279, 238, 317],
+    left: [168, 1311, 1718, 808]
+};
+
+let tutorialSteps = -1;
+function nextHint() {
+    tutorialSteps++;
+    if (tutorialSteps === tutorial.text.length){
+        $('#tutorial').hide();
+        $('#tutorialBackGround').hide();
+    }
+    if (tutorialSteps === tutorial.text.length - 1){
+        document.getElementById("tutorialNext").innerHTML = "Close";
+    }
+    $('#tutorial').animate({left: tutorial.left[tutorialSteps], top: tutorial.top[tutorialSteps]}, 1);
+    document.getElementById("tutorialText").innerHTML = tutorial.text[tutorialSteps];
+}
