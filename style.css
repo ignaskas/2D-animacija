@@ -37,7 +37,7 @@ html {
 
 /*MAIN GAME AREA ENDS---------------*/
 /*MAIN MENU BUTTONS ---------------*/
-a {
+.tempfix {
     display: block;
     color: #b8844a;
     text-transform: uppercase;
@@ -53,11 +53,11 @@ a {
     margin: 10px 11%;
 }
 
-a:hover {
+.tempfix:hover {
     background: #3d3838;
 }
 
-span {
+.tempfixspan {
     display: block;
     padding: 8px 30px;
     position: relative;
@@ -66,7 +66,7 @@ span {
     text-align: center;
 }
 
-a::before, a::after, span::before, span::after {
+.tempfix::before, .tempfix::after, .tempfixspan::before, .tempfixspan::after {
     content: "";
     display: block;
     position: absolute;
@@ -80,7 +80,7 @@ a::before, a::after, span::before, span::after {
     border-width: 0;
 }
 
-a::before {
+.tempfix::before {
     top: -10px;
     left: 15%;
     -webkit-transform: skew(45deg);
@@ -92,7 +92,7 @@ a::before {
     border-right-width: 12px;
 }
 
-a::after {
+.tempfix::after {
     top: -10px;
     right: 15%;
     -webkit-transform: skew(-45deg);
@@ -103,8 +103,8 @@ a::after {
     border-top-width: 10px;
     border-left-width: 12px;
 }
-
-span::before {
+/*TODO: fix the menu button mess*/
+.tempfixspan::before {
     top: 50%;
     left: 15%;
     -webkit-transform: skew(-45deg);
@@ -116,7 +116,7 @@ span::before {
     border-right-width: 12px;
 }
 
-span::after {
+.tempfixspan::after {
     top: 50%;
     right: 15%;
     -webkit-transform: skew(45deg);
@@ -787,4 +787,37 @@ span::after {
     background-color: black;
     opacity: 70%;
     z-index: 98;
+}
+
+.selectStatue{
+    background-color: orange;
+    border: 0 orange;
+    border-radius: 10px;
+    color: #000000;
+    width: 90px;
+    z-index: 99;
+}
+
+#forward{
+    position: absolute;
+    left: 375px;
+    top: 590px;
+}
+
+#backwards{
+    position: absolute;
+    left: 215px;
+    top: 590px;
+}
+
+#volumeControl{
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+
+#volume{
+    position: absolute;
+    color: #000000;
+    z-index: 99;
 }

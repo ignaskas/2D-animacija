@@ -22,16 +22,16 @@
     <!--    Loading screen ends-->
     <!--    Main menu-->
     <div id="starting_screen" class="Main_menu">
-        <a class="startgame" href="#"><span onclick="startgame()">Start Game</span></a>
-        <a href="#"><span onclick="addint()">Int + 1</span></a>
-        <a href="#"><span onclick="addstr()">Str + 1</span></a>
-        <a href="#"><span onclick="addagy()">Agi + 1</span></a>
-        <a href="#"><span class="pointsleft" id="pointsleft">Points Left: 5</span></a>
+        <a class="startgame tempfix" href="#"><span class="tempfixspan" onclick="startgame()">Start Game</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" onclick="addint()">Int + 1</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" onclick="addstr()">Str + 1</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" onclick="addagy()">Agi + 1</span></a>
+        <a class="tempfix" href="#"><span class="pointsleft tempfixspan" id="pointsleft">Points Left: 5</span></a>
     </div>
     <div class="atributes">
-        <a href="#"><span id="statint">Int: 4</span></a>
-        <a href="#"><span id="statstr">Str: 4</span></a>
-        <a href="#"><span id="statagy">Agi: 4</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" id="statint">Int: 4</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" id="statstr">Str: 4</span></a>
+        <a class="tempfix" href="#"><span class="tempfixspan" id="statagy">Agi: 4</span></a>
     </div>
     <!--    Main menu ends-->
     <!--ITEMS   -->
@@ -132,15 +132,18 @@
     <div id="restart" class="restart_game" onclick="restart()" style="display: none;">Restart</div>
     <!--Restart button end-->
 <!--    NEW STUFF-->
-    <button id="foward" onclick="pickFoward()">A NICE ARROW RIGTH</button>
-    <button id="backwards" style="position: absolute; top: 50px; left: 1px;" onclick="pickBackwards()">A NICE ARROW LEFT</button>
+    <button id="forward" class="selectStatue" onclick="pickFoward()">Next</button>
+    <button id="backwards" class="selectStatue" onclick="pickBackwards()">Previous</button>
 
         <div id="tutorial">
             <div class="arrow"></div>
             <div id="tutorialText">items mouse over them to see what they do</div>
             <button id="tutorialNext" onclick="nextHint()">Next</button>
         </div>
-    <div id="tutorialBackGround">
+    <div id="tutorialBackGround"></div>
+    <div id="volumeControl">
+    <label for="volControl"></label><input id="volControl" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)" onchange="setVolume(this.value)">
+    <a id="volume">50</a>
     </div>
 <!--    NEW STUFF END-->
 </div>

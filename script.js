@@ -1210,8 +1210,8 @@ function chekbest(genres) {
 
 //prints location of mouse cursor onclick
 // function printMousePos(event) {
-    // document.getElementById("pos").innerHTML =
-    //     "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+//     document.getElementById("pos").innerHTML =
+//         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
 //     console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
 // }
 //
@@ -1301,9 +1301,11 @@ function startgame() {
         $('#cards').toggle("fast");
         $('#starting_screen').toggle("fast");
         $('#didntSpendAllPointsBeforePressingStart').hide();
+        $('#forward').hide();
+        $('#backwards').hide();
         backgroundmusic.play();
         backgroundmusic.loop = true;
-        backgroundmusic.volume = 0;
+        backgroundmusic.volume = 0.1;
     } else {
         $('#didntSpendAllPointsBeforePressingStart').show();
     }
@@ -1379,7 +1381,7 @@ function youhavedied() {
     $('#restart').css('display', 'block');
     backgroundmusic.pause();
     deathsound.play();
-    deathsound.volume = 0;
+    deathsound.volume = 0.2;
 }
 
 //DEAD END---
@@ -1422,6 +1424,7 @@ function restart() {
 
 
 //NEW STUFF EXPERIMENTAL
+//select your statue
 let statues = ['url("./assets/Warlock.png")', 'url("./assets/player1.png")', 'url("./assets/placeholder_statue.png")', 'url("./assets/placeholder_Staute_For_Now.png")'];
 let l = 0;
 function pickFoward() {
@@ -1440,14 +1443,14 @@ function pickBackwards() {
 
     document.getElementById("player").style.backgroundImage = statues[l];
 }
-
+//tutorial
 let tutorial = {
     text: ["item", "spent points", "stats", "Start Game"],
     top: [118, 279, 238, 317],
-    left: [168, 1311, 1718, 808]
+    left: [168, 1311, 1618, 808]
 };
 
-let tutorialSteps = -1;
+let tutorialSteps = 3;
 function nextHint() {
     tutorialSteps++;
     if (tutorialSteps === tutorial.text.length){
@@ -1459,4 +1462,13 @@ function nextHint() {
     }
     $('#tutorial').animate({left: tutorial.left[tutorialSteps], top: tutorial.top[tutorialSteps]}, 1);
     document.getElementById("tutorialText").innerHTML = tutorial.text[tutorialSteps];
+}
+
+//TODO: fix volume control
+
+//Volume control
+function setVolume(val) {
+    backgroundmusic.volume = val / 100;
+    deathsound.volume = val / 100;
+    document.getElementById("volume").innerHTML = val;
 }
