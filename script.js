@@ -1126,6 +1126,8 @@ let blaster = false;
 let staff = false;
 let bagOfCoins = false;
 
+// let initalitemstates = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
+
 //sounds
 let backgroundmusic = new Audio("./assets/background_music.mp3");
 let deathsound = new Audio("./assets/died.mp3");
@@ -1138,6 +1140,15 @@ let tutorial = {
 };
 
 let tutorialSteps = 0;
+
+//statues
+let statues = [
+    'url("./assets/Warlock.png")', //TODO: fix the postion and rerender the image
+    'url("./assets/player1.png")', //TODO: need to remake this
+    'url("./assets/placeholder_statue.png")', //placeholder2
+    'url("./assets/placeholder_Staute_For_Now.png")' //placeholder3
+];
+let statueselect = 0;
 
 // event memory
 // event memory goes here
@@ -1426,23 +1437,21 @@ function restart() {
 
 //NEW STUFF EXPERIMENTAL
 //select your statue
-let statues = ['url("./assets/Warlock.png")', 'url("./assets/player1.png")', 'url("./assets/placeholder_statue.png")', 'url("./assets/placeholder_Staute_For_Now.png")'];
-let l = 0;
 function pickFoward() {
-    l += 1;
-    if (l === statues.length){
-        l = 0;
+    statueselect += 1;
+    if (statueselect === statues.length){
+        statueselect = 0;
     }
-    document.getElementById("player").style.backgroundImage = statues[l];
+    document.getElementById("player").style.backgroundImage = statues[statueselect];
 }
 
 function pickBackwards() {
-    l -= 1;
-    if (l === -1){
-        l = statues.length - 1;
+    statueselect -= 1;
+    if (statueselect === -1){
+        statueselect = statues.length - 1;
     }
 
-    document.getElementById("player").style.backgroundImage = statues[l];
+    document.getElementById("player").style.backgroundImage = statues[statueselect];
 }
 //tutorial
 function nextHint() {
