@@ -1117,16 +1117,17 @@ let agy = 4;
 let pointstospend = 5;
 
 // items
-let glassKey = true;
-let armor = false;
-let flask = true;
-let flaskfull = false;
-let sword = false;
-let blaster = false;
-let staff = false;
-let bagOfCoins = false;
+// let glassKey = true;
+// let armor = false;
+// let flask = true;
+// let flaskfull = false;
+// let sword = false;
+// let blaster = false;
+// let staff = false;
+// let bagOfCoins = false;
 
-// let initalitemstates = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
+let initalitemstates = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
+let itemsDuringGame = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
 
 //sounds
 let backgroundmusic = new Audio("./assets/background_music.mp3");
@@ -1151,6 +1152,12 @@ let statues = [
 let statueselect = 0;
 
 // event memory
+function setGameValuesBackToStartingAfterRestart(){
+    if (currentState === state8){
+        currentState = state1;
+        itemsDuringGame = initalitemstates;
+    }
+}
 // event memory goes here
 
 // ATTRIBUTE ASSIGMENT---------------
@@ -1324,11 +1331,11 @@ function startgame() {
 }
 
 // item checks show / hide-------------------------------
-
 // hides the glass key item div
+//TODO: FIX THIS YOU IDOIOT!
 function hidethekey() {
     $('#glass_key').hide();
-    glassKey = false;
+    itemsDuringGame.glassKey = false;
 }
 // player picked sword so we show it and set the variable to true
 function showsword() {
@@ -1349,8 +1356,8 @@ function showblaster() {
 function filltheflask() {
     $('#flask').hide();
     $('#flask_full').show();
-    flask = false;
-    flaskfull = true;
+    itemsDuringGame.flask = false;
+    itemsDuringGame.flaskfull = true;
 }
 // player has acquired armor show armor icon set armor value to true
 function getarmor() {
@@ -1430,7 +1437,8 @@ function aftertownboss() {
 
 //restart game after you died
 function restart() {
-    location.reload();
+    // location.reload();
+    setGameValuesBackToStartingAfterRestart();
 }
 //restart game after you died end
 
