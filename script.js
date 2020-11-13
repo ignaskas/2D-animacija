@@ -1110,19 +1110,11 @@ let state1 = {
     }
 };
 
-let buttons = [];
-
 // attributes
 let int = 4;
 let str = 4;
 let agy = 4;
 let pointstospend = 5;
-
-// move counter
-let moves = -1;
-
-//genre name after wining
-let genrewin = "";
 
 // items
 let glassKey = true;
@@ -1137,7 +1129,16 @@ let bagOfCoins = false;
 //sounds
 let backgroundmusic = new Audio("./assets/background_music.mp3");
 let deathsound = new Audio("./assets/died.mp3");
-//sounds end
+
+//tutorial
+let tutorial = {
+    text: ["item", "spent points", "stats", "Start Game"],
+    top: [168, 274, 213, 314],
+    left: [113, 1355, 1616, 876]
+};
+
+let tutorialSteps = 0;
+
 // event memory
 // event memory goes here
 
@@ -1208,14 +1209,14 @@ function chekbest(genres) {
 }
 
 
-//prints location of mouse cursor onclick
-// function printMousePos(event) {
-//     document.getElementById("pos").innerHTML =
-//         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
-//     console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
-// }
-//
-// document.addEventListener("click", printMousePos);
+// prints location of mouse cursor onclick
+function printMousePos(event) {
+    document.getElementById("pos").innerHTML =
+        "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
+    console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
+}
+
+document.addEventListener("click", printMousePos);
 
 // animate movement from array call witchwaydoiface function
 function makeMove(prevX, locationX, prevY, locationY) {
@@ -1444,13 +1445,6 @@ function pickBackwards() {
     document.getElementById("player").style.backgroundImage = statues[l];
 }
 //tutorial
-let tutorial = {
-    text: ["item", "spent points", "stats", "Start Game"],
-    top: [118, 279, 238, 317],
-    left: [168, 1311, 1618, 808]
-};
-
-let tutorialSteps = 3;
 function nextHint() {
     tutorialSteps++;
     if (tutorialSteps === tutorial.text.length){
