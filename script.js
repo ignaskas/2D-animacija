@@ -33,11 +33,7 @@ let state30 = {
         }
     ],
     attributeCheck: function() {
-        if (armor === true){
-            return true;
-        } else {
-            return false;
-        }
+        return armor === true;
     },
     complicatedBehaviour: function () {
         genres.adventure += 1;
@@ -141,11 +137,7 @@ let state27 = {
         }
     ],
     attributeCheck: function() {
-        if (agy >= 6){
-            return true;
-        } else {
-            return false;
-        }
+        return agy >= 6;
     },
     complicatedBehaviour: function () {
         genres.adventure += 1;
@@ -180,11 +172,7 @@ let state26 = {
         }
     ],
     attributeCheck: function() {
-        if (bagOfCoins === true){
-            return true;
-        } else {
-            return false;
-        }
+        return bagOfCoins === true;
     },
     complicatedBehaviour: function () {
         genres.adventure += 1;
@@ -192,7 +180,7 @@ let state26 = {
         removecoins();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Buy_Armour.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -427,11 +415,7 @@ let state19 = {
         }
     ],
     attributeCheck: function() {
-        if (blaster === true){
-            return true;
-        } else {
-            return false;
-        }
+        return blaster === true;
     },
     complicatedBehaviour: function () {
         genres.scifi += 1;
@@ -534,11 +518,7 @@ let state16 = {
         }
     ],
     attributeCheck: function() {
-        if (int >= 6 && agy >= 5 && flaskfull === true){
-            return true;
-        } else {
-            return false;
-        }
+        return int >= 6 && agy >= 5 && flaskfull === true;
     },
     complicatedBehaviour: function () {
         genres.rpg += 1;
@@ -642,18 +622,14 @@ let state13 = {
         }
     ],
     attributeCheck: function() {
-        if (agy >= 7){
-            return true;
-        } else{
-            return false;
-        }
+        return agy >= 7;
     },
     complicatedBehaviour: function () {
         genres.rpg += 1;
         getarmor();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Steal_Armour.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -693,7 +669,7 @@ let state12 = {
         genres.strategy += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Town_Broke.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -760,11 +736,7 @@ let state10 = {
         }
     ],
     attributeCheck: function() {
-        if (int >= 6){
-            return true;
-        } else {
-            return false;
-        }
+        return int >= 6;
     },
     complicatedBehaviour: function () {
         genres.rpg += 1;
@@ -871,7 +843,7 @@ let state7 = {
         genres.adventure += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Field_Road.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -945,7 +917,7 @@ let state5 = {
         genres.horror += 1;
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Choose_Forest.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -987,7 +959,7 @@ let state4 = {
         showblaster();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Plasma_Blaster.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -1028,7 +1000,7 @@ let state3 = {
         showstaff();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Wizard_Staff.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -1069,7 +1041,7 @@ let state2 = {
         showsword();
         flavortextshowhide();
         setTimeout(flavortextshowhide, 6000);
-        setTimeout(function () {
+        setTimeout(()=> {
             $('#flavor_text').css("background-image", "url(./assets/Bastard_Sword.png)")
                 .delay(5000)
                 .fadeOut("slow")
@@ -1219,10 +1191,10 @@ function witchsidedoiface(prevX, locationX, prevY, locationY) {
 
 // check witch genre got the highest score return the name of genre
 function chekbest(genres) {
-    var max = -Infinity;
-    var maxname = null;
-    for (var key in genres) {
-        var num = genres[key];
+    let max = -Infinity;
+    let maxname = null;
+    for (let key in genres) {
+        let num = genres[key];
 
         if (num > max) {
             max = num;
@@ -1233,6 +1205,7 @@ function chekbest(genres) {
     }
 
     genrewin = maxname;
+    // return maxname;
     // console.log(genrewin);
 }
 
@@ -1249,7 +1222,6 @@ function printMousePos(event) {
         breakcounter = 0;
     }
 }
-
 
 document.addEventListener("click", printMousePos);
 // ----------------------------------------------------------------------------------
@@ -1269,7 +1241,7 @@ function updatePossibilities() {
 
         if(aState.attributeCheck()){
             $('#' + aState.name).css('display', 'block');
-            $('#' + aState.name).click(function () {
+            $('#' + aState.name).click(()=> {
                 aState.complicatedBehaviour();
                 click(aState)
                 checkForItems();
@@ -1442,16 +1414,36 @@ function youwin() {
 }
 //what discount do we give based on choices
 function whatdiscountwegive() {
-    if (genrewin === "rpg"){
-        $('#rpg').show();
-    } else if (genrewin === "horrror"){
-        $('#horror').show();
-    } else if (genrewin === "adventure"){
-        $('#adve').show();
-    } else if (genrewin === "strategy"){
-        $('#stra').show();
-    } else if (genrewin === "scfi"){
-        $('#scifi').show();
+    // if (genrewin === "rpg"){
+    //     $('#rpg').show();
+    // } else if (genrewin === "horrror"){
+    //     $('#horror').show();
+    // } else if (genrewin === "adventure"){
+    //     $('#adve').show();
+    // } else if (genrewin === "strategy"){
+    //     $('#stra').show();
+    // } else if (genrewin === "scfi"){
+    //     $('#scifi').show();
+    // }
+
+    switch (genrewin) {
+        case "rpg":
+            $('#rpg').show();
+            break;
+        case "horrror":
+            $('#horror').show();
+            break;
+        case "adventure":
+            $('#adve').show();
+            break;
+        case "strategy":
+            $('#stra').show();
+            break;
+        case "scifi":
+            $('#scifi').show();
+            break;
+        default:
+            $('#restart').css('display', 'block');
     }
 }
 //DEAD---
@@ -1495,6 +1487,7 @@ function aftertownboss() {
 function setGameValuesBackToStartingAfterRestart(){
     currentState = state1;
     itemsDuringGame = initalitemstates;
+    updatePossibilities();
     $('#flavor_text').toggle("slow");
     $('#cards').toggle("fast");
 }
