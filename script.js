@@ -1126,8 +1126,26 @@ let pointstospend = 5;
 // let staff = false;
 // let bagOfCoins = false;
 
-let initalitemstates = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
-let itemsDuringGame = [glasskey = true, armor = false, flask = true, flaskfull = false, sword = false, blaster = false, staff = false, bagOfCoins = false]
+let initalitemstates = {
+    glassKey: true,
+    armor: false,
+    flask: true,
+    flaskfull: false,
+    sword: false,
+    blaster: false,
+    staff: false,
+    bagOfCoins: false,
+};
+let itemsDuringGame = {
+    glassKey: true,
+    armor: false,
+    flask: true,
+    flaskfull: false,
+    sword: false,
+    blaster: false,
+    staff: false,
+    bagOfCoins: false,
+};
 
 //sounds
 let backgroundmusic = new Audio("./assets/background_music.mp3");
@@ -1152,12 +1170,6 @@ let statues = [
 let statueselect = 0;
 
 // event memory
-function setGameValuesBackToStartingAfterRestart(){
-    if (currentState === state8){
-        currentState = state1;
-        itemsDuringGame = initalitemstates;
-    }
-}
 // event memory goes here
 
 // ATTRIBUTE ASSIGMENT---------------
@@ -1190,8 +1202,6 @@ function addagy() {
         document.getElementById("pointsleft").innerHTML = "Points Left:" + " " + pointstospend;
     }
 }
-
-//ATTRIBUTE ASSIGMENT ENDS---------------
 
 // switches divs background image based on witch way charter is moving
 function witchsidedoiface(prevX, locationX, prevY, locationY) {
@@ -1227,14 +1237,23 @@ function chekbest(genres) {
 }
 
 
-// prints location of mouse cursor onclick
+// prints location of mouse cursor onclick This is for Debugging --------------------
+let breakcounter = 0;
 function printMousePos(event) {
     document.getElementById("pos").innerHTML =
         "clientX: " + event.clientX + "<br>" + " - clientY: " + event.clientY;
-    console.log("X: " + event.clientX + " " + "Y: " + event.clientY);
+    console.log(event.clientX + "," + event.clientY);
+    breakcounter += 1;
+    if (breakcounter === 3 ){
+        console.log("Break");
+        breakcounter = 0;
+    }
 }
 
+
 document.addEventListener("click", printMousePos);
+// ----------------------------------------------------------------------------------
+
 
 // animate movement from array call witchwaydoiface function
 function makeMove(prevX, locationX, prevY, locationY) {
@@ -1253,6 +1272,7 @@ function updatePossibilities() {
             $('#' + aState.name).click(function () {
                 aState.complicatedBehaviour();
                 click(aState)
+                checkForItems();
             });
         }
 
@@ -1279,9 +1299,6 @@ function click(state) {
     },state.steps.length*2000)
 }
 
-
-//MOVEMENT ENDS---------------
-
 /* FLAVOR TEXT EDITS /BACKGROUND CHANGES------------------
 hide/show flavor text*/
 
@@ -1291,17 +1308,16 @@ function flavortextshowhide() {
     $('#cards').toggle("fast");
 }
 
-//FLAVOR TEXT EDITS /BACKGROUND CHANGES END---------------
-
 // set values to starting state
 window.onload = function () {
     flavortextshowhide();
-    $('#flask_full').hide();
-    $('#armor').hide();
-    $('#sword').hide();
-    $('#staff').hide();
-    $('#blaster').hide();
-    $('#bagofcoins').hide();
+    checkForItems();
+    // $('#flask_full').hide();
+    // $('#armor').hide();
+    // $('#sword').hide();
+    // $('#staff').hide();
+    // $('#blaster').hide();
+    // $('#bagofcoins').hide();
     $('#didntSpendAllPointsBeforePressingStart').hide();
     $('#blackout').fadeOut("slow");
 
@@ -1334,47 +1350,91 @@ function startgame() {
 // hides the glass key item div
 //TODO: FIX THIS YOU IDOIOT!
 function hidethekey() {
-    $('#glass_key').hide();
+    // $('#glass_key').hide();
     itemsDuringGame.glassKey = false;
 }
 // player picked sword so we show it and set the variable to true
 function showsword() {
-    $('#sword').show();
-    sword = true;
+    // $('#sword').show();
+    itemsDuringGame.sword = true;
 }
 // player picked staff so we show it and set the variable to true
 function showstaff() {
-    $('#staff').show();
-    staff = true;
+    // $('#staff').show();
+    itemsDuringGame.staff = true;
 }
 // player picked blaster so we show it and set the variable to true
 function showblaster() {
-    $('#blaster').show();
-    blaster = true;
+    // $('#blaster').show();
+    itemsDuringGame.blaster = true;
 }
 // we past the int check change the picture of flask to full set flask_full value to true set flask value to false
 function filltheflask() {
-    $('#flask').hide();
-    $('#flask_full').show();
+    // $('#flask').hide();
+    // $('#flask_full').show();
     itemsDuringGame.flask = false;
     itemsDuringGame.flaskfull = true;
 }
 // player has acquired armor show armor icon set armor value to true
 function getarmor() {
-    $('#armor').show();
-    armor = true;
+    // $('#armor').show();
+    itemsDuringGame.armor = true;
 }
 // show bag of coins icon set bag of coins variable to true
 function bagofcoins() {
-    $('#bagofcoins').show();
-    bagOfCoins = true;
+    // $('#bagofcoins').show();
+    itemsDuringGame.bagOfCoins = true;
 }
 //hide bag of coins icon set bag of coins variable to false
 function removecoins() {
-    $('#bagofcoins').hide();
-    bagOfCoins = false;
+    // $('#bagofcoins').hide();
+    itemsDuringGame.bagOfCoins = false;
 }
-//items end ---------------------------------------
+
+//TODO: this is not worth and is not effective?
+function checkForItems() {
+    if (itemsDuringGame.glassKey === true){
+        $('#glass_key').show();
+    }else {
+        $('#glass_key').hide();
+    }
+    if (itemsDuringGame.sword === true){
+        $('#sword').show();
+    }else {
+        $('#sword').hide();
+    }
+    if (itemsDuringGame.staff === true){
+        $('#staff').show();
+    }else {
+        $('#staff').hide();
+    }
+    if (itemsDuringGame.blaster === true){
+        $('#blaster').show();
+    }else {
+        $('#blaster').hide();
+    }
+    if (itemsDuringGame.flask === true){
+        $('#flask').show();
+    }else {
+        $('#flask').hide();
+    }
+    if (itemsDuringGame.flaskfull === true){
+        $('#flask_full').show();
+    }else {
+        $('#flask_full').hide();
+    }
+    if (itemsDuringGame.armor === true){
+        $('#armor').show();
+    }else {
+        $('#armor').hide();
+    }
+    if (itemsDuringGame.bagOfCoins === true){
+        $('#bagofcoins').show();
+    }else {
+        $('#bagofcoins').hide();
+    }
+}
+
 //ENDING---------------------------
 function youwin() {
     chekbest(genres);
@@ -1403,9 +1463,6 @@ function youhavedied() {
     deathsound.volume = 0.2;
 }
 
-//DEAD END---
-//ENDING END-------------------------------
-
 // FLAVOR TEXT CHANGE FUNCTIONS-------
 // change the background of flavor text to advance story after choosing your weapon
 function afterwepon() {
@@ -1433,15 +1490,19 @@ function aftertownboss() {
     $('#flavor_text').css("background-image", "url(./assets/Wizards_Tower.png)")
         .fadeIn("slow")
 }
-//FLAVOR TEXT CHANGE FUNCTIONS END-----
 
 //restart game after you died
+function setGameValuesBackToStartingAfterRestart(){
+    currentState = state1;
+    itemsDuringGame = initalitemstates;
+    $('#flavor_text').toggle("slow");
+    $('#cards').toggle("fast");
+}
+
 function restart() {
     // location.reload();
     setGameValuesBackToStartingAfterRestart();
 }
-//restart game after you died end
-
 
 //NEW STUFF EXPERIMENTAL
 //select your statue
@@ -1458,9 +1519,9 @@ function pickBackwards() {
     if (statueselect === -1){
         statueselect = statues.length - 1;
     }
-
     document.getElementById("player").style.backgroundImage = statues[statueselect];
 }
+
 //tutorial
 function nextHint() {
     tutorialSteps++;
